@@ -15,6 +15,7 @@
 							<td class="price">Giá</td>
 							<td class="quantity">Số lượng</td>
 							<td class="total">Thành tiền</td>
+                            <td>Xóa </td>
 							<td></td>
 						</tr>
 					</thead>
@@ -22,10 +23,15 @@
 						<tr>
                             <?php
                              $tong = 0;
+                             $i = 0;
                              foreach ($_SESSION['mycart'] as $cart) {
                                 $hinh = $img_path . $cart[2];
                                 $ttien = $cart[3] * $cart[4];
                                 $tong += $ttien;
+                               
+                              
+                                    $xoasp_td = '<td><a href="index.php?act=delcart&idcart='.$i.'"><input type="button" value="Xóa"></a></td>';
+                              
                                 echo '
                                 <tr>
                                 
@@ -50,9 +56,10 @@
                         <td class="cart_total">
 								<p class="cart_total_price">$' . $ttien . '</p>
 							</td>
-                               
+                            '.$xoasp_td.'
                                
                             </tr>';
+                            $i+=1;
                             
                             }
                             echo '<tr>

@@ -115,6 +115,14 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 }
                 include "view/cart/viewcard.php";
                 break;
+                case 'delcart':
+                    if(isset($_GET['idcart'])){
+                        array_splice($_SESSION['mycart'],$_GET['idcart'], 1);
+                    }else{
+                        $_SESSION['mycart'] = [];
+                    }
+                    include "view/cart/viewcard.php";
+                    break;
          
         case 'gioithieu':
             include "view/gioithieu.php";

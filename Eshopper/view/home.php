@@ -80,7 +80,7 @@
                         <input type="hidden" name="ten_sanpham" value="' . $ten_sanpham . '">
                         <input type="hidden" name="hinh" value="' . $hinh . '">
                         <input type="hidden" name="don_gia" value="' . $don_gia . '">
-                        <input type="submit" name="addtocart" class="btn btn-default add-to-cart" value="Thêm vào giỏ hàng">
+                        <input type="submit" name="addtocart" class="btn btn-default add-to-cart" value="Thêm vào giỏ hàng" >
                     </form>
 							</div>
 						</div>

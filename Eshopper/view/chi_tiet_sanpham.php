@@ -82,12 +82,13 @@
 								<h2><?=$ten_sanpham?></h2>
 								<span>
 									
-									<span><?=$don_gia?></span>
-									
-									<button type="button" class="btn btn-fefault cart">
+									<span>$<?=$don_gia?></span>
+									<form action="index.php?act=addtocart" method="POST">
+									<button type="submit" name="addtocart" class="btn btn-default add-to-cart" >
 										<i class="fa fa-shopping-cart"></i>
 										Thêm vào giỏ hàng
 									</button>
+									</form>
 								</span>
 								<h4>Mô tả</h4>
 								<p><?=$mo_ta?></p>

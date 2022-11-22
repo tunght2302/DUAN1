@@ -19,28 +19,43 @@ include "../../model/binhluan.php";
 
 
     <div class="mb box_left">
-        
     <div class="tab-pane fade active in" id="reviews" >
 								<div class="col-sm-12">
-									
-									<form action="#">
-									
-                                                   
-                <?php   
+                                <form action="#">
+                                <?php
                 $id_sanpham = $_REQUEST['id_sanpham'];
-                $listbl = loadall_binhluan($id_sanpham);          
+                $listbl = loadall_binhluan($id_sanpham);
                 foreach ($listbl as $bl) {
-                    extract($bl); 
-                    echo '<tr><td> '.$id_binhluan.' </td>';
-                    echo '<tr><td> '.$noi_dung.' </td>';
-                    echo '<tr><td> '.$ngaybinhluan.' </td>';
-                                             
+                    extract($bl);
+                   echo' <ul>
+										<li><a href=""><i class="fa fa-user"></i>' . $id_binhluan . '</a></li>
+										<li><a href=""><i class="fa fa-clock-o"></i>' . $giobinhluan . '</a></li>
+										<li><a href=""><i class="fa fa-calendar-o"></i>' . $ngaybinhluan . '</a></li>
+									</ul>
+                    
+                    <p>' . $noi_dung . '</p>
+									
+                    ';
+                    
                 }
                 ?>
-
+                <p><b>Viết bình luận</b></p>
+								
+									
+                                    </form>
+									
+									<form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
+                                    <input type="hidden" name="id_sanpham" value="<?= $id_sanpham ?>">
+										<textarea type="text" name="noi_dung" placeholder="" ></textarea>
+										<b>Đánh giá: </b> <img src="images/product-details/rating.png" alt="" />
+										<input type="submit" name="guibinhluan" value="Gửi" class="btn btn-default pull-right">
+											
+</input>
 									</form>
 								</div>
 							</div>
+
+        
         <div class="box_footer searchbox binhluanform">
             <?php
             //     if(!isset($_SESSION['user'])){
@@ -48,24 +63,21 @@ include "../../model/binhluan.php";
             //     }else{
             // ?>
 
-            <form action="<?=$_SERVER['PHP_SELF']?>" method="POST">
-                <input type="hidden" name="id_sanpham" value="<?=$id_sanpham?>">
-                <input type="text" name="noi_dung" placeholder="viết bình luận">
-                <input type="submit" name="guibinhluan" value="Gửi">
-            </form>
+           
             <?php
-                //}
+            //}
             ?>
         </div>
 
         <?php
-        if(isset($_POST['guibinhluan']) && ($_POST['guibinhluan'])){
+        if (isset($_POST['guibinhluan']) && ($_POST['guibinhluan'])) {
             $noi_dung = $_POST['noi_dung'];
             $id_sanpham = $_POST['id_sanpham'];
             $iduser = $_SESSION['user']['id_sanpham'];
-            $ngaybinhluan = date('h:i:sa d/m/Y');
-            insert_binhluan($noi_dung, $iduser, $id_sanpham, $ngaybinhluan);
-            header("Location: ".$_SERVER['HTTP_REFERER']);
+            $ngaybinhluan = date(' d/m/Y');
+            $giobinhluan = date('h:i:sa');
+            insert_binhluan($noi_dung, $iduser, $id_sanpham, $ngaybinhluan,$giobinhluan);
+            header("Location: " . $_SERVER['HTTP_REFERER']);
         }
         ?>
     </div>

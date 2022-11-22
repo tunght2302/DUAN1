@@ -21,18 +21,25 @@
 					
 						<div class="brands_products"><!--brands_products-->
 							<h2>Top Yêu Thích</h2>
-							<div class="brands-name">
-								<ul class="nav nav-pills nav-stacked">
-									<div>
-										<?php
-											foreach ($dstop5 as $sp) {
-												extract($sp);
-												$link = "index.php?act=sanpham&ma_loai=" . $id;
-												$img=$img_path.$hinh;
-												echo '<img src="'.$img.'" width=50px height=50px;><li><span class="pull-right"></span><a href="'.$link.'">'.$ten_sanpham.'</a></a></li>';
-											}
-										?>
+							<div class="">
+								<ul class="">
+								<?php
+									foreach ($dstop5 as $sp) {
+										extract($sp);
+										$link = "index.php?act=sanpham&ma_loai=" . $id;
+										$img=$img_path.$hinh;
+									echo '
+									<div style="display:flex;padding:0px;margin-top:10px">
+										<div>
+											<img src="'.$img.'" width="50px" height="50px"style="border-radius:10px">
+										</div>
+										<div style="margin-left:10px;margin-top:15px;">
+											<li><span class="pull-right"></span><a href="'.$link.'">'.$ten_sanpham.'</a></a></li>
+										</div>
 									</div>
+									';
+									}
+									?>
 								</ul>
 							</div>
 						</div><!--/brands_products-->
