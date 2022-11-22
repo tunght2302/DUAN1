@@ -1,0 +1,74 @@
+.header_admin{
+    background-color: #eee;
+    border: 1px #ccc solid;
+    color: gray;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+.header_admin h1{
+    font-size: 2vw;
+}
+.adtitle{
+    background-color: #eee;
+    border: 1px #ccc solid;
+    color: gray;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+.adtitle h1{
+    font-size: 1.2vw;
+}
+.frm_content{
+    padding: 20px 0px;
+}
+.frm_content label{
+    font-size: 1vw;
+}
+.frm_content input[type="text"]{
+    padding: 5px 10px;
+    width: 100%;
+    background-color: white;
+    border: 1px #ccc solid;
+    border-radius: 5px;
+    font-size: 1vw;
+}
+.frm_content input[type="submit"],
+.frm_content input[type="reset"],
+.frm_content input[type="button"]{
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: white;
+    border: 1px #ccc solid;
+    margin-bottom: 20px;
+}
+.frm_content input[type="submit"]:hover,
+.frm_content input[type="reset"]:hover,
+.frm_content input[type="button"]:hover{
+    background-color: #ccc;
+    border: 1px #ccc solid;
+}
+.frmlist table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1vw;
+}
+.frmlist table th{
+    padding: 20px;
+    background-color: #ccc;
+}
+/* .frmlist table th:nth-child(2){
+    width: 30%;
+    background-color: #ccc;
+}
+.frmlist table th:nth-child(3){
+    width: 40%;
+    background-color: #ccc;
+}
+.frmlist table th:nth-child(4){
+    width: 20%;
+    background-color: #ccc;
+} */
+.frmlist table td {
+    padding: 10px 20px;
+    border: 1px #999 solid;
+}
