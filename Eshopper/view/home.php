@@ -67,21 +67,20 @@
 						<div class="productinfo text-center">
 						<img src="'.$img.'" alt="">
                         <a href="'.$linksp.'"><h2>$'.$don_gia.'</h2></a>
-							<a href="'.$linksp.'" ><p>'.$ten_sanpham.'</p></a>
+						<a href="'.$linksp.'" ><p>'.$ten_sanpham.'</p></a>
                             
 						</div>
                         <div class="product-overlay">
 							<div class="overlay-content">
-								
                                 <a href="'.$linksp.'"><h2>$'.$don_gia.'</h2></a>
 								<a href="'.$linksp.'"><p>'.$ten_sanpham.'</p></a>
-								<form action="index.php?act=addtocart" method="POST">
-                        <input type="hidden" name="id_sanpham" value="' . $id_sanpham . '">
-                        <input type="hidden" name="ten_sanpham" value="' . $ten_sanpham . '">
-                        <input type="hidden" name="hinh" value="' . $hinh . '">
-                        <input type="hidden" name="don_gia" value="' . $don_gia . '">
-                        <input type="submit" name="addtocart" class="btn btn-default add-to-cart" value="Thêm vào giỏ hàng" >
-                    </form>
+                                <form action="index.php?act=addtocart" method="POST">
+                                    <input type="hidden" name="id_sanpham" value="' . $id_sanpham . '">
+                                    <input type="hidden" name="ten_sanpham" value="' . $ten_sanpham . '">
+                                    <input type="hidden" name="hinh" value="' . $hinh . '">
+                                    <input type="hidden" name="don_gia" value="' . $don_gia . '">
+                                    <input type="submit" name="addtocart" class="btn btn-default add-to-cart" value="Thêm vào giỏ hàng" >
+                                </form>
 							</div>
 						</div>
 						

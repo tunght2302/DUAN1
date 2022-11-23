@@ -864,7 +864,9 @@ h2.title {
 }
 
 .productinfo img{
-  width: 100%;
+  width: 280px;
+  height: 270px;
+  border-radius: 20px;
 }
 
 .productinfo{
@@ -880,7 +882,6 @@ h2.title {
   transition: height 500ms ease 0s;
   width: 100%;
   display: block;
-  opacity:;
 }
 
 .single-products:hover .product-overlay {

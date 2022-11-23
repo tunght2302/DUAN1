@@ -39,7 +39,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $dia_chi = $_POST['dia_chi'];
 
                 update_tai_khoan($id_nguoidung,$ho_ten,$ten_dangnhap,$mat_khau,$email,$so_dien_thoai,$dia_chi);
-                    header("Location:index.php?act=cap_nhat");
+                ("Location:index.php?act=cap_nhat");
                
             }
             include "view/tai_khoan/cap_nhat.php";
@@ -52,7 +52,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     if(is_array($check_nguoidung)){
                         $_SESSION['ten_dangnhap']= $check_nguoidung;
                         //$thongbao= "Đã đăng nhập thành công";
-                        header("Location:index.php?act=dangnhap");
+                        // header("Location:index.php?act=dangnhap");
                     }else{
                         $thongbao = "Tài khoản không tồn tại.Vui lòng kiểm tra lại hoặc đăng kí";
                     }
@@ -73,7 +73,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 break;    
         case 'thoat':
             session_unset();
-                header('Location:index.php?act=dangnhap');
+            include "view/tai_khoan/dang_nhap.php";
             break;
         case 'chi_tiet_sanpham':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
