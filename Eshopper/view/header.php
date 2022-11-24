@@ -66,7 +66,7 @@ $dsdm = loadall_cat();
                     }
 
                     .slide img {
-                        width: 1160px;
+                        width: 1190px;
                         height: 400px;
                     }
 
@@ -165,6 +165,7 @@ $dsdm = loadall_cat();
 </head><!--/head-->
 
 <body>
+    
 	<header id="header"><!--header-->
 		<div class="header_top">
 			<img src="https://res.cloudinary.com/ho-ng-t-ng/image/upload/v1668707184/Red_Orange_kv7ezl.png" class="banner1" alt="">
@@ -184,7 +185,7 @@ $dsdm = loadall_cat();
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								<li><a href=""><i class="fa fa-user"></i> Tài Khoản</a></li>
-								<li><a href=""><i class="fa fa-shopping-cart"></i> Giỏ Hàng</a></li>
+								<li><a href="index.php?act=addtocart"><i class="fa fa-shopping-cart"></i> Giỏ Hàng</a></li>
 								<li><a href="index.php?act=dangnhap"><i class="fa fa-lock"></i> Đăng Nhập</a></li>
 								<li><a href="index.php?act=dangky"><i class="fa fa-lock"></i> Đăng Ký</a></li>
 							</ul>
@@ -193,7 +194,7 @@ $dsdm = loadall_cat();
 				</div>
 			</div>
 		</div><!--/header-middle-->
-	
+        
 		<div class="header-bottom"><!--header-bottom-->
 			<div class="container">
 				<div class="row">
@@ -221,7 +222,6 @@ $dsdm = loadall_cat();
                                             ';
                                         }
                                         ?>
-                                       
                                     </ul>
                                 </li> 
 								<li><a href="">Giới thiệu</a></li>
@@ -241,5 +241,45 @@ $dsdm = loadall_cat();
 				</div>
 			</div>
 	</header>
-		
+	<div class="banner sli">
+					<!--image slider start-->
+					<div class="slider">
+						<div class="slides">
+							<!--radio buttons start-->
+							<input type="radio" name="radio-btn" id="radio1">
+							<input type="radio" name="radio-btn" id="radio2">
+							<input type="radio" name="radio-btn" id="radio3">
+							<input type="radio" name="radio-btn" id="radio4">
+							<!--radio buttons end-->
+
+							<!--slide images start-->
+							<div class="slide first">
+								<img src="https://res.cloudinary.com/ho-ng-t-ng/image/upload/v1668617848/Under_Armour_NFL_Combine_mgxt3p.jpg" alt="">
+							</div>
+							<div class="slide">
+								<img src="https://res.cloudinary.com/ho-ng-t-ng/image/upload/v1668615929/qui-trinh_wsup0h.jpg" alt="">
+							</div>
+							<div class="slide">
+								<img src="https://res.cloudinary.com/ho-ng-t-ng/image/upload/v1668617849/NIKE_WOMAN_KNITWEAR_reajpp.jpg" alt="">
+							</div>
+							<div class="slide">
+								<img src="https://res.cloudinary.com/ho-ng-t-ng/image/upload/v1668617849/t%E1%BA%A3i_xu%E1%BB%91ng_1_rltnsw.jpg" alt="">
+							</div>
+							<!--slide images end-->
+
+
+							<!--automatic navigation end-->
+						</div>
+
+						<!--manual navigation start-->
+						<div class="navigation-manual">
+							<label for="radio1" class="manual-btn"></label>
+							<label for="radio2" class="manual-btn"></label>
+							<label for="radio3" class="manual-btn"></label>
+							<label for="radio4" class="manual-btn"></label>
+						</div>
+						<!--manual navigation end-->
+					</div>
+					<!--image slider end-->
+				</div>
 </body>

@@ -26,4 +26,9 @@ function delete_taikhoan($id_nguoidung){
   $sql = "DELETE FROM  nguoi_dung WHERE id_nguoidung=".$id_nguoidung;
   pdo_execute($sql);
 }
+function checkuser($ten_dangnhap, $mat_khau){
+  $sql = "SELECT * FROM nguoi_dung WHERE ten_dangnhap='".$ten_dangnhap."' AND mat_khau='".$mat_khau."'";
+  $sp = pdo_query_one($sql);
+  return $sp;
+}
 ?>
