@@ -21,7 +21,7 @@
                 <li class="mr"><a href="index.php?act=addpro">Hàng hóa</a></li>
                 <li class="mr"><a href="index.php?act=dskh">Khách hàng</a></li>
                 <li class="mr"><a href="index.php?act=comment">Bình luận</a></li>
-                <li class="mr"><a href="">Thống kê</a></li>
+                <li class="mr"><a href="index.php?act=thongke">Thống kê</a></li>
                 <li><a href="">Danh sách đơn hàng</a></li>
             </ul>
         </div>

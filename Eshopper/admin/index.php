@@ -4,6 +4,7 @@ include "../model/danh_muc.php";
 include "../model/san_pham.php";
 include "../model/tai_khoan.php";
 include "../model/binhluan.php";
+include "../model/cart.php";
 
 include "header.php";
 // controller
@@ -153,6 +154,11 @@ if (isset($_GET['act'])) {
             }
             $listbinhluan = loadall_binhluan(0);
             include "binhluan/list.php";
+            break;
+        // thống kê
+        case 'thongke':
+            $listthongke=loadall_thongke();
+            include "thongke/list.php";
             break;
     }
 }

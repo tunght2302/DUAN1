@@ -198,9 +198,9 @@
         return $tt;
     }
 function loadall_thongke(){
-    $sql = "SELECT categories.id as madm, categories.name as tendm, count(products.id) as countsp, min(products.price) as minprice,  max(products.price) as maxprice, avg(products.price) as avgprice";
-    $sql.= " FROM products LEFT JOIN categories on categories.id = products.iddm";
-    $sql.= " GROUP BY categories.id ORDER BY categories.id DESC";
+    $sql = "SELECT loai_sanpham.id as madm, loai_sanpham.ten_loai as tendm, count(san_pham.id_sanpham) as countsp, min(san_pham.don_gia) as minprice,  max(san_pham.don_gia) as maxprice, avg(san_pham.don_gia) as avgprice";
+    $sql.= " FROM san_pham LEFT JOIN loai_sanpham on loai_sanpham.id = san_pham.ma_loai";
+    $sql.= " GROUP BY loai_sanpham.id ORDER BY loai_sanpham.id DESC";
     $listtk = pdo_query($sql);
     return $listtk;
 }
