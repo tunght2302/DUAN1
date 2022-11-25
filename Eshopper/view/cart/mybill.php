@@ -36,7 +36,7 @@
 
     <div class="box_right">
         <?php
-        include "./view/boxright.php";
+        include "./view/box_left.php";
         ?>
     </div>
 </div>

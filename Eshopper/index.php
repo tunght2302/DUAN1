@@ -125,32 +125,32 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
         case 'bill':
             include "view/cart/bill.php";
             break;
-            case 'billconfirm':
-                if (isset($_POST['dongydathang']) && ($_POST['dongydathang'])){
-                    if(isset($_SESSION['user'])) $iduser = $_SESSION['user']['id'];
-                    else $id =0;
-                    $name = $_POST['name'];
-                    $email = $_POST['email'];
-                    $address = $_POST['address'];
-                    $pttt = $_POST['pttt'];
-                    $tel = $_POST['tel'];
-                    $ngaydathang = date('h:i:sa d/m/Y');
-                    $tongdonhang = tongdonhang();
-    
-                    $idbill = insert_bill($iduser, $name, $address, $email, $tel, $pttt,  $ngaydathang, $tongdonhang);
-                    foreach ($_SESSION['mycart'] as $cart) {
-                        insert_cart($_SESSION['user']['id'], $cart[0],$cart[2],$cart[1],$cart[3],$cart[4],$cart[5], $idbill);
-                    }
-                    $_SESSION['cart']=[];
+        case 'billconfirm':
+            if (isset($_POST['dongydathang']) && ($_POST['dongydathang'])){
+                if(isset($_SESSION['user'])) $iduser = $_SESSION['user']['id'];
+                else $id =0;
+                $name = $_POST['name'];
+                $email = $_POST['email'];
+                $address = $_POST['address'];
+                $pttt = $_POST['pttt'];
+                $tel = $_POST['tel'];
+                $ngaydathang = date('h:i:sa d/m/Y');
+                $tongdonhang = tongdonhang();
+
+                $idbill = insert_bill($iduser, $name, $address, $email, $tel, $pttt,  $ngaydathang, $tongdonhang);
+                foreach ($_SESSION['mycart'] as $cart) {
+                    insert_cart($_SESSION['user']['id'], $cart[0],$cart[2],$cart[1],$cart[3],$cart[4],$cart[5], $idbill);
                 }
-                $bill = loadone_bill($idbill);
-                $billct = loadall_cart($idbill);
-                include "view/cart/billconfirm.php";
-                break;
-            case 'mybill':
-                $listbill = loadall_cart_user($_SESSION['user']['id']);
-                include "view/cart/mybill.php";
-                break;
+                $_SESSION['cart']=[];
+            }
+            $bill = loadone_bill($id);
+            $billct = loadall_cart($idbill);
+            include "view/cart/billconfirm.php";
+            break;
+        case 'mybill':
+            $listbill = loadall_cart_user($_SESSION['user']['id']);
+            include "view/cart/mybill.php";
+            break;
         case 'gioithieu':
             include "view/gioithieu.php";
             break;

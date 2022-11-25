@@ -37,13 +37,13 @@
                         <div class="payment-options">
                             <h3>Phương thức thanh toán</h3>
                             <span>
-                                <label><input type="checkbox" name="pttt">Trả tiền khi nhận hàng</label>
+                                <label><input type="radio" name="pttt">Trả tiền khi nhận hàng</label>
                             </span>
                             <span>
-                                <label><input type="checkbox" name="pttt">Chuyển khoản ngân hàng</label>
+                                <label><input type="radio" name="pttt">Chuyển khoản ngân hàng</label>
                             </span>
                             <span>
-                                <label><input type="checkbox"name="pttt">Thanh toán online</label>
+                                <label><input type="radio"name="pttt">Thanh toán online</label>
                             </span>
                         </div>
                     </div>

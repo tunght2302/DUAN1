@@ -33,10 +33,10 @@
 					echo '
 									<div style="display:flex;margin-right:20px;margin-top:10px">
 										<div>
-											<img src="' . $img . '" width="50px" height="50px"style="border-radius:10px">
+										<a href="' . $linksp . '"><img src="' . $img . '" width="50px" height="50px"style="border-radius:10px"></a>
 										</div>
 										<div style="margin-left:10px;margin-top:15px;">
-											<li><span class="pull-right"></span><a href="' . $linksp . '">' . $ten_sanpham . '</a></a></li>
+											<a href="' . $linksp . '"><li><span class="pull-right"></span>' . $ten_sanpham . '</a></li></a>
 										</div>
 									</div>
 									';
