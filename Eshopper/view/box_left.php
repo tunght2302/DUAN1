@@ -23,20 +23,20 @@
 	<div class="brands_products">
 		<!--brands_products-->
 		<h2>Top Yêu Thích</h2>
-		<div class="">
-			<ul class="">
+		<div>
+			<ul style="text-transform:uppercase;font-family:Arial, Helvetica, sans-serif;">
 				<?php
 				foreach ($dstop5 as $sp) {
 					extract($sp);
-					$link = "index.php?act=sanpham&ma_loai=" . $id;
+					$linksp= "index.php?act=chi_tiet_sanpham&id=" .$id_sanpham;
 					$img = $img_path . $hinh;
 					echo '
-									<div style="display:flex;padding:0px;margin-top:10px">
+									<div style="display:flex;margin-right:20px;margin-top:10px">
 										<div>
 											<img src="' . $img . '" width="50px" height="50px"style="border-radius:10px">
 										</div>
 										<div style="margin-left:10px;margin-top:15px;">
-											<li><span class="pull-right"></span><a href="' . $link . '">' . $ten_sanpham . '</a></a></li>
+											<li><span class="pull-right"></span><a href="' . $linksp . '">' . $ten_sanpham . '</a></a></li>
 										</div>
 									</div>
 									';

@@ -225,7 +225,7 @@ $dsdm = loadall_cat();
                                     </ul>
                                 </li> 
 								<li><a href="">Giới thiệu</a></li>
-								<li><a href="">Liên hệ</a></li>
+								<li><a href="index.php?act=lienhe">Liên hệ</a></li>
 							</ul>
 						</div>
 					</div>
