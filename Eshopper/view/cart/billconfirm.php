@@ -9,8 +9,8 @@
 	            </div>
 	        </div>
             <?php
-                if(isset($hoaodon)&&(is_array($hoadon))){
-                    extract($hoadon);
+                if(isset($bill)&&(is_array($bill))){
+                    extract($bill);
                 }
             ?>
 	        <!--/checkout-options-->
@@ -19,9 +19,9 @@
 	                <h2 style="text-align:center ;" class="heading">Thông tin đơn hàng</h2>
 	            </div>
 	            <div class="checkout-options">
-	                <li>Mã đơn hàng:<?=$hoadon['id_hoadon']?></li>
-                    <li>Ngày đặt hàng:<?=$hoadon['ngay_dathang']?></li> 
-                    <li>Tổng đơn hàng:<?=$hoadon['total']?></li>
+	                <li>Mã đơn hàng:<?=$bill['idbill']?></li>
+                    <li>Ngày đặt hàng:<?=$bill['ngaydathang']?></li> 
+                    <li>Tổng đơn hàng:<?=$bill['total']?></li>
 	            </div>
 	        </div>
 
@@ -34,10 +34,10 @@
 	                    <div class="shopper-info">
 	                        <p>Thông tin đặt hàng</p>
 	                        <form>
-	                            <input type="text" value="<?$hoadon['ten_hoadon']?>" placeholder="Người đặt hàng">
-	                            <input type="text" value="<?$hoadon['diachi_hoadon']?>"placeholder="Địa chỉ">
-	                            <input type="email"value="<?$hoadon['email_hoadon']?>" placeholder="Email">
-	                            <input type="text" value="<?$hoadon['sdt_hoadon']?>" placeholder="Số điện thoại">
+	                            <input type="text" value="<?$bill['ten_dangnhap']?>" placeholder="Người đặt hàng">
+	                            <input type="text" value="<?$bill['bill_address']?>"placeholder="Địa chỉ">
+	                            <input type="email"value="<?$bill['bill_email']?>" placeholder="Email">
+	                            <input type="text" value="<?$bill['bill_tel']?>" placeholder="Số điện thoại">
 	                        </form>
 	                    </div>
 	                </div>
@@ -45,7 +45,7 @@
 	                    <div class="bill-to">
 	                        <p style="text-align:center ;">Phương thức thanh toán</p>
 	                        <div class="form-one "style="text-align:center;">
-                                <h3><?=$hoadon['phuong_thuc_tt']?></h3>
+                                <h3><?=$bill['phuong_thuc_tt']?></h3>
 	                        </div>
 	                    </div>
 	                </div>
@@ -64,18 +64,7 @@
                                 <tbody>
                                     <tr>
                                         <?php
-                                            $tong = 0;
-                                            $i = 0;
-                                            echo '
-                                            <tr class="cart_menu">
-                                                    <td class="image">Hình ảnh</td>
-                                                    <td class="description">Tên sản phẩm</td>
-                                                    <td class="price">Giá</td>
-                                                    <td class="quantity">Số lượng</td>
-                                                    <td class="total">Thành tiền</td>
-                                                    <td></td>
-                                                </tr>';
-                                            hoadon_chitiet($hoadon_chitiet);
+                                            viewcart();
                                         ?>
                                     </tr>
                                 </tbody>

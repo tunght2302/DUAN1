@@ -142,7 +142,7 @@
     function insert_bill($iduser, $name, $address, $email, $tel, $pttt,  $ngaydathang, $tongdonhang){
         $sql = " INSERT INTO `bill`(`iduser`, `bill_name`, `bill_address`, `bill_email`, `bill_tel`, `bill_pttt`, `ngaydathang`, `total`)
          VALUES ('$iduser','$name','$address','$email','$tel','$pttt','$ngaydathang','$tongdonhang')";
-        return pdo_execute_return_lastInsertId($sql);;
+        return pdo_execute_return_lastInsertId($sql);
     }
     function insert_cart($iduser, $idpro, $img, $name, $price, $soluong, $thanhtien, $idbill){
         $sql = "INSERT INTO cart(iduser, idpro, img, name, price, soluong, thanhtien, idbill) 
