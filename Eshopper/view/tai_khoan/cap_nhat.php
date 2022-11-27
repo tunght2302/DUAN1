@@ -11,7 +11,7 @@
 						<h2>Cập nhật tài khoản</h2>
                         
 						<form action="index.php?act=cap_nhat" method="POST">
-							<input type="text" name="ten_dangnhap" placeholder="Tên đăng nhập"value="<?=$ten_dangnhap?>"/>
+							<input type="text" name="ten_dangnhap" placeholder="Tên đăng nhập" value="<?=$ten_dangnhap?>"/>
 							<input type="password" name="mat_khau" placeholder="Mật khẩu" value="<?=$mat_khau?>"/>
 							<input type="email" name="email" placeholder="Email"value="<?=$email?>"/>
 							<input type="text" name="ho_ten" placeholder="Họ và Tên"value="<?=$ho_ten?>"/>

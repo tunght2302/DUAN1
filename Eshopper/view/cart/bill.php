@@ -1,17 +1,18 @@
 <section id="do_action">
     <div class="container">
-  
         <div class="row">
             <div class="col-sm-6">
                 <div class="chose_area">
                     <div class="login-form">
                         <?php
                         if (isset($_SESSION['ten_dangnhap'])) {
+
                             $ho_ten = $_SESSION['ten_dangnhap']['ho_ten'];
                             $email = $_SESSION['ten_dangnhap']['email'];
                             $dia_chi = $_SESSION['ten_dangnhap']['dia_chi'];
                             $so_dien_thoai = $_SESSION['ten_dangnhap']['so_dien_thoai'];
                         } else {
+
                             $ho_ten = "";
                             $email = "";
                             $dia_chi = "";
@@ -20,35 +21,36 @@
 
                         ?>
                         <!--login form-->
-                        <form action="index.php?act=billconfirm" method="POST" style="padding:10px ;">
-                            <h3>Thông tin đặt hàng</h3>
+            <form action="index.php?act=billconfirm" method="POST" style="padding:10px ;">
+                        <h3>Thông tin đặt hàng</h3>
                             <input type="text" name="ho_ten" value="<?= $ho_ten ?>" placeholder="Người đặt hàng" />
                             <input type="email" name="email" value="<?= $email ?>" placeholder="Email" />
                             <input type="text" name="dia_chi" value="<?= $dia_chi ?>" placeholder="Địa chỉ" />
                             <input type="text" name="so_dien_thoai" value="<?= $so_dien_thoai ?>" placeholder="Số điện thoại" />
-                        </form>
-                    </div>
-                    <!--/login form-->
+                            <input type="submit" name="dongydathang" value="Đồng ý đặt hàng">
+                        </div>
+                         <!--/login form-->
+                        </div>
                 </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="total_area">
-                    <div style="padding:10px ;">
-                        <div class="payment-options">
-                            <h3>Phương thức thanh toán</h3>
-                            <span>
-                                <label><input type="radio" name="pttt">Trả tiền khi nhận hàng</label>
-                            </span>
-                            <span>
-                                <label><input type="radio" name="pttt">Chuyển khoản ngân hàng</label>
-                            </span>
-                            <span>
-                                <label><input type="radio"name="pttt">Thanh toán online</label>
-                            </span>
+                <div class="col-sm-6">
+                    <div class="total_area">
+                        <div style="padding:10px ;">
+                            <div class="payment-options">
+                                <h3>Phương thức thanh toán</h3>
+                                <span>
+                                    <label><input type="radio" name="pttt" checked>Trả tiền khi nhận hàng</label>
+                                </span>
+                                <span>
+                                    <label><input type="radio" name="pttt">Chuyển khoản ngân hàng</label>
+                                </span>
+                                <span>
+                                    <label><input type="radio" name="pttt">Thanh toán online</label>
+                                </span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div> 
+            </form>
         </div>
         <div>
             <section id="cart_items">
@@ -59,9 +61,9 @@
                             <tbody>
                                 <tr>
                                     <?php
-                                           $tong = 0;
-                                           $i = 0;
-                                           echo '
+                                    $tong = 0;
+                                    $i = 0;
+                                    echo '
                                            <tr class="cart_menu">
                                                 <td class="image">Hình ảnh</td>
                                                 <td class="description">Tên sản phẩm</td>
@@ -71,17 +73,17 @@
                                                 <td></td>
                                             </tr>
                                            ';
-                                           foreach ($_SESSION['mycart'] as $cart) {
-                                              $hinh = $img_path . $cart[2];
-                                              $ttien = $cart[3] * $cart[4];
-                                              $tong += $ttien;
-                                              echo '
+                                    foreach ($_SESSION['mycart'] as $cart) {
+                                        $hinh = $img_path . $cart[2];
+                                        $ttien = $cart[3] * $cart[4];
+                                        $tong += $ttien;
+                                        echo '
                                                        <thead>
                                                          
                                                        </thead>
                                               
                                               <td class="cart_product">
-                                               <img src="' . $hinh. '" alt="" height="80px">
+                                               <img src="' . $hinh . '" alt="" height="80px">
                                               </td>
                                               <td class="cart_description">
                                                <h4><a href="">' . $cart[1] . '</a></h4>
@@ -101,10 +103,9 @@
                                               <p class="cart_total_price">$' . $ttien . '</p>
                                            </td>
                                           ';
-                                          $i+=1;
-                                          
-                                          }
-                                          echo '<tr>
+                                        $i += 1;
+                                    }
+                                    echo '<tr>
                                           <td class="cart_description"colspan="4">
                                           <h4><a href="">Tổng đơn hàng:</a></h4>
                                          
@@ -115,12 +116,11 @@
                                       </td>
                                           
                                       </tr>';
-                                   ?>
+                                    ?>
                                 </tr>
                             </tbody>
                         </table>
                         <div style="padding:10px;text-align:center;">
-                            <a class="btn btn-default update" href="index.php?act=billconfirm" name="dongydathang">TIẾP TỤC ĐẶT HÀNG</a>
                         </div>
                     </div>
                 </div>
