@@ -65,7 +65,7 @@
 														$(document).ready(function() {
 
 															$("#binhluan").load("view/binhluan/binhluanform.php", {
-																id_sanpham: <?= $id ?>
+																id_sanpham: <?= $id_sanpham ?>
 															});
 														});
 													</script>
