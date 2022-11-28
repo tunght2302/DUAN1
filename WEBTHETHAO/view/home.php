@@ -33,15 +33,9 @@
                         <div class="navbar-nav mr-auto py-0">
                             <a href="index.php" class="nav-item nav-link active">Home</a>
                            
-                            <a href="" class="nav-item nav-link">Shop Detail</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                                <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="" class="dropdown-item">Shopping Cart</a>
-                                    <a href="" class="dropdown-item">Checkout</a>
-                                </div>
-                            </div>
-                            <a href="" class="nav-item nav-link">Contact</a>
+                            <a href="index.php?act=mybill" class="nav-item nav-link">Đơn hàng của tôi</a>
+                            
+                            <a href="" class="nav-item nav-link">Liên hệ</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
                             <a href="index.php?act=dangnhap" class="nav-item nav-link">Login</a>
@@ -249,16 +243,14 @@
                 <div class="row pb-3">
                     <div class="col-12 pb-1">
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <form action="index.php?act=sanpham" method="post">
+                            <form action="">
                                 <div class="input-group">
-                                
-                                    <input type="text" class="form-control" name="kyw" placeholder="Tìm kiêm">
+                                    <input type="text" class="form-control" placeholder="Search by name">
                                     <div class="input-group-append">
                                         <span class="input-group-text bg-transparent text-primary">
                                             <i class="fa fa-search"></i>
                                         </span>
                                     </div>
-                                
                                 </div>
                             </form>
                             <div class="dropdown ml-4">

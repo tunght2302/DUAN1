@@ -12,15 +12,8 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
                             <a href="index.php" class="nav-item nav-link">Home</a>
-                            <a href="" class="nav-item nav-link">Shop Detail</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Pages</a>
-                                <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="index.php?act=addtocart" class="dropdown-item">Shopping Cart</a>
-                                    <a href="" class="dropdown-item">Checkout</a>
-                                </div>
-                            </div>
-                            <a href="" class="nav-item nav-link">Contact</a>
+                            <a href="index.php?act=mybill"  class="nav-item nav-link">Đơn hàng của tôi</a>
+                            <a href="" class="nav-item nav-link">Liên hệ</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
                             <a href="index.php?act=dangnhap" class="nav-item nav-link">Login</a>
@@ -53,6 +46,12 @@
                 <table class="table table-bordered text-center mb-0">
                    <?php viewcart(); ?>
                 </table>
+            </div>
+            <div class="input-group">
+                <div class="input-group-append" >
+                    <a href="index.php?act=bill"  style="margin-right:30px;"><button class="btn btn-primary" >Đồng ý đặt hàng</button></a>
+                    <a href="index.php"><button class="btn btn-primary">Tiếp tục mua hàng</button></a>
+                </div>
             </div>
         </div>
     </div>

@@ -68,6 +68,7 @@ $dsdm = loadall_cat();
                     .slide img {
                         width: 1190px;
                         height: 400px;
+
                     }
 
                     /*css for manual slide navigation*/
@@ -143,7 +144,7 @@ $dsdm = loadall_cat();
 
                         background: #c43af3;
                     }
-
+                    
                     #radio3:checked~.navigation-auto .auto-btn3 {
                         background: #c43af3;
                     }

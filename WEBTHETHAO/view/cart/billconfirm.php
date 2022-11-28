@@ -1,90 +1,114 @@
-	<section id="cart_items">
-	    <div class="container">
-	        <div style="border:2px solid gray;padding:10px;margin-bottom:15px;">
-	            <div class="step-one">
-	                <h2 style="text-align:center ;" class="heading">Cảm ơn</h2>
-	            </div>
-	            <div class="checkout-options">
-	                <h3 style="text-align:center";>Cảm ơn quý khách đã đặt hàng</h3>
-	            </div>
-	        </div>
-            <?php
-                if(isset($hoaodon)&&(is_array($hoadon))){
-                    extract($hoadon);
-                }
-            ?>
-	        <!--/checkout-options-->
-	        <div style="border:2px solid gray;padding:10px">
-	            <div class="step-one">
-	                <h2 style="text-align:center ;" class="heading">Thông tin đơn hàng</h2>
-	            </div>
-	            <div class="checkout-options">
-	                <li>Mã đơn hàng:<?=$hoadon['id_hoadon']?></li>
-                    <li>Ngày đặt hàng:<?=$hoadon['ngay_dathang']?></li> 
-                    <li>Tổng đơn hàng:<?=$hoadon['total']?></li>
-	            </div>
-	        </div>
+  <!-- Navbar Start -->
+<div class="container-fluid">
+    <div class="">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+            <a href="" class="text-decoration-none d-block d-lg-none">
+                <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav mr-auto py-0">
+                    <a href="index.php" class="nav-item nav-link">Home</a>
+                    <a href="index.php?act=mybill" class="nav-item nav-link">Đơn hàng của tôi</a>
+                    
+                    <a href="" class="nav-item nav-link">Liên hệ</a>
+                </div>
+                <div class="navbar-nav ml-auto py-0">
+                    <a href="index.php?act=dangnhap" class="nav-item nav-link">Login</a>
+                    <a href="index.php?act=dangky" class="nav-item nav-link">Register</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Navbar End -->
 
 
-	        <!--/register-req-->
+    <!-- Page Header Start -->
+    <div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+            <h1 class="font-weight-semi-bold  mb-3">Cảm ơn quý khách đã đặt hàng</h1>
+            <div class="d-inline-flex">
+                <p class="m-0"><a href="">Home</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
 
-	        <div class="shopper-informations">
-	            <div class="row" style="border:2px solid gray;padding:15px; margin-left:0px;width:1140px;margin-top:15px;">
-	                <div class="col-sm-6">
-	                    <div class="shopper-info">
-	                        <p>Thông tin đặt hàng</p>
-	                        <form>
-	                            <input type="text" value="<?$hoadon['ten_hoadon']?>" placeholder="Người đặt hàng">
-	                            <input type="text" value="<?$hoadon['diachi_hoadon']?>"placeholder="Địa chỉ">
-	                            <input type="email"value="<?$hoadon['email_hoadon']?>" placeholder="Email">
-	                            <input type="text" value="<?$hoadon['sdt_hoadon']?>" placeholder="Số điện thoại">
-	                        </form>
-	                    </div>
-	                </div>
-	                <div class="">
-	                    <div class="bill-to">
-	                        <p style="text-align:center ;">Phương thức thanh toán</p>
-	                        <div class="form-one "style="text-align:center;">
-                                <h3><?=$hoadon['phuong_thuc_tt']?></h3>
-	                        </div>
-	                    </div>
-	                </div>
-	               
-	            </div>
-	        </div>
-	        <div class="review-payment">
-	            <h2>Thông tin giỏ hàng</h2>
-	        </div>
 
-	        <div class="table-responsive cart_info" style="padding:10px">
-                <section id="cart_items">
-                        <h3>Chi tiết giỏ hàng</h3>
-                        <div>
-                            <table class="table table-condensed">
-                                <tbody>
-                                    <tr>
-                                        <?php
-                                            $tong = 0;
-                                            $i = 0;
-                                            echo '
-                                            <tr class="cart_menu">
-                                                    <td class="image">Hình ảnh</td>
-                                                    <td class="description">Tên sản phẩm</td>
-                                                    <td class="price">Giá</td>
-                                                    <td class="quantity">Số lượng</td>
-                                                    <td class="total">Thành tiền</td>
-                                                    <td></td>
-                                                </tr>';
-                                            hoadon_chitiet($hoadon_chitiet);
-                                        ?>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            
+    <!-- Checkout Start -->
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5">
+            <div class="col-lg-8">
+				<?php
+					if(isset($bill)&&(is_array($bill))){
+						extract($bill);
+					}
+            	?>
+                <div class="mb-4">
+                    <h4 class="font-weight-semi-bold mb-4">Thông tin đặt hàng</h4>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>Người đặt hàng</label>
+                            <input class="form-control" type="text" value="<?=$name?>" placeholder="Người đặt hàng" disabled>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Địa chỉ</label>
+                            <input class="form-control" type="text" value="<?=$address?>" placeholder="Địa chỉ"disabled>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>E-mail</label>
+                            <input class="form-control" type="text" value="<?=$email?>" placeholder="E-mail"disabled>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Số điện thoại</label>
+                            <input class="form-control" type="text" value="<?=$tel?>" placeholder="Số điện thoại"disabled>
                         </div>
                     </div>
-                </section>
-	        </div>
-	    </div>
-	</section>
-	<!--/#cart_items-->
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-secondary mb-5">
+                    <div class="card-header bg-secondary border-0">
+                        <h4 class="font-weight-semi-bold m-0">Thông tin đơn hàng</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <p>Mã đơn hàng</p>
+                            <p><?= $bill['id'] ?></p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <p>Ngày đặt hàng</p>
+                            <p><?=$bill['ngaydathang']?></p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <p>Tổng đơn hàng</p>
+                            <p>$<?=$bill['total']?></p>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="card border-secondary mb-5">
+                    <div class="card-header bg-secondary border-0">
+                        <h4 class="font-weight-semi-bold m-0">Phương thức thanh toán</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="payment" id="paypal">
+                                <?php
+									$pttt=get_pttt($bill['bill_pttt']);
+									echo '<p>'.$pttt.'</p>
+                                    ';
+									?>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Checkout End -->

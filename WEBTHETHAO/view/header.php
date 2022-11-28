@@ -26,6 +26,11 @@ $dsdm = loadall_cat();
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        img{
+            object-fit: cover;
+        }
+    </style>
 </head>
 
 <body>

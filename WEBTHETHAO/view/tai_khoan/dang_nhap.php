@@ -9,15 +9,9 @@
                         <div class="navbar-nav mr-auto py-0">
                             <a href="index.php" class="nav-item nav-link active">Home</a>
                            
-                            <a href="" class="nav-item nav-link">Shop Detail</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                                <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="" class="dropdown-item">Shopping Cart</a>
-                                    <a href="" class="dropdown-item">Checkout</a>
-                                </div>
-                            </div>
-                            <a href="" class="nav-item nav-link">Contact</a>
+                            <a href="index.php?act=mybill" class="nav-item nav-link">Đơn hàng của tôi</a>
+                            
+                            <a href="" class="nav-item nav-link">Liên hệ</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
                             <a href="index.php?act=dangnhap" class="nav-item nav-link">Login</a>
@@ -31,8 +25,6 @@
         <h1 class="font-weight-semi-bold text-uppercase mb-3">LOGIN</h1>
         <div class="d-inline-flex">
             <p class="m-0"><a href="index.php">Home</a></p>
-            <p class="m-0 px-2">-</p>
-            <p class="m-0">Contact</p>
         </div>
     </div>
 </div>
@@ -72,11 +64,11 @@
                 <h5 class="font-weight-semi-bold mb-3">Đăng nhập</h5>
                 <form action="index.php?act=dangnhap" method="POST">
                     <div class="control-group">
-                        <input type="text" class="form-control" name="ten_dangnhap" placeholder="Your Name" required="required" data-validation-required-message="Không được bỏ trống" />
+                        <input type="text" class="form-control" style="border:1.5px solid gray" name="ten_dangnhap" placeholder="Tên đăng nhập" required="required" data-validation-required-message="Không được bỏ trống" />
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="control-group">
-                        <input type="password" class="form-control"  name="mat_khau" placeholder="Password" required="required" data-validation-required-message="Không được bỏ trống" />
+                        <input type="password" class="form-control" style="border:1.5px solid gray"  name="mat_khau" placeholder="Mật khẩu" required="required" data-validation-required-message="Không được bỏ trống" />
                         <p class="help-block text-danger"></p>
                     </div>
                     <span>

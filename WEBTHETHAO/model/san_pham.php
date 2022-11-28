@@ -43,6 +43,7 @@
         $listpro = pdo_query($sql);
         return $listpro;
     }
+   
     function load_ten_dm($ma_loai){
         if($ma_loai>0){
         $sql = "SELECT * FROM loai_sanpham WHERE id=".$ma_loai;

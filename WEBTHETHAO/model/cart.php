@@ -119,78 +119,105 @@
    </tr>';
     }
 
-    function tongdonhang(){
-        $tong = 0;
-       
-        foreach ($_SESSION['mycart'] as $cart) {
-           $ttien = $cart[3] * $cart[4];
-           $tong += $ttien;
-           
+    function tongdonhang()
+{
+    $tong = 0;
+
+    foreach ($_SESSION['mycart'] as $cart) {
+        $ttien = $cart[3] * $cart[4];
+        $tong += $ttien;
     }
     return $tong;
 }
-    function insert_bill($iduser, $name, $address, $email, $tel, $pttt,  $ngaydathang, $tongdonhang){
-        $sql = " INSERT INTO `bill`(`iduser`, `bill_name`, `bill_address`, `bill_email`, `bill_tel`, `bill_pttt`, `ngaydathang`, `total`)
-         VALUES ('$iduser','$name','$address','$email','$tel','$pttt','$ngaydathang','$tongdonhang')";
-        return pdo_execute_return_lastInsertId($sql);;
-    }
-    function insert_cart($iduser, $idpro, $img, $name, $price, $soluong, $thanhtien, $idbill){
-        $sql = "INSERT INTO cart(iduser, idpro, img, name, price, soluong, thanhtien, idbill) 
+function insert_bill($iduser, $name, $address, $email, $tel, $ngaydathang, $tongdonhang)
+{
+    $sql = " INSERT INTO `bill`(`iduser`, `bill_name`, `bill_address`, `bill_email`, `bill_tel`,`ngaydathang`, `total`)
+        VALUES ('$iduser','$name','$address','$email','$tel','$ngaydathang','$tongdonhang')";
+    return pdo_execute_return_lastInsertId($sql);
+}
+function insert_cart($iduser, $idpro, $img, $name, $price, $soluong, $thanhtien, $idbill)
+{
+    $sql = "INSERT INTO `cart`(`iduser`, `idpro`, `img`, `name`, `price`, `soluong`, `thanhtien`, `idbill`) 
         values('$iduser', '$idpro', '$img', '$name', '$price', '$soluong', '$thanhtien', '$idbill')";
-        return pdo_execute($sql);
+    return pdo_execute($sql);
+}
+function loadone_bill($id)
+{
+    $sql = "SELECT * FROM bill WHERE id=" . $id;
+    $bill = pdo_query_one($sql);
+    return $bill;
+}
+function loadall_cart($idbill)
+{
+    $sql = "SELECT * FROM cart WHERE idbill=" . $idbill;
+    $bill = pdo_query($sql);
+    return $bill;
+}
+function loadall_cart_user($iduser)
+{
+    $sql = "SELECT * FROM bill WHERE iduser=" . $iduser;
+    $listbill = pdo_query($sql);
+    return $listbill;
+}
+function loadall_bill($kyw = "", $iduser = 0)
+{
+    $sql = "SELECT * FROM bill WHERE 1";
+    if ($iduser > 0) $sql .= " AND iduser=" . $iduser;
+    if ($kyw != "") $sql .= " AND id like '%" . $kyw . "%'";
+    $sql .= " ORDER BY id DESC";
+    $listbill = pdo_query($sql);
+    return $listbill;
+}
+function loadall_cart_count($idbill)
+{
+    $sql = "SELECT * FROM cart WHERE idbill=" . $idbill;
+    $bill = pdo_query($sql);
+    return sizeof($bill);
+}
+function get_ttdh($n)
+{
+    switch ($n) {
+        case '0':
+            $tt = "Đơn hàng mới";
+            break;
+        case '1':
+            $tt = "Đơn xử lý";
+            break;
+        case '2':
+            $tt = "Đã giao hang";
+            break;
+        case '3':
+            $tt = "Hoàn tất";
+            break;
+        default:
+            $tt = "Đơn hàng mới";
+            break;
     }
-    function loadone_bill($id){
-        $sql = "SELECT * FROM bill WHERE id=".$id;
-        $bill = pdo_query_one($sql);
-        return $bill;
+    return $tt;
+}
+function get_pttt($n){
+    switch ($n) {
+        case '1':
+            $tt = "Thanh toán trực tiếp";
+            break;
+        case '2':
+            $tt = "Chuyển khoản";
+            break;
+        case '3':
+            $tt = "Thanh toán online";
+            break;
+        
+        default:
+            $tt = "Thanh toán trực tiếp";
+            break;
     }
-    function loadall_cart($idbill){
-        $sql = "SELECT * FROM cart WHERE idbill=".$idbill;
-        $bill = pdo_query($sql);
-        return $bill;
-    }
-    function loadall_cart_user($iduser){
-        $sql = "SELECT * FROM bill WHERE iduser=".$iduser;
-        $listbill = pdo_query($sql);
-        return $listbill;
-    }
-    function loadall_bill($kyw="", $iduser = 0){
-        $sql = "SELECT * FROM bill WHERE 1";
-        if($iduser>0) $sql.= " AND iduser=".$iduser;
-        if($kyw!="") $sql.=" AND id like '%".$kyw."%'";
-        $sql.= " ORDER BY id DESC";
-        $listbill = pdo_query($sql);
-        return $listbill;
-    }
-    function loadall_cart_count($idbill){
-        $sql = "SELECT * FROM cart WHERE idbill=".$idbill;
-        $bill = pdo_query($sql);
-        return sizeof($bill);
-    }
-    function get_ttdh($n){
-        switch ($n) {
-            case '0':
-                $tt = "Đơn hàng mới";
-                break;
-            case '1':
-                $tt = "Đơn xử lý";
-                break;
-            case '2':
-                $tt = "Đã giao hang";
-                break;
-            case '3':
-                $tt = "Hoàn tất";
-                break;
-            default:
-                $tt = "Đơn hàng mới";
-                break;
-        }
-        return $tt;
-    }
-function loadall_thongke(){
-    $sql = "SELECT categories.id as madm, categories.name as tendm, count(products.id) as countsp, min(products.price) as minprice,  max(products.price) as maxprice, avg(products.price) as avgprice";
-    $sql.= " FROM products LEFT JOIN categories on categories.id = products.iddm";
-    $sql.= " GROUP BY categories.id ORDER BY categories.id DESC";
+    return $tt;
+}
+function loadall_thongke()
+{
+    $sql = "SELECT loai_sanpham.id as madm, loai_sanpham.ten_loai as tendm, count(san_pham.id_sanpham) as countsp, min(san_pham.don_gia) as minprice,  max(san_pham.don_gia) as maxprice, avg(san_pham.don_gia) as avgprice";
+    $sql .= " FROM san_pham LEFT JOIN loai_sanpham on loai_sanpham.id = san_pham.ma_loai";
+    $sql .= " GROUP BY loai_sanpham.id ORDER BY loai_sanpham.id DESC";
     $listtk = pdo_query($sql);
     return $listtk;
 }
