@@ -1,5 +1,4 @@
 <?php 
-
     function viewcart(){
         global $img_path;
         $tong = 0;
@@ -27,7 +26,7 @@
 					</thead>
            
            <td class="align-middle">
-                <img src="' . $hinh. '" alt="" style="width: 70px;margin-right:30px;">' . $cart[1] . '</td>
+                <img src="' . $hinh. '" alt="" style="width:100px;margin-right:30px;">' . $cart[1] . '</td>
            </td>
            
             <td class="align-middle">

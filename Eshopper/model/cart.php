@@ -141,7 +141,7 @@
 }
     function insert_bill($iduser, $name, $address, $email, $tel,$ngaydathang, $tongdonhang){
         $sql = " INSERT INTO `bill`(`iduser`, `bill_name`, `bill_address`, `bill_email`, `bill_tel`,`ngaydathang`, `total`)
-         VALUES ('$iduser','$name','$address','$email','$tel','$ngaydathang','$tongdonhang')";
+        VALUES ('$iduser','$name','$address','$email','$tel','$ngaydathang','$tongdonhang')";
         return pdo_execute_return_lastInsertId($sql);
     }
     function insert_cart($iduser, $idpro, $img, $name, $price, $soluong, $thanhtien, $idbill){

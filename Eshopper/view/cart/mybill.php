@@ -1,11 +1,12 @@
-
-<div class="row mb box">
-    <div class="box_left">
-        <div class="mb">
-            <div class="box_title">ĐƠN HÀNG CỦA BẠN</div>
-            <div class="box_content cart">
-                <table border="1">
-                    <tr>
+<section id="do_action">
+    <div class="container">
+        <div class="heading">
+            <h3 style="text-align:center ;">ĐƠN HÀNG CỦA BẠN</h3>
+        </div>
+        <div class="row" style="text-align:center;">
+            <div align="center";>
+                 <table border="1">
+                    <tr style="background-color:aqua ;">
                         <th>Mã đơn hàng</th>
                         <th>Ngày đặt</th>
                         <th>Số lượng mặt hàng</th>
@@ -33,10 +34,5 @@
             </div>
         </div>
     </div>
-
-    <div class="box_right">
-        <?php
-        include "./view/box_left.php";
-        ?>
-    </div>
-</div>
+</section>
+<!--/#do_action-->

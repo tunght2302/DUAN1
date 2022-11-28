@@ -1,4 +1,60 @@
+   <!-- Navbar Start -->
+   <div class="container-fluid mb-5">
+        <div class="row border-top px-xl-5">
+            <div class="col-lg-3 d-none d-lg-block">
+                <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
+                    <h6 class="m-0">Danh mục</h6>
+                    <i class="fa fa-angle-down text-dark"></i>
+                </a>
+                <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
+                    <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
+                       
+                    <?php
+                                        foreach($dsdm as $dm){
+                                            extract($dm);
+                                            $linkcat = "index.php?act=sanpham&ma_loai=" . $id;
+                                            echo '<li><a href="'.$linkcat.'" class="nav-item nav-link">'.$ten_loai.'</a></li>
+                                            
+                                            ';
+                                        }
+                                        ?>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-lg-9">
+                <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+                    <a href="" class="text-decoration-none d-block d-lg-none">
+                        <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
+                    </a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto py-0">
+                            <a href="index.php" class="nav-item nav-link active">Home</a>
+                           
+                            <a href="" class="nav-item nav-link">Shop Detail</a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                                <div class="dropdown-menu rounded-0 m-0">
+                                    <a href="" class="dropdown-item">Shopping Cart</a>
+                                    <a href="" class="dropdown-item">Checkout</a>
+                                </div>
+                            </div>
+                            <a href="" class="nav-item nav-link">Contact</a>
+                        </div>
+                        <div class="navbar-nav ml-auto py-0">
+                            <a href="index.php?act=dangnhap" class="nav-item nav-link">Login</a>
+                            <a href="index.php?act=dangky" class="nav-item nav-link">Register</a>
+                        </div>
+                    </div>
+                </nav>
+                
+            </div>
+        </div>
+    </div>
 <!-- Shop Start -->
+
 <div class="container-fluid pt-5">
         <div class="row px-xl-5">
             <!-- Shop Sidebar Start -->
@@ -11,16 +67,18 @@
                 <div class="row pb-3">
                     <div class="col-12 pb-1">
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <form action="index.php?act=sanpham" method="post">
+                            
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="kyw" placeholder="Search by name">
+                                <form action="index.php?act=sanpham" method="post">
+                                    <input type="text" class="form-control" name="kyw" placeholder="Tìm kiếm">
+                                    </form>
                                     <div class="input-group-append">
                                         <span class="input-group-text bg-transparent text-primary">
                                             <i class="fa fa-search"></i>
                                         </span>
                                     </div>
                                 </div>
-                            </form>
+                            
                             <div class="dropdown ml-4">
                                 <button class="btn border dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">

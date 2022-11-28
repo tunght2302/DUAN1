@@ -49,7 +49,7 @@
     <!-- Cart Start -->
     <div class="container-fluid pt-5">
         <div class="row px-xl-5">
-            <div class="col-lg-10 table-responsive mb-5">
+            <div class=" table-responsive mb-5" style="text-align:center ;">
                 <table class="table table-bordered text-center mb-0">
                    <?php viewcart(); ?>
                 </table>

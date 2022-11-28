@@ -8,6 +8,7 @@
                     <?=$ten_dangnhap?>
                 </div>
                 <div>
+                    <li><a href="index.php?act=mybill">Đơn hàng của tôi</a></li>
                     <li><a href="index.php?act=quenmk">Quên mật khẩu</a></li>
                     <li><a href="index.php?act=cap_nhat">Cập nhật thông tin</a></li>
                     <li><a href="admin/index.php">Đăng nhập Admin</a></li>

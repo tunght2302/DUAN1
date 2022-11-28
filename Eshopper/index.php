@@ -148,7 +148,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "view/cart/billconfirm.php";
             break;
         case 'mybill':
-            $listbill = loadall_cart_user($_SESSION['user']['id']);
+            $listbill = loadall_cart_user($_SESSION['ten_dangnhap']['id_nguoidung']);
             include "view/cart/mybill.php";
             break;
         case 'gioithieu':
