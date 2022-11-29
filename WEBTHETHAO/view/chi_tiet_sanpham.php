@@ -182,26 +182,30 @@
         </div>
     </div>
     <div class="row px-xl-5">
+        <div class="col" id="reviews"   >
+
         <div class="col">
-         
-            <div class="tab-content" id="reviews">
-            <div class="">
-												
-												<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <div class="nav nav-tabs justify-content-center border-secondary mb-4">
+                    
+                    <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Bình luận</a>
+                </div>
+              
 
-												<div class="row" id="binhluan" name="id_sanpham">
-													<script>
-														$(document).ready(function() {
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-															$("#binhluan").load("view/binhluan/binhluanform.php", {
-																id_sanpham: <?= $id_sanpham ?>
+                    <div class="row" id="binhluan" name="id_sanpham">
+                        <script>
+                            $(document).ready(function () {
+
+                                $("#binhluan").load("view/binhluan/binhluanform.php", {
+                                    id_sanpham: <?= $id_sanpham ?>
 															});
-														});
-													</script>
-												</div>
-											</div>
+                            });
+                        </script>
+                    </div>
+                </div>
 
-                
+
             </div>
         </div>
     </div>
