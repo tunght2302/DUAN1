@@ -160,6 +160,10 @@ if (isset($_GET['act'])) {
             $listthongke=loadall_thongke();
             include "thongke/list.php";
             break;
+        case 'bieu_do':
+            $listthongke=loadall_thongke();
+            include "thongke/bieudo.php";
+            break;
     }
 }
 ?>

@@ -29,7 +29,9 @@
                     </tr>';
             }
             ?>
-
+          
+           
         </table>
     </div>
+    <a href="index.php?act=bieu_do"><input type="button"  value="Biểu Đồ"></a >
 </div>
