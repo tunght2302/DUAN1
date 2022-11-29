@@ -24,7 +24,6 @@
                 <th>TÊN SẢN PHẨM</th>
                 <th>HÌNH ẢNH</th>
                 <th>MÔ TẢ</th>
-                <th>GIÁ CŨ</th>
                 <th>GIÁ</th>
                 <th>LƯỢT XEM</th>
                 <th> </th>
@@ -48,7 +47,6 @@
                                 <td>' . $ten_sanpham . '</td>
                                 <td>' . $hinh . '</td>
                                 <td>' . $mo_ta . '</td>
-                                <td>' . $gia_cu . '</td>
                                 <td>' . $don_gia . '</td>
                                 <td>' . $luot_xem . '</td>
                                 <td><a href= "' . $uppro . '"><input type="button" name="" id="" value="Sửa"></a> <a href="' . $deletepro . '"><input type="button" name="" id="" value="Xóa"></a></td>

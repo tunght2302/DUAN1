@@ -18,9 +18,6 @@
                 <label for="" class="mb">Tên sản phẩm <br>
                     <input type="text" name="ten_sanpham"><br><br>
                 </label>
-                <label for="" class="mb">Giá  giá cũ <br>
-                    <input type="text" name="gia_cu"><br><br>
-                </label>
                 <label for="" class="mb">Giá sản phẩm <br>
                     <input type="text" name="don_gia"><br><br>
                 </label>

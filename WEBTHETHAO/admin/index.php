@@ -4,6 +4,7 @@ include "../model/danh_muc.php";
 include "../model/san_pham.php";
 include "../model/tai_khoan.php";
 include "../model/binhluan.php";
+include "../model/cart.php";
 
 include "header.php";
 // controller
@@ -59,7 +60,6 @@ if (isset($_GET['act'])) {
                 // $id_sanpham = $_POST['id_sanpham'];
                 $ten_sanpham = $_POST['ten_sanpham'];
                 $don_gia = $_POST['don_gia'];
-                $gia_cu = $_POST['gia_cu'];
                 $mo_ta = $_POST['mo_ta'];
                 $hinh = $_FILES['hinh']['name'];
                 $ma_loai = $_POST['ma_loai'];
@@ -104,7 +104,6 @@ if (isset($_GET['act'])) {
                 $id_sanpham = $_POST['id_sanpham'];
                 $ten_sanpham = $_POST['ten_sanpham'];
                 $don_gia = $_POST['don_gia'];
-                $gia_cu = $_POST['gia_cu'];
                 $mo_ta = $_POST['mo_ta'];
                 $hinh = $_FILES['hinh']['name'];
                 $ma_loai = $_POST['ma_loai'];
@@ -156,6 +155,23 @@ if (isset($_GET['act'])) {
             $listbinhluan = loadall_binhluan(0);
             include "binhluan/list.php";
             break;
+        case 'listbill':
+            if(isset($_POST['kyw']) && ($_POST['kyw']!="")){
+                $kyw = $_POST['kyw'];
+            }else{
+                $kyw ="";
+            }
+            $listbill = loadall_bill($kyw, 0);
+            include "bill/listbill.php";
+            break;    
+        // thống kê
+        case 'thongke':
+            $listthongke=loadall_thongke();
+            include "thongke/list.php";
+            break;
+        case 'bieu_do':
+            $listthongke=loadall_thongke();
+            include "thongke/bieudo.php";
+            break;
     }
 }
-?>
