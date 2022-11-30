@@ -163,7 +163,8 @@ function loadall_bill($kyw = "", $iduser = 0)
 {
     $sql = "SELECT * FROM bill WHERE 1";
     if ($iduser > 0) $sql .= " AND iduser=" . $iduser;
-    if ($kyw != "") $sql .= " AND id like '%" . $kyw . "%'";
+    // if ($kyw != "") $sql .= " AND id like '%" . $kyw . "%'";
+    if ($kyw != "") $sql .= " AND bill_name like '%" . $kyw . "%'";
     $sql .= " ORDER BY id DESC";
     $listbill = pdo_query($sql);
     return $listbill;

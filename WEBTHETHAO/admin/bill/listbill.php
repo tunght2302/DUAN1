@@ -16,10 +16,13 @@
                 <th>GIÁ TRỊ ĐƠN HÀNG</th>
                 <th>NGÀY ĐẶT HÀNG</th>
                 <th>TÌNH TRẠNG ĐƠN HÀNG</th>
+                <th></th>
             </tr>
             <?php
                 foreach ($listbill as $bill) {
                     extract($bill);
+                    $upstatus = "index.php?act=upstatus&id=".$id;
+                    $delete = "index.php?act=deletestatus&id=".$id;
                     $kh = $bill["bill_name"].'
                     <br> '.$bill["bill_email"].'
                     <br> '.$bill["bill_address"].'
@@ -27,14 +30,15 @@
                     $ttdh = get_ttdh($bill['bill_status']);
                     $countsp =loadall_cart_count($bill['id']);
                    echo '<tr>
-                   <td><input type="checkbox" name="" id=""></td>
-                   <td>'.$bill['id'].'</td>
-                   <td>'.$kh.'</td>
-                   <td>'.$countsp.'</td>
-                   <td>'.$bill['total'].'</td>
-                   <td>'.$bill['ngaydathang'].'</td>
-                   <td>'.$ttdh.'</td>
-               </tr>';
+                            <td><input type="checkbox" name="" id=""></td>
+                            <td>'.$bill['id'].'</td>
+                            <td>'.$kh.'</td>
+                            <td>'.$countsp.'</td>
+                            <td>'.$bill['total'].'</td>
+                            <td>'.$bill['ngaydathang'].'</td>
+                            <td>'.$ttdh.' <a href= "'.$upstatus.'"> <input type="button" value="Update"> </td>
+                            <td></a><a href="' .$delete. '"><input type="button" name="" id="" value="Xóa"></a></td>
+                        </tr>';
                 }
             ?>
             

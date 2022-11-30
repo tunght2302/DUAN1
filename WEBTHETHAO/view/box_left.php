@@ -1,6 +1,6 @@
 <div class="col-lg-3 col-md-12">
     <!-- Price Start -->
-    <div class="border-bottom mb-4 pb-4">
+    <!-- <div class="border-bottom mb-4 pb-4">
         <h5 class="font-weight-semi-bold mb-4">Filter by price</h5>
         <form>
             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
@@ -34,7 +34,7 @@
                 <span class="badge border font-weight-normal">168</span>
             </div>
         </form>
-    </div>
+    </div> -->
     <!-- Price End -->
 
     <!-- Color Start -->

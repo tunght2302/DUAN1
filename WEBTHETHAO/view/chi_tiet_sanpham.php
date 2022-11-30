@@ -56,11 +56,10 @@
                 <div class="carousel-inner border">
                     <div class="carousel-item active">
                         <?php
-                        $img = $img_path . $hinh;
-                        echo '<img src="' . $img . '" width=250px height=250px;>';
+                            $img = $img_path . $hinh;
+                            echo '<img src="' . $img . '" width=250px height=250px;>';
                         ?>
                     </div>
-
                 </div>
                 <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
                     <i class="fa fa-2x fa-angle-left text-dark"></i>
@@ -238,9 +237,17 @@
                             </div>
                         </div>
                         <div class="card-footer d-flex justify-content-between bg-light border">
-                            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Chi tiết</a>
-                            <a href="index.php?act=addtocart" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
+                        <form action="index.php?act=addtocart" method="POST">
+                            <input type="hidden" name="id_sanpham" value="' . $id_sanpham . '">
+                            <input type="hidden" name="ten_sanpham" value="' . $ten_sanpham . '">
+                            <input type="hidden" name="hinh" value="' . $hinh . '">
+                            <input type="hidden" name="don_gia" value="' . $don_gia . '">
+                            <i class="fas fa-shopping-cart text-primary mr-1"></i><input type="submit" name="addtocart" class=" btn btn-sm text-dark p-0  btn btn-default add-to-cart"  value="Thêm vào giỏ hàng" >
+                            <a href="'.$linksp.'" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Chi tiết</a>
+                        </form>
+                           
                         </div>
+                        
                     </div>
 										';
                 }

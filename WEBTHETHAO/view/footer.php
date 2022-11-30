@@ -16,7 +16,7 @@
                         <p>Dịch vụ</p>
                         <div class="d-flex flex-column justify-content-start">
                             <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Trợ giúp trực tuyến</a>
-                            <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Liên hệ chúng tô<i></i></a>
+                            <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Liên hệ chúng tôi<i></i></a>
                             <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Thay đổi địa điểm</a>
                             <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Tình trạng đặt hàng</a>
                             <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Câu hỏi thường gặp</a>

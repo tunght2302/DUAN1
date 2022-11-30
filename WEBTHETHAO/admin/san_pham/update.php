@@ -18,7 +18,9 @@ if (is_file($imgpath)) {
             <label for="" class="mb">Tên sản phẩm <br>
                 <input type="text" name="ten_sanpham" value="<?=$ten_sanpham ?>"><br><br>
             </label>
-            </div>
+            <label for="" class="mb">Giá cũ<br>
+                <input type="text" name="gia_cu" value="<?= $gia_cu ?>"><br><br>
+            </label>
             <label for="" class="mb">Giá sản phẩm <br>
                 <input type="text" name="don_gia" value="<?= $don_gia ?>"><br><br>
             </label>

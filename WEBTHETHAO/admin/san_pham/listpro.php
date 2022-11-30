@@ -25,6 +25,7 @@
                 <th>HÌNH ẢNH</th>
                 <th>MÔ TẢ</th>
                 <th>GIÁ</th>
+                <th>GIÁ CŨ</th>
                 <th>LƯỢT XEM</th>
                 <th> </th>
             </tr>
@@ -48,8 +49,9 @@
                                 <td>' . $hinh . '</td>
                                 <td>' . $mo_ta . '</td>
                                 <td>' . $don_gia . '</td>
+                                <td>' . $gia_cu . '</td>
                                 <td>' . $luot_xem . '</td>
-                                <td><a href= "' . $uppro . '"><input type="button" name="" id="" value="Sửa"></a> <a href="' . $deletepro . '"><input type="button" name="" id="" value="Xóa"></a></td>
+                                <td><a href= "' . $uppro . '"><input type="button" value="Sửa"></a> <a href="' . $deletepro . '"><input type="button" name="" id="" value="Xóa"></a></td>
                             </tr>';
             }
             ?>
