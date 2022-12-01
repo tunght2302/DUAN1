@@ -90,8 +90,8 @@
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             
                                 <div class="input-group">
-                                <form action="index.php?act=sanpham" method="post">
-                                    <input type="text" class="form-control" name="kyw" placeholder="Tìm kiếm">
+                                    <form action="index.php?act=sanpham" method="post">
+                                        <input type="text" class="form-control" name="kyw" placeholder="Tìm kiếm">
                                     </form>
                                     <div class="input-group-append">
                                         <span class="input-group-text bg-transparent text-primary">

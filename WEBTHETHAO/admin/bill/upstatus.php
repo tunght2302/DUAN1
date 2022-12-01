@@ -6,7 +6,13 @@
     <div class="frm_content">
         <form action="index.php?act=updatestatus" method="POST">
             <label for="" class="mb">TÌNH TRẠNG ĐƠN HÀNG<br>
-                <input type="text" name="ttdh" value="<?= $bill_status ?>"><br><br>
+            <select name="ttdh" id="">
+                <option  value="<?= $bill_status ?>">Đã thanh toán</option>
+                <option  value="<?= $bill_status ?>">Đơn hàng mới</option>
+                <option  value="<?= $bill_status ?>">Đang vận chuyển</option>
+                <option  value="<?= $bill_status ?>">Hoàn tất</option>
+            </select>
+                <!-- <input type="text" name="ttdh" value="<?= $bill_status ?>"><br><br> -->
             </label>
             <?php
             if (isset($thongbao) && ($thongbao != "")) echo $thongbao;

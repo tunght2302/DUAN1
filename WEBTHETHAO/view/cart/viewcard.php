@@ -49,7 +49,7 @@
             </div>
             <div class="input-group">
                 <div class="input-group-append" >
-                    <a href="index.php?act=bill"  style="margin-right:30px;"><button class="btn btn-primary" >Đồng ý đặt hàng</button></a>
+                    <a href="index.php?act=bill"  style="margin-right:30px;"><button class="btn btn-primary" >Đặt hàng</button></a>
                     <a href="index.php"><button class="btn btn-primary">Tiếp tục mua hàng</button></a>
                 </div>
             </div>

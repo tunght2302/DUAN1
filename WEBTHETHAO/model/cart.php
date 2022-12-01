@@ -178,16 +178,16 @@ function loadall_cart_count($idbill)
 function get_ttdh($n)
 {
     switch ($n) {
-        case '0':
+        case 'Đơn hàng mới':
             $tt = "Đơn hàng mới";
             break;
-        case '1':
+        case 'Đơn xử lý':
             $tt = "Đơn xử lý";
             break;
-        case '2':
-            $tt = "Đã giao hang";
+        case 'Đã giao hàng':
+            $tt = "Đã giao hàng";
             break;
-        case '3':
+        case 'Hoàn tất':
             $tt = "Hoàn tất";
             break;
         default:

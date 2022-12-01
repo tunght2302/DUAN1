@@ -9,9 +9,9 @@
                         <div class="navbar-nav mr-auto py-0">
                             <a href="index.php" class="nav-item nav-link active">Home</a>
                            
-                            <a href="" class="nav-item nav-link">Đơn hàng của tôi</a>
+                            <a href="index.php?act=mybill" class="nav-item nav-link">Đơn hàng của tôi</a>
                             
-                            <a href="" class="nav-item nav-link">Contact</a>
+                            <a href="" class="nav-item nav-link">Liên hệ</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
                             <a href="index.php?act=dangnhap" class="nav-item nav-link">Login</a>
