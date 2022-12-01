@@ -102,17 +102,22 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "view/sanpham.php";
             break;
         case 'addtocart':
-            if (isset($_POST['addtocart']) && ($_POST['addtocart'])) {
-                $id_sanpham = $_POST['id_sanpham'];
-                $ten_sanpham = $_POST['ten_sanpham'];
-                $hinh = $_POST['hinh'];
-                $don_gia = $_POST['don_gia'];
-                $soluong = 1;
-                $ttien = $soluong * $don_gia;
-                $spadd = [$id_sanpham, $ten_sanpham, $hinh, $don_gia, $soluong, $ttien];
-                array_push($_SESSION['mycart'], $spadd);
+            if (!isset($_SESSION['ten_dangnhap'])) {
+                include('view/tai_khoan/dang_nhap.php');
+            } else {
+                if (isset($_POST['addtocart']) && ($_POST['addtocart'])) {
+                    $id_sanpham = $_POST['id_sanpham'];
+                    $ten_sanpham = $_POST['ten_sanpham'];
+                    $hinh = $_POST['hinh'];
+                    $don_gia = $_POST['don_gia'];
+                    $soluong = 1;
+                    $ttien = $soluong * $don_gia;
+                    $spadd = [$id_sanpham, $ten_sanpham, $hinh, $don_gia, $soluong, $ttien];
+                    array_push($_SESSION['mycart'], $spadd);
+                    include "view/cart/viewcard.php";
+                }
             }
-            include "view/cart/viewcard.php";
+            
             break;
         case 'delcart':
             if (isset($_GET['idcart'])) {

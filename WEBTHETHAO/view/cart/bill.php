@@ -46,13 +46,11 @@
         <div class="row px-xl-5">
             <?php
             if (isset($_SESSION['ten_dangnhap'])) {
-
                 $ho_ten = $_SESSION['ten_dangnhap']['ho_ten'];
                 $email = $_SESSION['ten_dangnhap']['email'];
                 $dia_chi = $_SESSION['ten_dangnhap']['dia_chi'];
                 $so_dien_thoai = $_SESSION['ten_dangnhap']['so_dien_thoai'];
             } else {
-
                 $ho_ten = "";
                 $email = "";
                 $dia_chi = "";
