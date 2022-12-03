@@ -70,9 +70,9 @@
                 </div>
                 <small class="pt-1">(Đánh giá)</small>
             </div>
-            <h3 class="font-weight-semi-bold mb-4">$<?= $don_gia ?></h3>
+            <h3 class="font-weight-semi-bold mb-4"><?= $don_gia ?> VNĐ</h3>
             <p class="mb-4"><?= $mo_ta ?></p>
-            <div class="d-flex mb-3">
+            <!-- <div class="d-flex mb-3">
                 <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
                 <form>
                     <div class="custom-control custom-radio custom-control-inline">
@@ -121,7 +121,7 @@
                         <label class="custom-control-label" for="color-5">Green</label>
                     </div>
                 </form>
-            </div>
+            </div> -->
             <?php
             echo '
             <form action="index.php?act=addtocart" method="POST">

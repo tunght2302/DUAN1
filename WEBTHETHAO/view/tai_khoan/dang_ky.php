@@ -7,24 +7,24 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.php" class="nav-item nav-link active">Home</a>
+                            <a href="index.php" class="nav-item nav-link active">Trang Chủ</a>
                            
                             <a href="index.php?act=mybill" class="nav-item nav-link">Đơn hàng của tôi</a>
                             
                             <a href="" class="nav-item nav-link">Liên hệ</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
-                            <a href="index.php?act=dangnhap" class="nav-item nav-link">Login</a>
-                            <a href="" class="nav-item nav-link">Register</a>
+                            <a href="index.php?act=dangnhap" class="nav-item nav-link">Tài Khoản</a>
+                            <a href="" class="nav-item nav-link">Đăng Ký</a>
                         </div>
                     </div>
                 </nav>
 <!-- Page Header Start -->
 <div class="container-fluid bg-secondary mb-5">
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
-        <h1 class="font-weight-semi-bold text-uppercase mb-3">REGISTER</h1>
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">Đăng Ký</h1>
         <div class="d-inline-flex">
-            <p class="m-0"><a href="index.php">Home</a></p>
+            <p class="m-0"><a href="index.php">Trang Chủ</a></p>
         </div>
     </div>
 </div>

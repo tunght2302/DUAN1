@@ -70,7 +70,7 @@
     <!-- Color End -->
 
     <!-- Size Start -->
-    <div class="mb-5">
+    <!-- <div class="mb-5">
         <h5 class="font-weight-semi-bold mb-4">Filter by size</h5>
         <form>
             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
@@ -104,6 +104,6 @@
                 <span class="badge border font-weight-normal">168</span>
             </div>
         </form>
-    </div>
+    </div> -->
     <!-- Size End -->
 </div>

@@ -22,7 +22,7 @@
            </div>
            <div class="col-lg-9">
                <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
-                   <a href="" class="text-decoration-none d-block d-lg-none">
+                   <a href="index.php" class="text-decoration-none d-block d-lg-none">
                        <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
                    </a>
                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -30,15 +30,15 @@
                    </button>
                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                        <div class="navbar-nav mr-auto py-0">
-                           <a href="index.php" class="nav-item nav-link active">Home</a>
+                           <a href="index.php" class="nav-item nav-link active">Trang Chủ</a>
 
                            <a href="index.php?act=mybill" class="nav-item nav-link">Đơn hàng của tôi</a>
 
                            <a href="" class="nav-item nav-link">Liên hệ</a>
                        </div>
                        <div class="navbar-nav ml-auto py-0">
-                           <a href="index.php?act=dangnhap" class="nav-item nav-link">Login</a>
-                           <a href="index.php?act=dangky" class="nav-item nav-link">Register</a>
+                           <a href="index.php?act=dangnhap" class="nav-item nav-link">Tài Khoản</a>
+                           <a href="index.php?act=dangky" class="nav-item nav-link">Đăng Ký</a>
                        </div>
                    </div>
                </nav>
@@ -82,25 +82,25 @@
                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                    <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
                        <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
-                       <h5 class="font-weight-semi-bold m-0">Quality Product</h5>
+                       <h5 class="font-weight-semi-bold m-0">Sản Phẩm Chất Lượng Cao</h5>
                    </div>
                </div>
                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                    <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
                        <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
-                       <h5 class="font-weight-semi-bold m-0">Free Shipping</h5>
+                       <h5 class="font-weight-semi-bold m-0">Miễn Phí Ship</h5>
                    </div>
                </div>
                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                    <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
                        <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
-                       <h5 class="font-weight-semi-bold m-0">14-Day Return</h5>
+                       <h5 class="font-weight-semi-bold m-0">Đổi Trả Trong 14 Ngày</h5>
                    </div>
                </div>
                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                    <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
                        <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
-                       <h5 class="font-weight-semi-bold m-0">24/7 Support</h5>
+                       <h5 class="font-weight-semi-bold m-0"> Hỗ Trợ 24/7 </h5>
                    </div>
                </div>
            </div>
@@ -152,7 +152,7 @@
                    <!-- Price End -->
 
                    <!-- Color Start -->
-                   <div class="border-bottom mb-4 pb-4">
+                   <!-- <div class="border-bottom mb-4 pb-4">
                        <h5 class="font-weight-semi-bold mb-4">Filter by color</h5>
                        <form>
                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
@@ -186,11 +186,11 @@
                                <span class="badge border font-weight-normal">168</span>
                            </div>
                        </form>
-                   </div>
+                   </div> -->
                    <!-- Color End -->
 
                    <!-- Size Start -->
-                   <div class="mb-5">
+                   <!-- <div class="mb-5">
                        <h5 class="font-weight-semi-bold mb-4">Filter by size</h5>
                        <form>
                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
@@ -224,7 +224,7 @@
                                <span class="badge border font-weight-normal">168</span>
                            </div>
                        </form>
-                   </div>
+                   </div> -->
                    <!-- Size End -->
                </div>
                <!-- Shop Sidebar End -->
@@ -273,7 +273,7 @@
                                     <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                         <h6 "><a href="' . $linksp . '" ><p >' . $ten_sanpham . '</p></a></h6>
                                         <div class="d-flex justify-content-center">
-                                        <h6><a href="' . $linksp . '">$' . $don_gia . '</a></h6><h6 class="text-muted ml-2"><del>$' . $gia_cu . '</del></h6>
+                                        <h6><a href="' . $linksp . '">' . $don_gia . ' VNĐ</a></h6><h6 class="text-muted ml-2"><del>' . $gia_cu . ' VNĐ</del></h6>
                                           
                                         </div>
                                     </div>
