@@ -227,3 +227,4 @@ function loadall_thongke_doanhthu()
     $listtk = pdo_query($sql);
     return $listtk;
 }
+
