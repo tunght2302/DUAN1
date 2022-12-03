@@ -7,15 +7,14 @@
                    <i class="fa fa-angle-down text-dark"></i>
                </a>
                <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
-                   <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
+                   <div class="navbar-nav w-100 overflow-hidden" style="height: 410px;display:flex !important;">
 
                        <?php
                         foreach ($dsdm as $dm) {
                             extract($dm);
                             $linkcat = "index.php?act=sanpham&ma_loai=" . $id;
                             echo '<li><a href="' . $linkcat . '" class="nav-item nav-link">' . $ten_loai . '</a></li>
-                                            
-                                            ';
+                            ';
                         }
                         ?>
                    </div>

@@ -1,6 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+    <?php
+    extract($onebill);
+    $tong = 0;
+    $i = 0;
+    $kh = $bill_name . '
+        <br> ' . $bill_email . '
+        <br> ' . $bill_address . '
+        <br> ' . $bill_tel;
 
+    $pttt = get_pttt('bill_pttt');
+    $countsp = loadall_cart_count($id);
+    foreach ($_SESSION['mycart'] as $cart) {
+        
+        // $hinh = $img_path . $cart[2];
+        $ttien = $cart[3] * $cart[4];
+        $tong += $ttien;
+        $imgpath = "../upload/" . $cart[2];
+        if (is_file($imgpath)) {
+            $hinh = "<img src='" . $imgpath . "' width='50px' height='50px';>";
+        } else {
+            // echo "Không có ảnh";
+        }
+    }
+    echo '
+                <tr>
+                    <td><input type="checkbox" name="" id=""></td>
+                    <td>' . $kh . '</td>
+                    <td>' . $cart[1] . '</td>
+                    <td>' . $hinh . '</td>
+                    <td>' . $cart[4] . '</td>
+                    <td>' . $cart[3] .' VNĐ</td>
+                    <td>' . $ngaydathang . '</td>
+                    <td>' . $ttien . 'VNĐ</td>
+                    <td><input type="hidden" value=' . $bill_pttt . '>
+                        ' . $pttt . '
+                    </td>
+            </tr>';
+?>
 <head>
     <meta charset="utf-8">
     <title>EShopper - Bootstrap Shop Template</title>

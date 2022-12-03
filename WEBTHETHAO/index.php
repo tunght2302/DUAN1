@@ -114,7 +114,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $ttien = $soluong * $don_gia;
                     $spadd = [$id_sanpham, $ten_sanpham, $hinh, $don_gia, $soluong, $ttien];
                     array_push($_SESSION['mycart'], $spadd);
-                    
+                   
                 }
             }
             include "view/cart/viewcard.php";

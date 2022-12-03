@@ -44,7 +44,7 @@
                                 <td>'.$bill['ngaydathang'].'</td>
                                 <td>'.$countsp.'</td>
                                 <td>$'.$bill['total'].'</td>
-                                <td>'.$ttdh.'</td>
+                                <td><input type="hidden" value="'.$bill_status.'">'.$ttdh.'</td>
                             </tr>';
                             }
                         }

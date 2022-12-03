@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../model/pdo.php";
 include "../model/danh_muc.php";
 include "../model/san_pham.php";
@@ -6,7 +7,9 @@ include "../model/tai_khoan.php";
 include "../model/binhluan.php";
 include "../model/cart.php";
 include "../model/bill.php";
+include "../global.php";
 include "header.php";
+if (!isset($_SESSION['mycart'])) $_SESSION['mycart'] = [];
 // controller
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
@@ -161,16 +164,29 @@ if (isset($_GET['act'])) {
             } else {
                 $kyw = "";
             }
+
             $listbill = loadall_bill($kyw, 0);
             include "bill/listbill.php";
             break;
+        case 'ctbill':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $idbill = $_GET['id'];
+                $onebill = loadone_bill($idbill);
+                extract($onebill);
+                include "bill/ctbill.php";
+            } else {
+                include "bill/listbill.php";
+            }
+            break;
         case 'upstatus':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                $status = loadone_status($_GET['id']);
+                $status = loadone_bill($_GET['id']);
                 if (is_array($status)) {
                     extract($status);
                 }
             }
+            $liststatus = loadall_status();
+            $listbill = loadall_bill();
             include "./bill/upstatus.php";
             break;
         case 'updatestatus':
@@ -183,7 +199,7 @@ if (isset($_GET['act'])) {
             $listbill = loadall_bill();
             include "bill/listbill.php";
             break;
-            // thống kê
+
         case 'deletestatus':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 delete($_GET['id']);
@@ -191,6 +207,7 @@ if (isset($_GET['act'])) {
             $listbill = loadall_bill();
             include "bill/listbill.php";
             break;
+            // thống kê
         case 'thongke':
             $listthongke = loadall_thongke();
             include "thongke/list.php";
