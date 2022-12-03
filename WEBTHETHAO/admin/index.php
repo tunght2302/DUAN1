@@ -199,5 +199,9 @@ if (isset($_GET['act'])) {
             $listthongke = loadall_thongke();
             include "thongke/bieudo.php";
             break;
+        case 'doanh_thu':
+            $listthongke = loadall_thongke_doanhthu();
+            include "thongke/tk_doanhthu.php";
+            break;
     }
 }
