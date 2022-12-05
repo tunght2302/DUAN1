@@ -1,9 +1,10 @@
-<?php 
-    function viewcart(){
-        global $img_path;
-        $tong = 0;
-        $i = 0;
-        echo '
+<?php
+function viewcart()
+{
+    global $img_path;
+    $tong = 0;
+    $i = 0;
+    echo '
         <thead class="bg-secondary text-dark">
             <th>Các sản phẩm</th>
             <th>Giá bán</th>
@@ -12,21 +13,21 @@
             <th></th>
         </thead>
             ';
-        foreach ($_SESSION['mycart'] as $cart) {
-           $hinh = $img_path . $cart[2];
-           $ttien = $cart[3] * $cart[4];
-           $tong += $ttien;
+    foreach ($_SESSION['mycart'] as $cart) {
+        $hinh = $img_path . $cart[2];
+        $ttien = $cart[3] * $cart[4];
+        $tong += $ttien;
         //    $xoasp_td = '<td><a class="btn btn-default update" href="index.php?act=delcart&idcart='.$i.'"></a></td>';
-           $xoasp_td = ' <td class="align-middle"><button class="btn btn-sm btn-primary"><a class="btn btn-default update" href="index.php?act=delcart&idcart='.$i.'"><i class="fa fa-times"></i></a></button></td>';
-         
-           echo '
+        $xoasp_td = ' <td class="align-middle"><button class="btn btn-sm btn-primary"><a class="btn btn-default update" href="index.php?act=delcart&idcart=' . $i . '"><i class="fa fa-times"></i></a></button></td>';
+
+        echo '
         
                     <thead>
 						
 					</thead>
            
            <td class="align-middle">
-                <img src="' . $hinh. '" alt="" style="width:100px;margin-right:30px;">' . $cart[1] . '</td>
+                <img src="' . $hinh . '" alt="" style="width:100px;margin-right:30px;">' . $cart[1] . '</td>
            </td>
            
             <td class="align-middle">
@@ -47,20 +48,20 @@
                     </div>
                 </div>
             </td>
-            <td class="align-middle">$'.$ttien.'</td>
-            '.$xoasp_td.'
+            <td class="align-middle">$' . $ttien . '</td>
+            ' . $xoasp_td . '
             ';
-            
-            $i+=1;
-            }
-       
-    }
 
-    function hoadon_chitiet($listhoadon){
-        global $img_path;
-        $tong = 0;
-        $i = 0;
-        echo '
+        $i += 1;
+    }
+}
+
+function hoadon_chitiet($listhoadon)
+{
+    global $img_path;
+    $tong = 0;
+    $i = 0;
+    echo '
         <thead>
         <tr class="cart_menu">
             <td class="image">Hình ảnh</td>
@@ -72,16 +73,16 @@
         </tr>
     </thead>
         ';
-        foreach ($listhoadon as $cart) {
-           $hinh = $img_path . $cart['hinh'];
-           $tong += $cart['thanhtien'];
-           echo '
+    foreach ($listhoadon as $cart) {
+        $hinh = $img_path . $cart['hinh'];
+        $tong += $cart['thanhtien'];
+        echo '
                     <thead>
 						
 					</thead>
            
            <td class="cart_product">
-            <img src="' . $hinh. '" alt="" height="80px">
+            <img src="' . $hinh . '" alt="" height="80px">
            </td>
            <td class="cart_description">
             <h4><a href="">' . $cart['ten_sanpham'] . '</a></h4>
@@ -103,10 +104,9 @@
        
             
        ';
-       $i+=1;
-       
-       }
-       echo '<tr>
+        $i += 1;
+    }
+    echo '<tr>
        <td class="cart_description"colspan="4">
        <h4><a href="">Tổng đơn hàng:</a></h4>
       
@@ -117,9 +117,9 @@
    </td>
        
    </tr>';
-    }
+}
 
-    function tongdonhang()
+function tongdonhang()
 {
     $tong = 0;
 
@@ -163,8 +163,8 @@ function loadall_bill($kyw = "", $iduser = 0)
 {
     $sql = "SELECT * FROM bill WHERE 1";
     if ($iduser > 0) $sql .= " AND iduser=" . $iduser;
-    // if ($kyw != "") $sql .= " AND id like '%" . $kyw . "%'";
-    if ($kyw != "") $sql .= " AND bill_name like '%" . $kyw . "%'";
+    if ($kyw != "") $sql .= " AND id like '%" . $kyw . "%'";
+    // if ($kyw != "") $sql .= " AND bill_name like '%" . $kyw . "%'";
     $sql .= " ORDER BY id DESC";
     $listbill = pdo_query($sql);
     return $listbill;
@@ -193,7 +193,8 @@ function get_ttdh($n)
     }
     return $tt;
 }
-function get_pttt($n){
+function get_pttt($n)
+{
     switch ($n) {
         case '1':
             $tt = "Thanh toán trực tiếp";
@@ -204,7 +205,7 @@ function get_pttt($n){
         case '3':
             $tt = "Thanh toán online";
             break;
-        
+
         default:
             $tt = "Thanh toán trực tiếp";
             break;
@@ -227,4 +228,3 @@ function loadall_thongke_doanhthu()
     $listtk = pdo_query($sql);
     return $listtk;
 }
-

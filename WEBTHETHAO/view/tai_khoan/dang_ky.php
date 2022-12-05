@@ -40,13 +40,19 @@
                 <h5 class="font-weight-semi-bold mb-3">Đăng kí</h5>
 				<form action="index.php?act=dangky" method="POST"> 
                     <div class="control-group">
-                        <input type="text" class="form-control" style="border:1.5px solid gray" name="ten_dangnhap" placeholder="Tên đăng nhập" required="required" data-validation-required-message="Không được bỏ trống" />
+                        <input type="text" class="form-control" style="border:1.5px solid gray" name="ten_dangnhap" placeholder="Tên đăng nhập"  />
+                        <p class="help-block text-danger"><?php echo isset($error['ten_dangnhap']) ? $error['ten_dangnhap'] : ''; ?></p>
+
                     </div>
                     <div class="control-group" style="margin:10px 0px;">
-                        <input type="email" class="form-control" style="border:1.5px solid gray"   name="email" placeholder="Email" required="required" data-validation-required-message="Không được bỏ trống" />
+                        <input type="email" class="form-control" style="border:1.5px solid gray"   name="email" placeholder="Email"  />
+                        <p class="help-block text-danger"><?php echo isset($error['email']) ? $error['email'] : ''; ?></p>
+
                     </div>
                     <div class="control-group">
-                        <input type="password" class="form-control" style="border:1.5px solid gray"  name="mat_khau" placeholder="Mật khẩu" required="required" data-validation-required-message="Không được bỏ trống" />
+                        <input type="password" class="form-control" style="border:1.5px solid gray"  name="mat_khau" placeholder="Mật khẩu"  />
+                        <p class="help-block text-danger"><?php echo isset($error['mat_khau']) ? $error['mat_khau'] : ''; ?></p>
+
                     </div>
 					<div style="display:flex ;">
 						<div style="margin:10px 0px;">

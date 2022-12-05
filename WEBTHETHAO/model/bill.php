@@ -1,5 +1,4 @@
 <?php
-        
         function update_status($id, $ttdh){
             $sql = "UPDATE `bill` SET `bill_status` = '$ttdh' where `id`=".$id;
             pdo_execute($sql);
@@ -12,7 +11,6 @@
             $sql = "SELECT * FROM `status` ORDER BY id";
             $liststatus= pdo_query($sql);
             return $liststatus;
-            
         }
         
 ?>

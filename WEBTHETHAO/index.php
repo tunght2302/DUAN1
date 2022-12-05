@@ -16,18 +16,51 @@ $dstop5 = loadall_pro_top10();
 
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
+    $error = [];
     switch ($act) {
 
-
         case 'dangky':
-            if (isset($_POST['dangky']) && ($_POST['dangky'] != "")) {
-                $ten_dangnhap = $_POST['ten_dangnhap'];
-                $email = $_POST['email'];
-                $mat_khau = $_POST['mat_khau'];
-                insert_tai_khoan($ten_dangnhap, $email, $mat_khau);
-                $thongbao = "Đã đăng kí thành công";
+            require "validate.php";
+            if (isset($_POST['dangky'])) {
+                if (empty($_POST['ten_dangnhap'])) {
+                    $error['ten_dangnhap'] = "Bạn chưa nhập tên";
+                }
+                if (!is_email($_POST['email'])) {
+                    $error['email'] = "Email không hợp lệ";
+                }
+                if (empty($_POST['mat_khau'])) {
+                    $error['mat_khau'] = "Bạn chưa nhập mật khẩu";
+                }
+                if (empty($error)) {
+                    $ten_dangnhap = isset($_POST['ten_dangnhap']) ? $_POST['ten_dangnhap'] : '';
+                    $email = isset($_POST['email']) ? $_POST['email'] : '';
+                    $mat_khau = isset($_POST['mat_khau']) ? $_POST['mat_khau'] : '';
+                    insert_tai_khoan($ten_dangnhap, $email, $mat_khau);
+                    $thongbao = "Đã đăng kí thành công";
+                }
             }
             include "view/tai_khoan/dang_ky.php";
+            break;
+        case 'dangnhap':
+            if (isset($_POST['dang_nhap'])) {
+                if (empty($_POST['ten_dangnhap'])) {
+                    $error['ten_dangnhap'] = "Vui lòng nhập tên đăng nhập";
+                }
+                if (empty($_POST['mat_khau'])) {
+                    $error['mat_khau'] = "Vui lòng nhập mật khẩu";
+                }
+                if (empty($error)) {
+                    $ten_dangnhap = isset($_POST['ten_dangnhap']) ? $_POST['ten_dangnhap'] : '';
+                    $mat_khau = isset($_POST['mat_khau']) ? $_POST['mat_khau'] : '';
+                    $check_nguoidung = check_nguoidung($ten_dangnhap, $mat_khau);
+                    if (is_array($check_nguoidung)) {
+                        $_SESSION['ten_dangnhap'] = $check_nguoidung;
+                    } else {
+                        $thongbao = "Tài khoản không tồn tại.Vui lòng kiểm tra lại hoặc đăng kí";
+                    }
+                }
+            }
+            include "view/tai_khoan/dang_nhap.php";
             break;
         case 'cap_nhat':
             if (isset($_POST['cap_nhat']) && ($_POST['cap_nhat'])) {
@@ -43,21 +76,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $_SESSION['ten_dangnhap'] = checkuser($ten_dangnhap, $mat_khau);
             }
             include "view/tai_khoan/cap_nhat.php";
-            break;
-        case 'dangnhap':
-            if (isset($_POST['dang_nhap']) && ($_POST['dang_nhap'] != "")) {
-                $ten_dangnhap = $_POST['ten_dangnhap'];
-                $mat_khau = $_POST['mat_khau'];
-                $check_nguoidung = check_nguoidung($ten_dangnhap, $mat_khau);
-                if (is_array($check_nguoidung)) {
-                    $_SESSION['ten_dangnhap'] = $check_nguoidung;
-                    //$thongbao= "Đã đăng nhập thành công";
-                    // header("Location:index.php?act=dangnhap");
-                } else {
-                    $thongbao = "Tài khoản không tồn tại.Vui lòng kiểm tra lại hoặc đăng kí";
-                }
-            }
-            include "view/tai_khoan/dang_nhap.php";
             break;
         case 'quen_matkhau':
             if (isset($_POST['guiemail']) && ($_POST['guiemail'])) {
@@ -114,7 +132,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $ttien = $soluong * $don_gia;
                     $spadd = [$id_sanpham, $ten_sanpham, $hinh, $don_gia, $soluong, $ttien];
                     array_push($_SESSION['mycart'], $spadd);
-                   
                 }
             }
             include "view/cart/viewcard.php";
@@ -128,6 +145,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "view/cart/viewcard.php";
             break;
         case 'bill':
+            
             include "view/cart/bill.php";
             break;
         case 'billconfirm':
@@ -142,7 +160,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 date_default_timezone_set("Asia/Ho_Chi_Minh");
                 $ngaydathang = date('h:i:sa d/m/Y');
                 $tongdonhang = tongdonhang();
-                
+
                 $idbill = insert_bill($iduser, $name, $address, $email, $tel, $ngaydathang, $tongdonhang);
                 foreach ($_SESSION['mycart'] as $cart) {
                     insert_cart($_SESSION['ten_dangnhap']['id_nguoidung'], $cart[0], $cart[2], $cart[1], $cart[3], $cart[4], $cart[5], $idbill);
@@ -157,6 +175,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $listbill = loadall_cart_user($_SESSION['ten_dangnhap']['id_nguoidung']);
             include "view/cart/mybill.php";
             break;
+
         case 'gioithieu':
             include "view/gioithieu.php";
             break;

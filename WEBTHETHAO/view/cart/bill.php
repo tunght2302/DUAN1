@@ -12,7 +12,7 @@
                 <div class="navbar-nav mr-auto py-0">
                     <a href="index.php" class="nav-item nav-link">Home</a>
                     <a href="index.php?act=mybill" class="nav-item nav-link">Đơn hàng của tôi</a>
-                
+
                     <a href="" class="nav-item nav-link">Liên hệ</a>
                 </div>
                 <div class="navbar-nav ml-auto py-0">
@@ -127,52 +127,48 @@
                     $i = 0;
                     echo '
                             <thead class="bg-secondary text-dark">
-                                
                                 <th>Các sản phẩm</th>
                                 <th>Giá bán</th>
                                 <th>Số lượng</th>
                                 <th>Tổng cộng</th>
-                                
                             </thead>
                                 ';
-                    foreach ($_SESSION['mycart'] as $cart) {
+                    foreach ($_SESSION['mycart'] as $cart)
                         $hinh = $img_path . $cart[2];
                         $ttien = $cart[3] * $cart[4];
                         $tong += $ttien;
-                        //    $xoasp_td = '<td><a class="btn btn-default update" href="index.php?act=delcart&idcart='.$i.'"></a></td>';
-                        $xoasp_td = ' <td class="align-middle"><button class="btn btn-sm btn-primary"><a class="btn btn-default update" href="index.php?act=delcart&idcart=' . $i . '"><i class="fa fa-times"></i></a></button></td>';
-
-                        echo '
-                                <thead>
-                                </thead>
-                               <td class="align-middle">
-                                    <img src="' . $hinh . '" alt="" style="width:100px;margin-right:30px;">' . $cart[1] . '</td>
-                               </td>
-                               
-                                <td class="align-middle">
-                                    $' . $cart[3] . '
-                               </td>
-                                <td class="align-middle">
-                                    <div class="input-group quantity mx-auto" style="width: 100px;">
-                                        <div class="input-group-btn">
-                                            <button class="btn btn-sm btn-primary btn-minus" >
-                                                <i class="fa fa-minus"></i>
-                                            </button>
-                                        </div>
-                                        <input type="text" class="form-control form-control-sm bg-secondary text-center" value="' . $cart[4] . '">
-                                        <div>
-                                            <button class="btn btn-sm btn-primary btn-plus">
-                                                <i class="fa fa-plus"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="align-middle">$' . $ttien . '</td>
-                                ';
-
                         $i += 1;
-                    }
+                    //    $xoasp_td = '<td><a class="btn btn-default update" href="index.php?act=delcart&idcart='.$i.'"></a></td>';
+                    $xoasp_td = ' <td class="align-middle"><button class="btn btn-sm btn-primary"><a class="btn btn-default update" href="index.php?act=delcart&idcart=' . $i . '"><i class="fa fa-times"></i></a></button></td>';
                     ?>
+                    
+                    <td class="align-middle">
+                        <img src=" <?= $hinh ?>" alt="" style="width:100px;margin-right:30px;"><?= $cart[1] ?>
+                    </td>
+                    </td>
+
+                    <td class="align-middle">
+                        $<?= $cart[3] ?>
+                    </td>
+                    <td class="align-middle">
+                        <form action="" method="POST">
+                            <div class="input-group quantity mx-auto" style="width: 100px;">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-primary btn-minus">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                                <input type="text" class="form-control form-control-sm bg-secondary text-center" value="<?= $cart[4] ?>">
+                                <div>
+                                    <button class="btn btn-sm btn-primary btn-plus">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+                    <td class="align-middle">$<?= $ttien ?></td>
+                    
                 </table>
             </div>
         </div>

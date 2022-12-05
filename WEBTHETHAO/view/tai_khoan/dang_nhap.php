@@ -64,12 +64,12 @@
                 <h5 class="font-weight-semi-bold mb-3">Đăng nhập</h5>
                 <form action="index.php?act=dangnhap" method="POST">
                     <div class="control-group">
-                        <input type="text" class="form-control" style="border:1.5px solid gray" name="ten_dangnhap" placeholder="Tên đăng nhập" required="required" data-validation-required-message="Không được bỏ trống" />
-                        <p class="help-block text-danger"></p>
+                        <input type="text" class="form-control" style="border:1.5px solid gray" name="ten_dangnhap" placeholder="Tên đăng nhập" />
+                        <p class="help-block text-danger"><?php echo isset($error['ten_dangnhap']) ? $error['ten_dangnhap'] : ''; ?></p>
                     </div>
                     <div class="control-group">
-                        <input type="password" class="form-control" style="border:1.5px solid gray"  name="mat_khau" placeholder="Mật khẩu" required="required" data-validation-required-message="Không được bỏ trống" />
-                        <p class="help-block text-danger"></p>
+                        <input type="password" class="form-control" style="border:1.5px solid gray"  name="mat_khau" placeholder="Mật khẩu" />
+                        <p class="help-block text-danger"><?php echo isset($error['mat_khau']) ? $error['mat_khau'] : ''; ?></p>
                     </div>
                     <span>
 						<input type="checkbox" class="checkbox"> 

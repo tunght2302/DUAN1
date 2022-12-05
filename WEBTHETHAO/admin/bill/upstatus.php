@@ -1,7 +1,6 @@
 <div class="">
     <div class="row adtitle">
         <h1>Cập nhật trạng thái đơn hàng</h1>
-        
     </div>
     <div class="frm_content">
         <form action="index.php?act=updatestatus" method="POST">
