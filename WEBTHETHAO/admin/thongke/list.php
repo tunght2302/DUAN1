@@ -33,5 +33,4 @@
         </table>
     </div>
     <a href="index.php?act=bieu_do"><input type="button"  value="Biểu Đồ"></a >
-    <a href="index.php?act=doanh_thu"><input type="button"  value="Thống Kê Theo Doanh Thu"></a >
 </div>

@@ -12,7 +12,7 @@
                 <div class="navbar-nav mr-auto py-0">
                     <a href="index.php" class="nav-item nav-link">Home</a>
                     <a href="index.php?act=mybill" class="nav-item nav-link">Đơn hàng của tôi</a>
-
+                
                     <a href="" class="nav-item nav-link">Liên hệ</a>
                 </div>
                 <div class="navbar-nav ml-auto py-0">
@@ -121,55 +121,68 @@
     <div class="container-fluid pt-5">
         <div class="row">
             <div class=" table-responsive mb-5" style="text-align:center ;">
-                <table class="table table-bordered text-center mb-0">
-                    <?php
-                    $tong = 0;
-                    $i = 0;
-                    echo '
-                            <thead class="bg-secondary text-dark">
-                                <th>Các sản phẩm</th>
-                                <th>Giá bán</th>
-                                <th>Số lượng</th>
-                                <th>Tổng cộng</th>
-                            </thead>
-                                ';
-                    foreach ($_SESSION['mycart'] as $cart)
-                        $hinh = $img_path . $cart[2];
-                        $ttien = $cart[3] * $cart[4];
-                        $tong += $ttien;
-                        $i += 1;
-                    //    $xoasp_td = '<td><a class="btn btn-default update" href="index.php?act=delcart&idcart='.$i.'"></a></td>';
+            <table class="table table-bordered text-center mb-0">
+                <?php $tong = 0;
+                $i = 0;
+                echo ' 
+                <thead class="bg-secondary text-dark">
+                    <th>Các sản phẩm</th>
+                    <th>Giá bán</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                </thead>
+                        ';
+                if (!$_SESSION['mycart']) {
+                    header('location:index.php');
+                }
+                foreach ($_SESSION['mycart'] as $cart) {
+                    // echo '<pre>';
+                    // print_r($cart);
+                    // die;
+                    $img = $img_path . $cart["hinh"];
+                    $ttien = $cart["so_luong"] * $cart["don_gia"];
+                    $tong += $ttien;
                     $xoasp_td = ' <td class="align-middle"><button class="btn btn-sm btn-primary"><a class="btn btn-default update" href="index.php?act=delcart&idcart=' . $i . '"><i class="fa fa-times"></i></a></button></td>';
-                    ?>
+                ?>
+                    <thead class="bg-secondary text-dark">
                     
+                    </thead>
                     <td class="align-middle">
-                        <img src=" <?= $hinh ?>" alt="" style="width:100px;margin-right:30px;"><?= $cart[1] ?>
-                    </td>
+                        <img src="<?= $img ?>" alt="" style="width:100px;margin-right:30px;"><?= $cart["ten_sanpham"] ?>
                     </td>
 
                     <td class="align-middle">
-                        $<?= $cart[3] ?>
+                        $<?= $cart["don_gia"] ?>
                     </td>
                     <td class="align-middle">
-                        <form action="" method="POST">
-                            <div class="input-group quantity mx-auto" style="width: 100px;">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-primary btn-minus">
-                                        <i class="fa fa-minus"></i>
-                                    </button>
-                                </div>
-                                <input type="text" class="form-control form-control-sm bg-secondary text-center" value="<?= $cart[4] ?>">
-                                <div>
-                                    <button class="btn btn-sm btn-primary btn-plus">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                                </div>
+                        <div class="input-group quantity mx-auto" style="width: 100px;">
+                            <div class="input-group-btn">
+                                <button class="btn btn-sm btn-primary btn-minus">
+                                    <a href="index.php?act=tru_san_pham&id=<?= $cart['id_sanpham'] ?>&ten=<?= $cart['ten_sanpham'] ?>&hinh=<?= $cart['hinh'] ?>&don_gia=<?= $cart['don_gia'] ?>&ttien=<?= $cart['ttien'] ?>"><i class="fa fa-minus" style="color:black;"></i></a>
+                                </button>
                             </div>
-                        </form>
+                            <input type="text" class="form-control form-control-sm bg-secondary text-center" value="<?= $cart["so_luong"] ?>">
+                            <p><?php if (isset($_SESSION['loi'])) {
+                                    echo $_SESSION['loi'];
+                                }
+                                unset($_SESSION['loi']);
+                                ?></p>
+                            <div>
+                                <button class="btn btn-sm btn-primary btn-plus">
+                                    <a href="index.php?act=cong_san_pham&id=<?= $cart['id_sanpham'] ?>&ten=<?= $cart['ten_sanpham'] ?>&hinh=<?= $cart['hinh'] ?>&don_gia=<?= $cart['don_gia'] ?>&ttien=<?= $cart['ttien'] ?>"><i class="fa fa-plus" style="color: black;"></i></a>
+                                </button>
+                            </div>
+                        </div>
                     </td>
                     <td class="align-middle">$<?= $ttien ?></td>
-                    
-                </table>
+                   
+                <?php } ?>
+                     <tr>
+                        <td>Tổng tiền</td>
+                        <td colspan="4">$<?= $tong ?></td>
+                    </tr>
+            </table>
+        </div>
             </div>
         </div>
     </div>

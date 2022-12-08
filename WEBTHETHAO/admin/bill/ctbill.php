@@ -2,11 +2,6 @@
     <h1>Chi tiết đơn hàng</h1>
 </div>
 <div class="frm_content">
-    <form action="" method="POST">
-        <input type="text" name="kyw" style="width: 200px;">
-        <input type="submit" name="search" id="" value="Search">
-    </form>
-
     <div class="row mb frmlist">
             <table>
                 <tr>
@@ -32,7 +27,7 @@
                             <td><input type="checkbox" name="" id=""></td>
                             <td>' .$kh. '</td>
                             <td>' . $countsp . '</td>
-                            <td>' . $total . '</td>
+                            <td>' . $total . ' VND</td>
                             <td>' . $ngaydathang . '</td>
                             <td><input type="hidden" value=' . $bill_pttt . '>
                                 ' . $pttt . '
@@ -47,8 +42,8 @@
         <table>
             <tr>
                 <th>TÊN SẢN PHẨM</th>
-                <th>GIÁ BÁN</th>
-                <th>SỐ LƯỢNG </th>
+                <th>SỐ LƯỢNG</th>
+                <th>GÍA BÁN</th>
                 <th>HÌNH ẢNH</th>
                 <th>TỔNG CỘNG</th>
             </tr>
@@ -58,22 +53,21 @@
             foreach ($_SESSION['mycart'] as $cart) {
                 extract($cart);
                 // $hinh = $img_path . $cart[2];
-                $ttien = $cart[3] * $cart[4];
+                $ttien = $cart["so_luong"] * $cart["don_gia"];
                 $tong += $ttien;
-                $imgpath = "../upload/" . $cart[2];
+                $imgpath = "../upload/" . $cart["hinh"];
                 if (is_file($imgpath)) {
                     $hinh = "<img src='" . $imgpath . "' width='50px' height='50px';>";
                 } else {
                     // echo "Không có ảnh";
                 }
-                echo  '<tr>
-                               
-                                <td>' . $cart[1] . '</td>
-                                <td>' . $cart[3] . '</td>
-                                <td>' . $cart[4] . '</td>
-                                <td>' . $hinh . '</td>
-                                <td>' . $ttien . '</td>
-                            </tr>';
+                echo  ' <tr>
+                            <td>' . $cart["ten_sanpham"] . '</td>
+                            <td>' . $cart["so_luong"] . '</td>
+                            <td>' . $cart["don_gia"] . ' VND</td>
+                            <td>' . $hinh . '</td>
+                            <td>' . $ttien . ' VND</td>
+                        </tr>';
             }
             ?>
 
