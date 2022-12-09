@@ -1,4 +1,5 @@
 <?php
+ 
     function insert_pro($ten_sanpham,$ma_loai,$mo_ta, $don_gia, $hinh,$gia_cu){
         $sql = "INSERT INTO `san_pham` ( `ten_sanpham`,`ma_loai`, `mo_ta`, `don_gia`, `hinh`, `gia_cu`) VALUES ('$ten_sanpham','$ma_loai', '$mo_ta', '$don_gia', '$hinh', '$gia_cu')";
         pdo_execute($sql);
@@ -19,6 +20,11 @@
         $sql.=" ORDER BY id_sanpham DESC";
         $listpro = pdo_query($sql);
         return $listpro;
+    }
+    function load_pro_cart(){
+        $sql = "select * from san_pham order by id_sanpham";
+        $pro_cart = pdo_query($sql);
+        return $pro_cart;
     }
     function loadall_pro_cungloai($keyword, $ma_loai){
         $sql = "SELECT * FROM san_pham WHERE 1";

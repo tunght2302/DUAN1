@@ -10,13 +10,13 @@ $dsdm = loadall_cat();
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -27,112 +27,24 @@ $dsdm = loadall_cat();
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <style>
-        .cart-box {
-            display: grid;
-            grid-template-columns: 32% 50% 18%;
-            align-items: center;
-            margin-top: 1rem;
-        }
-
-        .cart-img {
-            width: 90px;
-            height: auto;
-            object-fit: contain;
-            padding: 10px;
-        }
-
-        .detail-box {
-            display: grid;
-            row-gap: 0.5rem;
-        }
-
-        .cart-product-title {
-            text-align: center;
-            font-size: 20px;
-        }
-
-        .cart-price {
-            margin-right: 155px;
-        }
-
-        .cart-quantity {
-            border: 1px solid var(--text-color);
-            outline-color: var(--main-color);
-            width: 2.4rem;
-            border: 1.5px solid black;
-            border-radius: 4px;
-            text-align: center;
-            font-size: 1rem;
-            margin-left: 5px;
-        }
-
-        .total {
-            display: flex;
-            justify-content: flex-end;
-            margin-top: 1.5rem;
-            border-top: 2px solid black;
-        }
-
-        .btn-buy {
-            display: flex;
-            margin: 1.5rem auto 0 auto;
-            padding: 12px 20px;
-            border: none;
-            background-color: orangered;
-            color: white;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-        }
-       
-        .btn-buy:hover {
-            background-color: gray;
-        }
-
-        .cart {
-            position: fixed;
-            top: 0;
-            right:-100%;
-            width: 300px;
-            min-height: 100vh;
-            padding: 20px;
-            background-color: whitesmoke;
-            box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
-            transition: 0.3s;
-            z-index: 999;
-        }
-
-        .cart.active {
-            right: 0;
-        }
-
-        #close-cart {
-            position: absolute;
-            top: 5px;
-            right: 20px;
-            font-size: 2rem;
-            color: green;
-            cursor: pointer;
+        img{
+            object-fit: cover;
         }
         .noilen{
-            
             position: fixed !important;
             right: 20px;
             top: 20px;
             z-index: 999;
-        }
-        
-        img {
-            object-fit: cover;
+            background-color: whitesmoke;
         }
     </style>
 </head>
 
 <body>
-    <div class="container-fluid">
+<div class="container-fluid">
         <div class="row bg-secondary py-2 px-xl-5">
             <div class="col-lg-6 d-none d-lg-block">
-
+               
             </div>
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
@@ -172,30 +84,14 @@ $dsdm = loadall_cat();
                     </div>
                 </form>
             </div>
-
             <div class="col-lg-3 col-6 text-right">
-                <!-- <i class="fas fa-shopping-cart text-primary" id="cart-icon"></i> -->
-                <a href="index.php?act=addtocart">
-                    <i class="fas fa-shopping-cart text-primary noilen"></i>
+                <a href="" class="btn border">
+                    <i class="fas fa-heart text-primary"></i>
                 </a>
-                <div class="cart">
-                    <!-- //Content -->
-                    <div>
-                        <div class="cart-content">
-                          
-                        </div>
-                        <!-- total -->
-                        <div class="total">
-                            <div class="total-title">Total</div>
-                            <div class="total-price">$0</div>
-                        </div>
-                        <!-- Buy button -->
-                        <a href="index.php?act=addtocart"><button type="button" class="btn-buy">Buy now</button></a>
-                        <!-- close cart -->
-                        <box-icon name='x' id="close-cart"></box-icon>
-                    </div>
-                </div>
-
+                <a href="index.php?act=addtocart" class="btn border noilen">
+                    <i class="fas fa-shopping-cart text-primary"></i>
+                </a>
             </div>
         </div>
     </div>
+        

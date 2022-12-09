@@ -74,6 +74,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                         $thongbao = "Tài khoản không tồn tại.Vui lòng kiểm tra lại hoặc đăng kí";
                     }
                 }
+                // header('Location:index.php');
             }
             include "view/tai_khoan/dang_nhap.php";
             break;
@@ -145,7 +146,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     } else {
                         $_SESSION['mycart'][$id_sanpham]['so_luong'] += $soluong;
                     }
-                    header('location:index.php');
+                    // header('location:index.php');
                 }
             }
             include "view/cart/viewcard.php";
@@ -163,8 +164,11 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
         case 'billconfirm':
             if (isset($_POST['dongydathang']) && ($_POST['dongydathang'])) {
-                if (isset($_SESSION['ten_dangnhap'])) $iduser = $_SESSION['ten_dangnhap']['id_nguoidung'];
-                else $id = 0;
+                if (isset($_SESSION['ten_dangnhap'])) {
+                    $iduser = $_SESSION['ten_dangnhap']['id_nguoidung'];
+                } else {
+                    $id = 0;
+                }
                 $name = $_POST['ho_ten'];
                 $email = $_POST['email'];
                 $address = $_POST['dia_chi'];
@@ -173,25 +177,31 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 date_default_timezone_set("Asia/Ho_Chi_Minh");
                 $ngaydathang = date('h:i:sa d/m/Y');
                 $tongdonhang = tongdonhang();
-
                 $idbill = insert_bill($iduser, $ngaydathang, $tongdonhang);
+               
                 foreach ($_SESSION['mycart'] as $cart) {
+                    
                     insert_cart($_SESSION['ten_dangnhap']['id_nguoidung'], $cart["id_sanpham"], $cart["so_luong"], $cart["ttien"], $idbill);
                 }
 
-                $_SESSION['cart'] = [];
+
+
+                $_SESSION['mycart'] = [];
                 $bill = loadone_bill($idbill);
                 $billct = loadall_cart($idbill);
+            header('Location:index.php?act=chitietbill&id='.$idbill);
             }
-            include "view/cart/billconfirm.php";
             break;
+        case 'chitietbill':
+            include "view/cart/billconfirm.php";
+        break;
         case 'mybill':
             $listbill = loadall_cart_user($_SESSION['ten_dangnhap']['id_nguoidung']);
             include "view/cart/mybill.php";
             break;
             //trừ sản phẩm
         case 'tru_san_pham':
-            if(isset($_GET['id'])){
+            if (isset($_GET['id'])) {
                 $id = $_GET['id'];
             }
             $ten_sanpham = $_GET['ten'];
@@ -211,7 +221,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             header('location:index.php?act=addtocart');
             break;
         case 'cong_san_pham':
-            if(isset($_GET['id'])){
+            if (isset($_GET['id'])) {
                 $id = $_GET['id'];
             }
             $ten_sanpham = $_GET['ten'];

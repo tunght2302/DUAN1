@@ -16,8 +16,8 @@
                     <a href="" class="nav-item nav-link">Liên hệ</a>
                 </div>
                 <div class="navbar-nav ml-auto py-0">
-                    <a href="index.php?act=dangnhap" class="nav-item nav-link">Login</a>
-                    <a href="index.php?act=dangky" class="nav-item nav-link">Register</a>
+                    <a href="index.php?act=dangnhap" class="nav-item nav-link">Tài khoản</a>
+                    <a href="index.php?act=dangky" class="nav-item nav-link">Đăng kí</a>
                 </div>
             </div>
         </nav>
@@ -43,31 +43,44 @@
         <div class="row px-xl-5">
             <div class="col-lg-8">
 				<?php
+                $id=$_GET['id'];
+                $bill = loadone_bill($id);
+                // echo '<pre>';
+                // print_r($bill);die;
 					if(isset($bill)&&(is_array($bill))){
 						extract($bill);
 					}
+                    
             	?>
+                <?php if(isset($_SESSION['ten_dangnhap'])){
+
+                 ?>
                 <div class="mb-4">
                     <h4 class="font-weight-semi-bold mb-4">Thông tin đặt hàng</h4>
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label>Người đặt hàng</label>
-                            <input class="form-control" type="text" value="<?=$name?>" placeholder="Người đặt hàng" disabled>
+                            <input class="form-control" type="text" value="<?=$_SESSION['ten_dangnhap']['ho_ten']?>" placeholder="Người đặt hàng" disabled >
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Địa chỉ</label>
-                            <input class="form-control" type="text" value="<?=$address?>" placeholder="Địa chỉ"disabled>
+                            <input class="form-control" type="text" value="<?=$_SESSION['ten_dangnhap']['dia_chi']?>" placeholder="Địa chỉ"disabled>
                         </div>
                         <div class="col-md-6 form-group">
                             <label>E-mail</label>
-                            <input class="form-control" type="text" value="<?=$email?>" placeholder="E-mail"disabled>
+                            <input class="form-control" type="text" value="<?=$_SESSION['ten_dangnhap']['email']?>" placeholder="E-mail"disabled>
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Số điện thoại</label>
-                            <input class="form-control" type="text" value="<?=$tel?>" placeholder="Số điện thoại"disabled>
+                            <input class="form-control" type="text" value="<?=$_SESSION['ten_dangnhap']['so_dien_thoai']?>" placeholder="Số điện thoại"disabled>
                         </div>
                     </div>
                 </div>
+                <?php }else{
+                    ?>
+                    <h1>Bạn cần đăng nhập để thanh toán</h1>
+                    <?php
+                }?>
             </div>
             <div class="col-lg-4">
                 <div class="card border-secondary mb-5">

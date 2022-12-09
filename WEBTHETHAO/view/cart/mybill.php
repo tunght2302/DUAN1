@@ -15,8 +15,8 @@
                     <a href="" class="nav-item nav-link">Liên hệ</a>
                 </div>
                 <div class="navbar-nav ml-auto py-0">
-                    <a href="index.php?act=dangnhap" class="nav-item nav-link">Login</a>
-                    <a href="index.php?act=dangky" class="nav-item nav-link">Register</a>
+                    <a href="index.php?act=dangnhap" class="nav-item nav-link">Tài khoản</a>
+                    <a href="index.php?act=dangky" class="nav-item nav-link">Đăng kí</a>
                 </div>
             </div>
         </nav>

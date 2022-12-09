@@ -47,6 +47,7 @@
                     <div class="control-group" style="margin:10px 0px;">
                         <input type="email" class="form-control" style="border:1.5px solid gray"   name="email" placeholder="Email"  />
                         <p class="help-block text-danger"><?php echo isset($error['email']) ? $error['email'] : ''; ?></p>
+
                     </div>
                     <div class="control-group">
                         <input type="password" class="form-control" style="border:1.5px solid gray"  name="mat_khau" placeholder="Mật khẩu"  />

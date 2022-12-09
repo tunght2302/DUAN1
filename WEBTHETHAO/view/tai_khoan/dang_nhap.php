@@ -64,18 +64,25 @@
                 <h5 class="font-weight-semi-bold mb-3">Đăng nhập</h5>
                 <form action="index.php?act=dangnhap" method="POST">
                     <div class="control-group">
-                        <input type="text" class="form-control" style="border:1.5px solid gray" name="ten_dangnhap" placeholder="Tên đăng nhập"  />
+                        <input type="text" class="form-control" style="border:1.5px solid gray" name="ten_dangnhap" placeholder="Tên đăng nhập" />
                         <p class="help-block text-danger"><?php echo isset($error['ten_dangnhap']) ? $error['ten_dangnhap'] : ''; ?></p>
                     </div>
                     <div class="control-group">
-                        <input type="password" class="form-control" style="border:1.5px solid gray"  name="mat_khau" placeholder="Mật khẩu"  />
+                        <input type="password" class="form-control" style="border:1.5px solid gray"  name="mat_khau" placeholder="Mật khẩu" />
                         <p class="help-block text-danger"><?php echo isset($error['mat_khau']) ? $error['mat_khau'] : ''; ?></p>
                     </div>
+                    <p style="color: red;">
+                    <?php if(isset($thongbao) && $thongbao !=""){
+                        echo $thongbao;
+                    }?>
+                    </p>
                     <span>
 						<input type="checkbox" class="checkbox"> 
 							Ghi nhớ tài khoản
 					</span>
+                    
                     <div style="margin:5px;">
+                    
                         <input class="btn btn-primary py-2 px-4" type="submit" name="dang_nhap"  value="Đăng nhập" id="sendMessageButton"></input>
                     </div>
                     <li><a href="index.php?act=quen_matkhau">Quên mật khẩu</a></li>

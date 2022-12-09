@@ -16,8 +16,8 @@
                     <a href="" class="nav-item nav-link">Liên hệ</a>
                 </div>
                 <div class="navbar-nav ml-auto py-0">
-                    <a href="index.php?act=dangnhap" class="nav-item nav-link">Login</a>
-                    <a href="index.php?act=dangky" class="nav-item nav-link">Register</a>
+                    <a href="index.php?act=dangnhap" class="nav-item nav-link">Tài khoản</a>
+                    <a href="index.php?act=dangky" class="nav-item nav-link">Đăng kí</a>
                 </div>
             </div>
         </nav>
@@ -29,11 +29,9 @@
 <!-- Page Header Start -->
 <div class="container-fluid bg-secondary mb-5">
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
-        <h1 class="font-weight-semi-bold text-uppercase mb-3">Checkout</h1>
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">Đơn hàng của bạn</h1>
         <div class="d-inline-flex">
             <p class="m-0"><a href="index.php">Home</a></p>
-            <p class="m-0 px-2">-</p>
-            <p class="m-0">Checkout</p>
         </div>
     </div>
 </div>
@@ -64,21 +62,21 @@
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label>Người đặt hàng</label>
-                            <input class="form-control" type="text" name="ho_ten" value="<?= $ho_ten ?>" placeholder="Người đặt hàng">
+                            <input class="form-control" type="text" name="ho_ten" value="<?= $ho_ten ?>" placeholder="Người đặt hàng" disabled>
                         </div>
 
                         <div class="col-md-6 form-group">
                             <label>Email</label>
-                            <input class="form-control" type="text" name="email" value="<?= $email ?>" placeholder="Email">
+                            <input class="form-control" type="text" name="email" value="<?= $email ?>" placeholder="Email" disabled>
                         </div>
 
                         <div class="col-md-6 form-group">
                             <label>Địa chỉ</label>
-                            <input class="form-control" type="text" name="dia_chi" value="<?= $dia_chi ?>" placeholder="Địa chỉ">
+                            <input class="form-control" type="text" name="dia_chi" value="<?= $dia_chi ?>" placeholder="Địa chỉ" disabled>
                         </div>
                         <div class="col-md-6 form-group">
                             <label>Số điện thoại</label>
-                            <input class="form-control" type="text" name="so_dien_thoai" value="<?= $so_dien_thoai ?>" placeholder="Số điện thoại">
+                            <input class="form-control" type="text" name="so_dien_thoai" value="<?= $so_dien_thoai ?>" placeholder="Số điện thoại" disabled>
                         </div>
                         <div class="input-group">
                             <div class="input-group-append">
@@ -152,13 +150,13 @@
                     </td>
 
                     <td class="align-middle">
-                        $<?= $cart["don_gia"] ?>
+                        <?= $cart["don_gia"] ?>VNĐ
                     </td>
                     <td class="align-middle">
                         <div class="input-group quantity mx-auto" style="width: 100px;">
                             <div class="input-group-btn">
-                                <button class="btn btn-sm btn-primary btn-minus">
-                                    <a href="index.php?act=tru_san_pham&id=<?= $cart['id_sanpham'] ?>&ten=<?= $cart['ten_sanpham'] ?>&hinh=<?= $cart['hinh'] ?>&don_gia=<?= $cart['don_gia'] ?>&ttien=<?= $cart['ttien'] ?>"><i class="fa fa-minus" style="color:black;"></i></a>
+                                <button class="btn btn-sm btn-primary btn-minus" disabled>
+                                        <i class="fa fa-minus" style="color:black;"></i>
                                 </button>
                             </div>
                             <input type="text" class="form-control form-control-sm bg-secondary text-center" value="<?= $cart["so_luong"] ?>">
@@ -168,18 +166,18 @@
                                 unset($_SESSION['loi']);
                                 ?></p>
                             <div>
-                                <button class="btn btn-sm btn-primary btn-plus">
-                                    <a href="index.php?act=cong_san_pham&id=<?= $cart['id_sanpham'] ?>&ten=<?= $cart['ten_sanpham'] ?>&hinh=<?= $cart['hinh'] ?>&don_gia=<?= $cart['don_gia'] ?>&ttien=<?= $cart['ttien'] ?>"><i class="fa fa-plus" style="color: black;"></i></a>
+                                <button class="btn btn-sm btn-primary btn-plus" disabled>
+                                    <i class="fa fa-plus" style="color: black;"></i>
                                 </button>
                             </div>
                         </div>
                     </td>
-                    <td class="align-middle">$<?= $ttien ?></td>
+                    <td class="align-middle"><?= $ttien ?>VNĐ</td>
                    
                 <?php } ?>
                      <tr>
-                        <td>Tổng tiền</td>
-                        <td colspan="4">$<?= $tong ?></td>
+                        <td class="bg-secondary text-dark">Tổng tiền</td>
+                        <td colspan="4"><?= $tong ?>VNĐ</td>
                     </tr>
             </table>
         </div>

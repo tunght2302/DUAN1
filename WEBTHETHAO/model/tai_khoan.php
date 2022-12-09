@@ -22,6 +22,11 @@ function loadall_taikhoan(){
   $listtaikhoan = pdo_query($sql);
   return $listtaikhoan;
 }
+function loadone_taikhoan($id_nguoidung){
+  $sql = "SELECT*FROM nguoi_dung WHERE id_nguoidung='$id_nguoidung'";
+  $onetaikhoan = pdo_query_one($sql);
+  return $onetaikhoan;
+}
 function delete_taikhoan($id_nguoidung){
   $sql = "DELETE FROM  nguoi_dung WHERE id_nguoidung=".$id_nguoidung;
   pdo_execute($sql);

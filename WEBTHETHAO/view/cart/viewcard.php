@@ -31,8 +31,7 @@
         <h1 class="font-weight-semi-bold text-uppercase mb-3">GIỎ HÀNG</h1>
         <div class="d-inline-flex">
             <p class="m-0"><a href="index.php">Home</a></p>
-            <p class="m-0 px-2">-</p>
-            <p class="m-0">Shopping Cart</p>
+            
         </div>
     </div>
 </div>
@@ -54,9 +53,7 @@
                     <th></th>
                 </thead>
                         ';
-                if (!$_SESSION['mycart']) {
-                    header('location:index.php');
-                }
+              
                 foreach ($_SESSION['mycart'] as $cart) {
                     // echo '<pre>';
                     // print_r($cart);
@@ -70,25 +67,21 @@
                     
                     </thead>
                     <td class="align-middle">
-                        <img src="<?= $img ?>" alt="" style="width:100px;margin-right:30px;"><?= $cart["ten_sanpham"] ?>
+                        <img src="<?=$img ?>" alt="" style="width:100px;height:auto;margin-right:30px;"><?=$cart["ten_sanpham"] ?>
                     </td>
 
                     <td class="align-middle">
-                        $<?= $cart["don_gia"] ?>
+                        <?= $cart["don_gia"]?> VND
                     </td>
                     <td class="align-middle">
                         <div class="input-group quantity mx-auto" style="width: 100px;">
                             <div class="input-group-btn">
                                 <button class="btn btn-sm btn-primary btn-minus">
-                                    <a href="index.php?act=tru_san_pham&id=<?= $cart['id_sanpham'] ?>&ten=<?= $cart['ten_sanpham'] ?>&hinh=<?= $cart['hinh'] ?>&don_gia=<?= $cart['don_gia'] ?>&ttien=<?= $cart['ttien'] ?>"><i class="fa fa-minus" style="color:black;"></i></a>
+                                    <a href="index.php?act=tru_san_pham&id=<?= $cart['id_sanpham']?>&ten=<?=$cart['ten_sanpham'] ?>&hinh=<?= $cart['hinh'] ?>&don_gia=<?= $cart['don_gia'] ?>&ttien=<?= $cart['ttien'] ?>"><i class="fa fa-minus" style="color:black;"></i></a>
                                 </button>
                             </div>
                             <input type="text" class="form-control form-control-sm bg-secondary text-center" value="<?= $cart["so_luong"] ?>">
-                            <p><?php if (isset($_SESSION['loi'])) {
-                                    echo $_SESSION['loi'];
-                                }
-                                unset($_SESSION['loi']);
-                                ?></p>
+                            
                             <div>
                                 <button class="btn btn-sm btn-primary btn-plus">
                                     <a href="index.php?act=cong_san_pham&id=<?= $cart['id_sanpham'] ?>&ten=<?= $cart['ten_sanpham'] ?>&hinh=<?= $cart['hinh'] ?>&don_gia=<?= $cart['don_gia'] ?>&ttien=<?= $cart['ttien'] ?>"><i class="fa fa-plus" style="color: black;"></i></a>
@@ -96,13 +89,13 @@
                             </div>
                         </div>
                     </td>
-                    <td class="align-middle">$<?= $ttien ?></td>
+                    <td class="align-middle"><?= $ttien ?> VND</td>
                     <?= $xoasp_td ?>
                    
                 <?php } ?>
                      <tr>
-                        <td>Tổng tiền</td>
-                        <td colspan="4">$<?= $tong ?></td>
+                        <td class="bg-secondary text-dark">Tổng tiền</td>
+                        <td colspan="4"><?= $tong ?> VND</td>
                     </tr>
             </table>
         </div>

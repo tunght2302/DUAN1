@@ -108,7 +108,7 @@ if (isset($_GET['act'])) {
                 $ten_sanpham = $_POST['ten_sanpham'];
                 $don_gia = $_POST['don_gia'];
                 $gia_cu = $_POST['gia_cu'];
-                $mo_ta = $_POST['mo _ta'];
+                $mo_ta = $_POST['mo_ta'];
                 $hinh = $_FILES['hinh']['name'];
                 $ma_loai = $_POST['ma_loai'];
                 $target_dir = "upload/";
@@ -164,7 +164,6 @@ if (isset($_GET['act'])) {
             } else {
                 $kyw = "";
             }
-
             $listbill = loadall_bill($kyw, 0);
             include "bill/listbill.php";
             break;
@@ -173,6 +172,7 @@ if (isset($_GET['act'])) {
                 $idbill = $_GET['id'];
                 $onebill = loadone_bill($idbill);
                 extract($onebill);
+                $onecart=loadone_cart($id);
                 include "bill/ctbill.php";
             } else {
                 include "bill/listbill.php";
