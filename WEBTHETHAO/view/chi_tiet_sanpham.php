@@ -15,8 +15,8 @@
                     <a href="" class="nav-item nav-link">Liên hệ</a>
                 </div>
                 <div class="navbar-nav ml-auto py-0">
-                    <a href="index.php?act=dangnhap" class="nav-item nav-link">Login</a>
-                    <a href="index.php?act=dangky" class="nav-item nav-link">Register</a>
+                    <a href="index.php?act=dangnhap" class="nav-item nav-link">Tài khoản</a>
+                    <a href="index.php?act=dangky" class="nav-item nav-link">Đăng kí</a>
                 </div>
             </div>
         </nav>
@@ -25,11 +25,10 @@
 
 <div class="container-fluid bg-secondary mb-5">
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
-        <h1 class="font-weight-semi-bold text-uppercase mb-3">Shop Detail</h1>
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">Chi tiết sản phẩm</h1>
         <div class="d-inline-flex">
             <p class="m-0"><a href="index.php">Home</a></p>
-            <p class="m-0 px-2">-</p>
-            <p class="m-0">Shop Detail</p>
+      
         </div>
     </div>
 </div>
@@ -70,7 +69,7 @@
                 </div>
                 <small class="pt-1">(Đánh giá)</small>
             </div>
-            <h3 class="font-weight-semi-bold mb-4"><?= $don_gia ?> VNĐ</h3>
+            <h3 class="font-weight-semi-bold mb-4"><?= number_format($don_gia)  ?> VNĐ</h3>
             <p class="mb-4"><?= $mo_ta ?></p>
             <!-- <div class="d-flex mb-3">
                 <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
@@ -130,19 +129,7 @@
             <input type="hidden" name="hinh" value="' . $hinh . '">
             <input type="hidden" name="don_gia" value="' . $don_gia . '">
             <div class="d-flex align-items-center mb-4 pt-2">
-            <div class="input-group quantity mr-3" style="width: 130px;">
-                <div class="input-group-btn">
-                    <button class="btn btn-primary btn-minus">
-                        <i class="fa fa-minus"></i>
-                    </button>
-                </div>
-                <input type="text" class="form-control bg-secondary text-center" value="1">
-                <div class="input-group-btn">
-                    <button class="btn btn-primary btn-plus">
-                        <i class="fa fa-plus"></i>
-                    </button>
-                </div>
-            </div>
+            
         <button class="btn btn-primary px-3" name="addtocart" type="submit"><i class="fa fa-shopping-cart mr-1"></i><input type="submit" name="addtocart" class=" btn btn-sm text-dark p-0  btn btn-default add-to-cart"  value="Thêm vào giỏ hàng" ></button>
     </div>
     </form>';
@@ -215,7 +202,7 @@
                         <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                             <h6 class="text-truncate mb-3"><a href="' . $linksp . '">' . $ten_sanpham . '</a></h6>
                             <div class="d-flex justify-content-center">
-                                <h6>$' . $don_gia . '</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                <h6>' . $don_gia . 'VNĐ</h6><h6 class="text-muted ml-2"><del>'.$gia_cu.' VNĐ</del></h6>
                             </div>
                         </div>
                         <div class="card-footer d-flex justify-content-between bg-light border">

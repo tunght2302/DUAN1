@@ -25,6 +25,15 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 if (empty($_POST['ten_dangnhap'])) {
                     $error['ten_dangnhap'] = "Bạn chưa nhập tên";
                 }
+                if (empty($_POST['ho_ten'])) {
+                    $error['ho_ten'] = "Bạn chưa nhập họ tên";
+                }
+                if (empty($_POST['dia_chi'])) {
+                    $error['dia_chi'] = "Bạn chưa nhập địa chỉ";
+                }
+                if (empty($_POST['so_dien_thoai'])) {
+                    $error['so_dien_thoai'] = "Bạn chưa nhập số điện thoại";
+                }
                 if (!is_email($_POST['email'])) {
                     $error['email'] = "Email không hợp lệ";
                 }
@@ -32,10 +41,13 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $error['mat_khau'] = "Bạn chưa nhập mật khẩu";
                 }
                 if (empty($error)) {
+                    $ho_ten = isset($_POST['ho_ten']) ? $_POST['ho_ten'] : '';
+                    $so_dien_thoai = isset($_POST['so_dien_thoai']) ? $_POST['so_dien_thoai'] : '';
+                    $dia_chi = isset($_POST['dia_chi']) ? $_POST['dia_chi'] : '';
                     $ten_dangnhap = isset($_POST['ten_dangnhap']) ? $_POST['ten_dangnhap'] : '';
                     $email = isset($_POST['email']) ? $_POST['email'] : '';
-                    $mat_khau = isset($_POST['mat_khau']) ? $_POST['mat_khau'] : '';
-                    insert_tai_khoan($ten_dangnhap, $email, $mat_khau);
+                    $mat_khau = isset($_POST['mat_khau']) ? md5($_POST['mat_khau']) : '';
+                    insert_tai_khoan($ho_ten, $ten_dangnhap, $mat_khau, $email, $so_dien_thoai, $dia_chi);
                     $thongbao = "Đã đăng kí thành công";
                 }
             }
@@ -66,7 +78,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 }
                 if (empty($error)) {
                     $ten_dangnhap = isset($_POST['ten_dangnhap']) ? $_POST['ten_dangnhap'] : '';
-                    $mat_khau = isset($_POST['mat_khau']) ? $_POST['mat_khau'] : '';
+                    $mat_khau = isset($_POST['mat_khau']) ? md5($_POST['mat_khau']) : '';
                     $check_nguoidung = check_nguoidung($ten_dangnhap, $mat_khau);
                     if (is_array($check_nguoidung)) {
                         $_SESSION['ten_dangnhap'] = $check_nguoidung;
@@ -121,7 +133,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "view/sanpham.php";
             break;
         case 'addtocart':
-
             if (!isset($_SESSION['ten_dangnhap'])) {
                 include('view/tai_khoan/dang_nhap.php');
             } else {
@@ -129,7 +140,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $id_sanpham = $_POST['id_sanpham'];
                     $ten_sanpham = $_POST['ten_sanpham'];
                     $hinh = $_POST['hinh'];
-                    $don_gia = $_POST['don_gia'];
+                    $don_gia = ((float)$_POST['don_gia']);
                     $soluong = 1;
                     $ttien = $soluong * $don_gia;
                     // $spadd = [$id_sanpham, $ten_sanpham, $hinh, $don_gia, $soluong, $ttien];
@@ -148,8 +159,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     }
                     // header('location:index.php');
                 }
+                include "view/cart/viewcard.php";
             }
-            include "view/cart/viewcard.php";
             break;
         case 'delcart':
             if (isset($_GET['idcart'])) {
@@ -178,46 +189,53 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $ngaydathang = date('h:i:sa d/m/Y');
                 $tongdonhang = tongdonhang();
                 $idbill = insert_bill($iduser, $ngaydathang, $tongdonhang);
-               
+
                 foreach ($_SESSION['mycart'] as $cart) {
-                    
+
                     insert_cart($_SESSION['ten_dangnhap']['id_nguoidung'], $cart["id_sanpham"], $cart["so_luong"], $cart["ttien"], $idbill);
                 }
-
 
 
                 $_SESSION['mycart'] = [];
                 $bill = loadone_bill($idbill);
                 $billct = loadall_cart($idbill);
-            header('Location:index.php?act=chitietbill&id='.$idbill);
+                header('Location:index.php?act=chitietbill&id=' . $idbill);
             }
             break;
         case 'chitietbill':
             include "view/cart/billconfirm.php";
-        break;
-        case 'mybill':
-            $listbill = loadall_cart_user($_SESSION['ten_dangnhap']['id_nguoidung']);
-            include "view/cart/mybill.php";
             break;
-            //trừ sản phẩm
+        case 'mybill':
+            if (!isset($_SESSION['ten_dangnhap'])) {
+                include('view/tai_khoan/dang_nhap.php');
+            } else {
+                $listbill = loadall_cart_user($_SESSION['ten_dangnhap']['id_nguoidung']);
+                include "view/cart/mybill.php";
+            }
+            break;
         case 'tru_san_pham':
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
             }
-            $ten_sanpham = $_GET['ten'];
-            $hinh = $_GET['hinh'];
-            $don_gia = $_GET['don_gia'];
-            $ttien = $_GET['ttien'];
-            $so_luong_new = $_SESSION['mycart'][$id]['so_luong'] - 1;
+            if ($_SESSION['mycart'][$id]['so_luong'] == 0) {
+                $_SESSION['loi'] = 'Không được chọn số lượng nhỏ hơn 0';
+                header('location:index.php?act=addtocart');
+            } else {
+                $ten_sanpham = $_GET['ten'];
+                $hinh = $_GET['hinh'];
+                $don_gia = $_GET['don_gia'];
+                $ttien = $_GET['ttien'];
+                $so_luong_new = $_SESSION['mycart'][$id]['so_luong'] - 1;
 
-            $_SESSION['mycart'][$id] = array(
-                'id_sanpham' => $id,
-                'ten_sanpham' => $ten_sanpham,
-                'hinh' => $hinh,
-                'don_gia' => $don_gia,
-                'so_luong' => $so_luong_new,
-                'ttien' => $ttien,
-            );
+                $_SESSION['mycart'][$id] = array(
+                    'id_sanpham' => $id,
+                    'ten_sanpham' => $ten_sanpham,
+                    'hinh' => $hinh,
+                    'don_gia' => $don_gia,
+                    'so_luong' => $so_luong_new,
+                    'ttien' => $ttien,
+                );
+            }
             header('location:index.php?act=addtocart');
             break;
         case 'cong_san_pham':

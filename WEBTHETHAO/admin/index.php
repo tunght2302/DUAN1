@@ -55,8 +55,6 @@ if (isset($_GET['act'])) {
             include "./danh_muc/list.php";
             break;
 
-
-            /*Controller products */
         case 'addpro':
             //Check nguoi dung co click vo nut submit ko
             if (isset($_POST['submit']) && ($_POST['submit'])) {
@@ -81,6 +79,19 @@ if (isset($_GET['act'])) {
             $listcat = loadall_cat();
             include "./san_pham/addpro.php";
             break;
+        case 'listbill':
+            if (isset($_POST['search']) && ($_POST['search'])) {
+                $keyword = $_POST['keyword'];
+                $ttdh = $_POST['bill_status'];
+            } else {
+                $keyword = "";
+                $ttdh = 0;
+            }
+            $listbill = loadall_bill_cungloai($keyword, $ttdh);
+            $liststatus = loadall_status();
+            include "bill/listbill.php";
+            break;
+            /*Controller products */
         case 'listpro':
             if (isset($_POST['search']) && ($_POST['search'])) {
                 $keyword = $_POST['keyword'];
@@ -172,7 +183,7 @@ if (isset($_GET['act'])) {
                 $idbill = $_GET['id'];
                 $onebill = loadone_bill($idbill);
                 extract($onebill);
-                $onecart=loadone_cart($id);
+                $onecart = loadone_cart($id);
                 include "bill/ctbill.php";
             } else {
                 include "bill/listbill.php";

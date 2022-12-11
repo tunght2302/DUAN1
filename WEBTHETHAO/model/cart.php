@@ -97,6 +97,14 @@ function loadall_cart()
     $bill = pdo_query($sql);
     return $bill;
 }
+function loadall_cart_ct($id_nguoi_dung)
+{
+    $sql = "SELECT A.ten_sanpham,A.don_gia,B.soluong,A.hinh,B.thanhtien FROM san_pham A INNER JOIN cart B on A.id_sanpham = B.idpro
+    INNER JOIN nguoi_dung C on B.iduser = C.id_nguoidung
+    WHERE C.id_nguoidung = $id_nguoi_dung";
+    $bill = pdo_query($sql);
+    return $bill;
+}
 function loadone_cart($id)
 {
     $sql = "SELECT * FROM cart WHERE id=".$id;

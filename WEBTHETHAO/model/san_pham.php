@@ -22,7 +22,7 @@
         return $listpro;
     }
     function load_pro_cart(){
-        $sql = "select * from san_pham order by id_sanpham";
+        $sql = "SELECT * FROM san_pham ORDER BY id_sanpham";
         $pro_cart = pdo_query($sql);
         return $pro_cart;
     }

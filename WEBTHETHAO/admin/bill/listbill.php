@@ -2,8 +2,17 @@
     <h1>Danh sách đơn hàng </h1>
 </div>
 <div class="frm_content">
-    <form action="#" method="POST">
-        <input type="text" name="kyw" style="width: 200px;">
+    <form action="index.php?act=listbill" method="POST">
+        <input type="text" name="keyword" style="width: 200px;">
+        <select name="bill_status" style="padding: 2px; font-size: 1vw;">
+            <option value="0" selected>Tất cả</option>
+            <?php
+            foreach ($liststatus as $stt) {
+                extract($stt);
+                echo '<option value="' . $id . '">' . $name . '</option>';
+            }
+            ?>
+        </select>
         <input type="submit" name="search" id="" value="Search">
     </form>
     <div class="row mb frmlist">
@@ -12,7 +21,7 @@
                 <th></th>
                 <th>MÃ ĐƠN HÀNG</th>
                 <th>THÔNG TIN KHÁCH HÀNG</th>
-                <th>SỐ LƯỢNG HÀNG</th>
+                <th>SỐ LƯỢNG MẶT HÀNG</th>
                 <th>GIÁ TRỊ ĐƠN HÀNG</th>
                 <th>NGÀY ĐẶT HÀNG</th>
                 <th>TÌNH TRẠNG ĐƠN HÀNG</th>
@@ -46,7 +55,7 @@
                 <tr>
                     <td><input type="checkbox" name="" id=""></td>
                     <td><?= $bill['id'] ?></td>
-                    <td><?=$kh?></td>
+                    <td><?= $kh ?></td>
                     <td><?= $countsp ?></td>
                     <td><?= $bill['total'] ?></td>
                     <td><?= $bill['ngaydathang'] ?></td>

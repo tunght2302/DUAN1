@@ -50,7 +50,6 @@
 					if(isset($bill)&&(is_array($bill))){
 						extract($bill);
 					}
-                    
             	?>
                 <?php if(isset($_SESSION['ten_dangnhap'])){
 

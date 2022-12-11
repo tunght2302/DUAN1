@@ -13,7 +13,7 @@
                         foreach ($dsdm as $dm) {
                             extract($dm);
                             $linkcat = "index.php?act=sanpham&ma_loai=" . $id;
-                            echo '<li><a href="' . $linkcat . '" class="nav-item nav-link">' . $ten_loai . '</a></li>
+                            echo '<li><a href="'. $linkcat . '" class="nav-item nav-link">' . $ten_loai . '</a></li>
                             ';
                         }
                         ?>
@@ -182,40 +182,40 @@
                             extract($sp);
                             $linksp = "index.php?act=chi_tiet_sanpham&id=" . $id_sanpham;
                             $img = $img_path . $hinh;
-                            echo '  
+                            ?>
                             <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                                 <div class="card product-item border-0 mb-4">
                                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <a href="' . $linksp . '" ><img class="img-fluid w-100" src="' . $img . '" alt=""></a>
+                                    <a href=" <?=$linksp?>" ><img class="img-fluid w-100" src="<?=$img?>" alt=""></a>
                                     </div>
                                     <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                                        <h6 "><a href="' . $linksp . '" ><p >' . $ten_sanpham . '</p></a></h6>
+                                        <h6><a href="<?=$linksp?>" ><p> <?=$ten_sanpham?></p></a></h6>
                                         <div class="d-flex justify-content-center">
-                                            <h6><a href="' . $linksp . '">' . $don_gia . ' VNĐ</a></h6><h6 class="text-muted ml-2"><del>' . $gia_cu . ' VNĐ</del></h6>
+                                            <h6><a href="<?=$linksp?>"><?=number_format($don_gia)?> VNĐ</a></h6><h6 class="text-muted ml-2"><del><?= number_format($gia_cu)?> VNĐ</del></h6>
                                         </div>
                                     </div>
                                     <div class="card-footer d-flex justify-content-between bg-light border">
                                     <div>
                                         <form action="index.php?act=addtocart" method="POST">
-                                            <input type="hidden" name="id_sanpham" value="' . $id_sanpham . '">
-                                            <input type="hidden" name="ten_sanpham" value="' . $ten_sanpham . '">
-                                            <input type="hidden" name="hinh" value="' . $hinh . '">
-                                            <input type="hidden" name="don_gia" value="' . $don_gia . '">
+                                            <input type="hidden" name="id_sanpham" value="<?=$id_sanpham?>">
+                                            <input type="hidden" name="ten_sanpham" value="<?=$ten_sanpham?>">
+                                            <input type="hidden" name="hinh" value="<?=$hinh?>">
+                                            <input type="hidden" name="don_gia" value="<?=$don_gia?>">
                                             <i class="fas fa-shopping-cart text-primary mr-1"></i>
                                             <button type="submit" name="addtocart" class=" btn btn-sm text-dark p-0  btn btn-default add-to-cart "  value="Giỏ hàng" >Giỏ hàng</button>
                                         </form>
                                     </div>
-                                        <a href="' . $linksp . '" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i> Chi tiết</a>
+                                        <a href=" <?=$linksp?>" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i> Chi tiết</a>
                                     </div>
                                 </div>
                             </div>
-                            ';
+                            
+                       <?php
                             $i += 1;
-                        }
+                    }
                         ?>
 
-
-                       <div class="col-12 pb-1">
+                       <!-- <div class="col-12 pb-1">
                            <nav aria-label="Page navigation">
                                <ul class="pagination justify-content-center mb-3">
                                    <li class="page-item disabled">
@@ -235,7 +235,7 @@
                                    </li>
                                </ul>
                            </nav>
-                       </div>
+                       </div> -->
                    </div>
                </div>
                <!-- Shop Product End -->

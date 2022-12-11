@@ -1,6 +1,7 @@
 <?php
-  function insert_tai_khoan($ten_dangnhap,$email,$mat_khau){
-    $sql = "INSERT INTO `nguoi_dung` ( `ten_dangnhap`,`email`,`mat_khau`) VALUES ('$ten_dangnhap','$email','$mat_khau')";
+  function insert_tai_khoan($ho_ten, $ten_dangnhap, $mat_khau, $email, $so_dien_thoai, $dia_chi){
+    $sql = "INSERT INTO `nguoi_dung`(`ma_loai_nguoidung`, `ho_ten`, `ten_dangnhap`, `mat_khau`, `email`, `so_dien_thoai`, `dia_chi`) 
+                              VALUES ('2','$ho_ten','$ten_dangnhap','$mat_khau','$email','$so_dien_thoai','$dia_chi')";
     pdo_execute($sql);
 }
 function check_nguoidung($ten_dangnhap,$mat_khau){
@@ -35,5 +36,10 @@ function checkuser($ten_dangnhap, $mat_khau){
   $sql = "SELECT * FROM nguoi_dung WHERE ten_dangnhap='".$ten_dangnhap."' AND mat_khau='".$mat_khau."'";
   $sp = pdo_query_one($sql);
   return $sp;
+}
+function loadone_nguoidung($ma_loai_nguoidung){
+  $sql = "SELECT*FROM loai_nguoidung WHERE ma_loai_nguoidung='$ma_loai_nguoidung'";
+  $onetaikhoan = pdo_query_one($sql);
+  return $onetaikhoan;
 }
 ?>

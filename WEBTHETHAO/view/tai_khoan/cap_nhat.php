@@ -17,7 +17,7 @@
                         </div>
                         <div class="navbar-nav ml-auto py-0">
                             <a href="index.php?act=dangnhap" class="nav-item nav-link">Tài Khoản</a>
-                            <a href="" class="nav-item nav-link">Đăng Ký</a>
+                            <a href="index.php?act=dangky" class="nav-item nav-link">Đăng Ký</a>
                         </div>
                     </div>
                 </nav>

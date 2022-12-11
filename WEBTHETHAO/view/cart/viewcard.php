@@ -31,7 +31,7 @@
         <h1 class="font-weight-semi-bold text-uppercase mb-3">GIỎ HÀNG</h1>
         <div class="d-inline-flex">
             <p class="m-0"><a href="index.php">Home</a></p>
-            
+
         </div>
     </div>
 </div>
@@ -53,10 +53,10 @@
                     <th></th>
                 </thead>
                         ';
-              
+
                 foreach ($_SESSION['mycart'] as $cart) {
                     // echo '<pre>';
-                    // print_r($cart);
+                    // print_r($_SESSION['mycart']);
                     // die;
                     $img = $img_path . $cart["hinh"];
                     $ttien = $cart["so_luong"] * $cart["don_gia"];
@@ -64,24 +64,23 @@
                     $xoasp_td = ' <td class="align-middle"><button class="btn btn-sm btn-primary"><a class="btn btn-default update" href="index.php?act=delcart&idcart=' . $i . '"><i class="fa fa-times"></i></a></button></td>';
                 ?>
                     <thead class="bg-secondary text-dark">
-                    
+
                     </thead>
                     <td class="align-middle">
-                        <img src="<?=$img ?>" alt="" style="width:100px;height:auto;margin-right:30px;"><?=$cart["ten_sanpham"] ?>
+                        <img src="<?= $img ?>" alt="" style="width:100px;height:auto;margin-right:30px;"><?= $cart["ten_sanpham"] ?>
                     </td>
 
                     <td class="align-middle">
-                        <?= $cart["don_gia"]?> VND
+                        <?= $cart["don_gia"] ?> VNĐ
                     </td>
                     <td class="align-middle">
                         <div class="input-group quantity mx-auto" style="width: 100px;">
                             <div class="input-group-btn">
                                 <button class="btn btn-sm btn-primary btn-minus">
-                                    <a href="index.php?act=tru_san_pham&id=<?= $cart['id_sanpham']?>&ten=<?=$cart['ten_sanpham'] ?>&hinh=<?= $cart['hinh'] ?>&don_gia=<?= $cart['don_gia'] ?>&ttien=<?= $cart['ttien'] ?>"><i class="fa fa-minus" style="color:black;"></i></a>
+                                    <a href="index.php?act=tru_san_pham&id=<?= $cart['id_sanpham'] ?>&ten=<?= $cart['ten_sanpham'] ?>&hinh=<?= $cart['hinh'] ?>&don_gia=<?= $cart['don_gia'] ?>&ttien=<?= $cart['ttien'] ?>&idcart=<?= $i ?>"><i class="fa fa-minus" style="color:black;"></i></a>
                                 </button>
                             </div>
-                            <input type="text" class="form-control form-control-sm bg-secondary text-center" value="<?= $cart["so_luong"] ?>">
-                            
+                            <input type="text" min="1" class="form-control form-control-sm bg-secondary text-center" value="<?= $cart["so_luong"] ?>">
                             <div>
                                 <button class="btn btn-sm btn-primary btn-plus">
                                     <a href="index.php?act=cong_san_pham&id=<?= $cart['id_sanpham'] ?>&ten=<?= $cart['ten_sanpham'] ?>&hinh=<?= $cart['hinh'] ?>&don_gia=<?= $cart['don_gia'] ?>&ttien=<?= $cart['ttien'] ?>"><i class="fa fa-plus" style="color: black;"></i></a>
@@ -89,14 +88,16 @@
                             </div>
                         </div>
                     </td>
-                    <td class="align-middle"><?= $ttien ?> VND</td>
+                    <td class="align-middle"><?= number_format($ttien); ?> VNĐ</td>
                     <?= $xoasp_td ?>
-                   
-                <?php } ?>
-                     <tr>
-                        <td class="bg-secondary text-dark">Tổng tiền</td>
-                        <td colspan="4"><?= $tong ?> VND</td>
-                    </tr>
+
+                <?php 
+            $i += 1;
+            } ?>
+                <tr>
+                    <td class="bg-secondary text-dark">Tổng tiền</td>
+                    <td colspan="4"><?= $tong ?> VND</td>
+                </tr>
             </table>
         </div>
         <div class="input-group">

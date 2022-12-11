@@ -13,10 +13,18 @@
             $liststatus= pdo_query($sql);
             return $liststatus;
         }
-        function insert_cthoadon(){
-            $sql = "INSERT INTO `ct_hoadon`(`id`, `id_sanpham`, `id_bill`) 
-            VALUES ('[value-1]','[value-2]','[value-3]')";
-            return pdo_execute_return_lastInsertId($sql);
+        function loadall_bill_cungloai($keyword, $ttdh){
+            $sql = "SELECT * FROM bill WHERE 1";
+            if($keyword!=""){
+                $sql.=" and bill_status like '%".$keyword."%'";
+            }
+            if($ttdh>0){
+                $sql.=" and bill_status= '".$ttdh."'";
+            }
+            
+            $sql.=" ORDER BY id DESC";
+            $liststatus= pdo_query($sql);
+            return $liststatus;
         }
         
 ?>
