@@ -186,7 +186,7 @@
                             <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                                 <div class="card product-item border-0 mb-4">
                                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                    <a href=" <?=$linksp?>" ><img class="img-fluid w-100" src="<?=$img?>" alt=""></a>
+                                    <a href=" <?=$linksp?>" ><img  style="width: 300px; height: 280px;" src="<?=$img?>"  alt=""></a>
                                     </div>
                                     <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                         <h6><a href="<?=$linksp?>" ><p> <?=$ten_sanpham?></p></a></h6>

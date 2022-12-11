@@ -54,7 +54,6 @@ if (isset($_GET['act'])) {
             $listcat = loadall_cat();
             include "./danh_muc/list.php";
             break;
-
         case 'addpro':
             //Check nguoi dung co click vo nut submit ko
             if (isset($_POST['submit']) && ($_POST['submit'])) {
