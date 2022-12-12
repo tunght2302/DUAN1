@@ -73,10 +73,10 @@
     }
     return $tong;
 }
-function insert_bill($iduser,$ngaydathang, $tongdonhang)
+function insert_bill($iduser,$ngaydathang, $tongdonhang, $bill_status)
 {
-    $sql = " INSERT INTO `bill`(`iduser`,`ngaydathang`, `total`)
-        VALUES ('$iduser','$ngaydathang','$tongdonhang')";
+    $sql = " INSERT INTO `bill`(`iduser`,`ngaydathang`, `total`, `bill_status`)
+        VALUES ('$iduser','$ngaydathang','$tongdonhang','$bill_status')";
     return pdo_execute_return_lastInsertId($sql);
 }
 function insert_cart($iduser,$idpro,$soluong, $thanhtien,$idbill)

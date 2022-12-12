@@ -189,7 +189,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 date_default_timezone_set("Asia/Ho_Chi_Minh");
                 $ngaydathang = date('h:i:sa d/m/Y');
                 $tongdonhang = tongdonhang();
-                $idbill = insert_bill($iduser, $ngaydathang, $tongdonhang);
+                $bill_status = 1;
+                $idbill = insert_bill($iduser, $ngaydathang, $tongdonhang,$bill_status);
 
                 foreach ($_SESSION['mycart'] as $cart) {
 
