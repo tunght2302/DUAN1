@@ -19,7 +19,7 @@
                                 <th>Họ tên</th>
                                 <th>Tên tài khoản</th>
                                 <th>Mật khẩu</th>
-                                <th>Eamil</th>
+                                <th>Email</th>
                                 <th>Số điện thoại</th>
                                 <th>Địa chỉ</th>
                                 <th>Vai trò</th>
@@ -44,7 +44,6 @@
                                     <td><?= $dia_chi ?></td>
                                     <td><?=$loainguoidung['ten_nguoidung']?></td>
                                     <td> <a href="<?= $deletetk ?>"><button class="btn btn-primary btn-sm trash" type="button" title="Xóa" onclick="myFunction(this)"><i class="fas fa-trash-alt"></i></a>
-                                       
                                     </td>
                             </tbody>
                         <?php } ?>

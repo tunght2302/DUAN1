@@ -42,16 +42,14 @@
                             $delete = "index.php?act=deletestatus&id=" . $id;
                             $ttdh = get_ttdh($bill['bill_status']);
                             $countsp = loadall_cart_count($bill['id']);
-
-
                         ?>
                             <?php
                             $onetaikhoan = loadone_taikhoan($bill['iduser']);
                             extract($onetaikhoan);
-                            $kh = $onetaikhoan['ho_ten'] . '
-                            <br> ' . $onetaikhoan['email'] . '
-                            <br> ' . $onetaikhoan['dia_chi'] . '
-                            <br> ' . $onetaikhoan['so_dien_thoai'];
+                            $kh = 'Họ tên :' .  $onetaikhoan['ho_ten'] . '
+                            <br> '.'Email :' . $onetaikhoan['email'] . '
+                            <br> '.'Địa chỉ :' . $onetaikhoan['dia_chi'] . '
+                            <br> '.'Số điện thoại :' . $onetaikhoan['so_dien_thoai'];
                             ?>
                             <tbody>
                                 <tr>
@@ -67,10 +65,10 @@
                                     <td>
                                         <label>
                                             <input type="hidden" name="id" value="<?php if (isset($id) && ($id > 0)) echo $id; ?>">
-                                            <a href="<?= $ctbill ?>"><input  style="background-color:gainsboro;border-radius:5px;border:none;margin:5px; padding: 5px;"type="button" value="Chi tiết đơn hàng"></a>
+                                            <a href="<?=$ctbill?>"><input  style="background-color:gainsboro;border-radius:5px;border:none;margin:5px; padding: 5px;"type="button" value="Chi tiết đơn hàng"></a>
                                         </label>
                                     </td>
-                                    <td><a href="<?= $delete  ?>"><button class="btn btn-primary btn-sm trash" type="button" title="Xóa" onclick="myFunction(this)"><i class="fas fa-trash-alt"></i></a>
+                                    <td><a href="<?=$delete?>"><button class="btn btn-primary btn-sm trash" type="button" title="Xóa" onclick="myFunction(this)"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                             </tbody>
                         <?php } ?>

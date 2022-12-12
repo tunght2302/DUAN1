@@ -78,19 +78,7 @@ if (isset($_GET['act'])) {
             $listcat = loadall_cat();
             include "./san_pham/addpro.php";
             break;
-        case 'listbill':
-            if (isset($_POST['search']) && ($_POST['search'])) {
-                $keyword = $_POST['keyword'];
-                $ttdh = $_POST['bill_status'];
-            } else {
-                $keyword = "";
-                $ttdh = 0;
-            }
-            $listbill = loadall_bill_cungloai($keyword, $ttdh);
-            $liststatus = loadall_status();
-            include "bill/listbill.php";
-            break;
-            /*Controller products */
+
         case 'listpro':
             if (isset($_POST['search']) && ($_POST['search'])) {
                 $keyword = $_POST['keyword'];
@@ -169,14 +157,27 @@ if (isset($_GET['act'])) {
             include "binhluan/list.php";
             break;
         case 'listbill':
-            if (isset($_POST['kyw']) && ($_POST['kyw'] != "")) {
-                $kyw = $_POST['kyw'];
+            if (isset($_POST['search']) && ($_POST['search'])) {
+                $keyword = $_POST['keyword'];
+                $ttdh = $_POST['bill_status'];
             } else {
-                $kyw = "";
+                $keyword = "";
+                $ttdh = 0;
             }
-            $listbill = loadall_bill($kyw, 0);
+            $listbill = loadall_bill_cungloai($keyword, $ttdh);
+            $liststatus = loadall_status();
             include "bill/listbill.php";
             break;
+            /*Controller products */
+        // case 'listbill':
+        //     if (isset($_POST['kyw']) && ($_POST['kyw'] != "")) {
+        //         $kyw = $_POST['kyw'];
+        //     } else {
+        //         $kyw = "";
+        //     }
+        //     $listbill = loadall_bill($kyw, 0);
+        //     include "bill/listbill.php";
+        //     break;
         case 'ctbill':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $idbill = $_GET['id'];

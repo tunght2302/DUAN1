@@ -40,7 +40,7 @@
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td><?= $kh ?></td>
                                 <td><?= $countsp ?></td>
-                                <td><?= $total ?></td>
+                                <td><?= number_format($total)?>VNĐ</td>
                                 <td><?= $ngaydathang ?></td>
                                 <td><input type="hidden" value='<?= $bill_pttt ?>'>
                                     <?= $pttt ?>
@@ -73,10 +73,10 @@
                                 <tr>
                                 <tr>
                                     <td><?= $cart['ten_sanpham'] ?></td>
-                                    <td><?= $cart['don_gia'] ?></td>
+                                    <td><?= number_format($cart['don_gia'])?>VNĐ</td>
                                     <td><?= $cart['soluong'] ?></td>
                                     <td><img src="../upload/<?= $cart['hinh'] ?>" width="100px" alt=""></td>
-                                    <td><?= $cart['thanhtien'] ?></td>
+                                    <td><?= number_format($cart['thanhtien'])  ?>VNĐ</td>
                                 </tr>
                             </tbody>
                         <?php } ?>

@@ -78,4 +78,8 @@
         pdo_execute($sql);
         
     }
+    function tang_view($id_sanpham){
+        $sql="UPDATE `san_pham` SET luot_xem = luot_xem + 1 WHERE `id_sanpham` = '$id_sanpham'";
+        pdo_query($sql);
+    }
 ?>

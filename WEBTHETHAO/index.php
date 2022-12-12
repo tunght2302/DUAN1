@@ -111,6 +111,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $idsp = $_GET['id'];
                 $onesp = loadone_pro($idsp);
                 extract($onesp);
+                tang_view($idsp);
                 $sp_cungloai = load_pro_cungloai($id_sanpham, $ma_loai);
                 include "view/chi_tiet_sanpham.php";
             } else {
