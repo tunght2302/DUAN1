@@ -97,11 +97,12 @@ function loadall_cart()
     $bill = pdo_query($sql);
     return $bill;
 }
-function loadall_cart_ct($id_nguoi_dung)
+function loadall_cart_ct($id_nguoi_dung,$ngay_dat)
 {
     $sql = "SELECT A.ten_sanpham,A.don_gia,B.soluong,A.hinh,B.thanhtien FROM san_pham A INNER JOIN cart B on A.id_sanpham = B.idpro
     INNER JOIN nguoi_dung C on B.iduser = C.id_nguoidung
-    WHERE C.id_nguoidung = $id_nguoi_dung";
+    INNER JOIN bill D on D.id = B.idbill
+    WHERE C.id_nguoidung = $id_nguoi_dung and D.ngaydathang = '$ngay_dat'";
     $bill = pdo_query($sql);
     return $bill;
 }

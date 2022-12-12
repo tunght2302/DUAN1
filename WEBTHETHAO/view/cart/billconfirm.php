@@ -97,7 +97,7 @@
                         </div>
                         <div class="d-flex justify-content-between">
                             <p>Tổng đơn hàng</p>
-                            <p>$<?=$bill['total']?></p>
+                            <p><?= number_format($bill['total'])?>VNĐ</p>
                         </div>
                     </div>
                     

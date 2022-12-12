@@ -24,6 +24,8 @@
                         extract($onebill);
                         $pttt = get_pttt('bill_pttt');
                         $countsp = loadall_cart_count($id);
+                        // echo '<pre>';
+                        // print_r($onebill);
                         ?>
                         <?php
                         $onetaikhoan = loadone_taikhoan($onebill['iduser']);
@@ -60,13 +62,13 @@
                             </tr>
                         </thead>
                         <?php
-                        $allcart = loadall_cart_ct($iduser);
+                        $allcart = loadall_cart_ct($iduser,$ngaydathang);
                         $tong = 0;
                         $i = 0;
                         foreach ($allcart as $cart) {
                             extract($cart);
                             // echo'<pre>';
-                            // print_r($cart);
+                            // print_r($ngaydathang);
                         ?>
 
                             <tbody>

@@ -208,9 +208,8 @@ if (isset($_GET['act'])) {
                 $thongbao = "Update Succesfull";
             }
             $listbill = loadall_bill();
-            include "bill/listbill.php";
+            header('location:index.php?act=listbill');
             break;
-
         case 'deletestatus':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 delete($_GET['id']);

@@ -96,7 +96,7 @@
             } ?>
                 <tr>
                     <td class="bg-secondary text-dark">Tổng tiền</td>
-                    <td colspan="4"><?= $tong ?> VND</td>
+                    <td colspan="4"><?= number_format($tong)  ?> VND</td>
                 </tr>
             </table>
         </div>

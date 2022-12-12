@@ -55,12 +55,12 @@
                                 <tr>
                                     <td><input type="checkbox" name="" id=""></td>
                                     <td><?= $bill['id'] ?></td>
-                                    <td><?= $kh ?></td>
+                                    <td  style="width: 200px;"><?= $kh ?></td>
                                     <td><?= $countsp ?></td>
-                                    <td><?= $bill['total'] ?></td>
+                                    <td><?= number_format($bill['total'])?>VNĐ</td>
                                     <td><?= $bill['ngaydathang'] ?></td>
-                                    <td><input type="hidden" value="<?= $bill['bill_status'] ?>">
-                                        <?= $ttdh ?> <a href="<?= $upstatus ?>"> <input style="background-color:gainsboro;border-radius:5px;border:none;margin:5px; padding: 5px;" type="button" value="Update">
+                                    <td style="width: 200px;"><input type="hidden" value="<?= $bill['bill_status'] ?>">
+                                        <?= $ttdh ?> <a href="<?= $upstatus ?>"><input style="background-color:gainsboro;border-radius:5px;border:none;margin:5px; padding: 5px;" type="button" value="Update">
                                     </td>
                                     <td>
                                         <label>

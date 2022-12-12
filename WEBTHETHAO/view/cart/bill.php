@@ -177,7 +177,7 @@
                 <?php } ?>
                      <tr>
                         <td class="bg-secondary text-dark">Tổng tiền</td>
-                        <td colspan="4"><?= $tong ?>VNĐ</td>
+                        <td colspan="4"><?=number_format($tong)?>VNĐ</td>
                     </tr>
             </table>
         </div>
