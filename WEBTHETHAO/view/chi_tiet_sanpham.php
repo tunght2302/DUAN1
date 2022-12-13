@@ -71,63 +71,14 @@
             </div>
             <h3 class="font-weight-semi-bold mb-4"><?= number_format($don_gia)  ?> VNĐ</h3>
             <p class="mb-4"><?= $mo_ta ?></p>
-            <!-- <div class="d-flex mb-3">
-                <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
-                <form>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="size-1" name="size">
-                        <label class="custom-control-label" for="size-1">XS</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="size-2" name="size">
-                        <label class="custom-control-label" for="size-2">S</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="size-3" name="size">
-                        <label class="custom-control-label" for="size-3">M</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="size-4" name="size">
-                        <label class="custom-control-label" for="size-4">L</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="size-5" name="size">
-                        <label class="custom-control-label" for="size-5">XL</label>
-                    </div>
-                </form>
-            </div>
-            <div class="d-flex mb-4">
-                <p class="text-dark font-weight-medium mb-0 mr-3">Colors:</p>
-                <form>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="color-1" name="color">
-                        <label class="custom-control-label" for="color-1">Black</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="color-2" name="color">
-                        <label class="custom-control-label" for="color-2">White</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="color-3" name="color">
-                        <label class="custom-control-label" for="color-3">Red</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="color-4" name="color">
-                        <label class="custom-control-label" for="color-4">Blue</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" class="custom-control-input" id="color-5" name="color">
-                        <label class="custom-control-label" for="color-5">Green</label>
-                    </div>
-                </form>
-            </div> -->
+           
             <?php
             echo '
             <form action="index.php?act=addtocart" method="POST">
             <input type="hidden" name="id_sanpham" value="' . $id_sanpham . '">
             <input type="hidden" name="ten_sanpham" value="' . $ten_sanpham . '">
             <input type="hidden" name="hinh" value="' . $hinh . '">
-            <input type="hidden" name="don_gia" value="' . $don_gia . '">
+            <input type="hidden" name="don_gia" value="' .number_format($don_gia).  '">
             <div class="d-flex align-items-center mb-4 pt-2">
             
         <button class="btn btn-primary px-3" name="addtocart" type="submit"><i class="fa fa-shopping-cart mr-1"></i><input type="submit" name="addtocart" class=" btn btn-sm text-dark p-0  btn btn-default add-to-cart"  value="Thêm vào giỏ hàng" ></button>
@@ -202,7 +153,7 @@
                         <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                             <h6 class="text-truncate mb-3"><a href="' . $linksp . '">' . $ten_sanpham . '</a></h6>
                             <div class="d-flex justify-content-center">
-                                <h6>' . $don_gia . 'VNĐ</h6><h6 class="text-muted ml-2"><del>'.$gia_cu.' VNĐ</del></h6>
+                                <h6>' . $don_gia . 'VNĐ</h6><h6 class="text-muted ml-2"><del>' .number_format($gia_cu).  ' VNĐ</del></h6>
                             </div>
                         </div>
                         <div class="card-footer d-flex justify-content-between bg-light border">
@@ -210,7 +161,7 @@
                             <input type="hidden" name="id_sanpham" value="' . $id_sanpham . '">
                             <input type="hidden" name="ten_sanpham" value="' . $ten_sanpham . '">
                             <input type="hidden" name="hinh" value="' . $hinh . '">
-                            <input type="hidden" name="don_gia" value="' . $don_gia . '">
+                            <input type="hidden" name="don_gia" value="' .number_format($don_gia).  '">
                             <i class="fas fa-shopping-cart text-primary mr-1"></i><input type="submit" name="addtocart" class=" btn btn-sm text-dark p-0  btn btn-default add-to-cart"  value="Thêm vào giỏ hàng" >
                             <a href="' . $linksp . '" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Chi tiết</a>
                         </form>

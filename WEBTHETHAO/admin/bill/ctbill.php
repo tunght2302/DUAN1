@@ -67,10 +67,11 @@
                         $i = 0;
                         foreach ($allcart as $cart) {
                             extract($cart);
+                            $ttien = $cart["soluong"] * $cart["don_gia"];
+                            $tong += $ttien;
                             // echo'<pre>';
-                            // print_r($ngaydathang);
+                            // print_r($cart);
                         ?>
-
                             <tbody>
                                 <tr>
                                 <tr>
@@ -78,7 +79,7 @@
                                     <td><?= number_format($cart['don_gia'])?>VNĐ</td>
                                     <td><?= $cart['soluong'] ?></td>
                                     <td><img src="../upload/<?= $cart['hinh'] ?>" width="100px" alt=""></td>
-                                    <td><?= number_format($cart['thanhtien'])  ?>VNĐ</td>
+                                    <td><?= number_format($tong)?>VNĐ</td>
                                 </tr>
                             </tbody>
                         <?php } ?>

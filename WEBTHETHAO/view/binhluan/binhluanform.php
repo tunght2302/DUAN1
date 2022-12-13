@@ -40,7 +40,7 @@ include "../../model/tai_khoan.php";
 
 <body>
     <div class="mb box_left">
-        <h4>Tất cả bình luận</h4>
+        <p style="font-size: 25px;color:red;">Tất cả bình luận</p>
         <div class="box_content2 menu_right binhluan ">
             <?php
             $id_sanpham = $_REQUEST['id_sanpham'];
