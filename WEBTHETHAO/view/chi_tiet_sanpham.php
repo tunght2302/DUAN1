@@ -10,7 +10,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
-                    <a href="index.php" class="nav-item nav-link">Home</a>
+                    <a href="index.php" class="nav-item nav-link">Trang Chủ</a>
                     <a href="index.php?act=mybill" class="nav-item nav-link">Đơn hàng của tôi</a>
                     <a href="" class="nav-item nav-link">Liên hệ</a>
                 </div>
@@ -27,7 +27,7 @@
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
         <h1 class="font-weight-semi-bold text-uppercase mb-3">Chi tiết sản phẩm</h1>
         <div class="d-inline-flex">
-            <p class="m-0"><a href="index.php">Home</a></p>
+            <p class="m-0"><a href="index.php">Trang Chủ</a></p>
       
         </div>
     </div>
@@ -48,12 +48,12 @@
                         ?>
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
+                <!-- <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
                     <i class="fa fa-2x fa-angle-left text-dark"></i>
                 </a>
                 <a class="carousel-control-next" href="#product-carousel" data-slide="next">
                     <i class="fa fa-2x fa-angle-right text-dark"></i>
-                </a>
+                </a> -->
             </div>
         </div>
 
@@ -86,7 +86,7 @@
     </form>';
             ?>
             <div class="d-flex pt-2">
-                <p class="text-dark font-weight-medium mb-0 mr-2">Share on:</p>
+                <p class="text-dark font-weight-medium mb-0 mr-2">Chia Sẻ:</p>
                 <div class="d-inline-flex">
                     <a class="text-dark px-2" href="">
                         <i class="fab fa-facebook-f"></i>

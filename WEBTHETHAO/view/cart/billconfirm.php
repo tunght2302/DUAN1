@@ -10,7 +10,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
-                    <a href="index.php" class="nav-item nav-link">Home</a>
+                    <a href="index.php" class="nav-item nav-link">Trang Chủ</a>
                     <a href="index.php?act=mybill" class="nav-item nav-link">Đơn hàng của tôi</a>
                     
                     <a href="" class="nav-item nav-link">Liên hệ</a>
@@ -31,7 +31,7 @@
         <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
             <h1 class="font-weight-semi-bold  mb-3">Cảm ơn quý khách đã đặt hàng</h1>
             <div class="d-inline-flex">
-                <p class="m-0"><a href="">Home</a></p>
+                <p class="m-0"><a href="">Trang Chủ</a></p>
             </div>
         </div>
     </div>
