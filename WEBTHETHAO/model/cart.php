@@ -1,9 +1,10 @@
-<?php 
-    function hoadon_chitiet($listhoadon){
-        global $img_path;
-        $tong = 0;
-        $i = 0;
-        echo '
+<?php
+function hoadon_chitiet($listhoadon)
+{
+    global $img_path;
+    $tong = 0;
+    $i = 0;
+    echo '
         <thead>
         <tr class="cart_menu">
             <td class="image">Hình ảnh</td>
@@ -15,16 +16,16 @@
         </tr>
     </thead>
         ';
-        foreach ($listhoadon as $cart) {
-           $hinh = $img_path . $cart['hinh'];
-           $tong += $cart['thanhtien'];
-           echo '
+    foreach ($listhoadon as $cart) {
+        $hinh = $img_path . $cart['hinh'];
+        $tong += $cart['thanhtien'];
+        echo '
                     <thead>
 						
 					</thead>
            
            <td class="cart_product">
-            <img src="' . $hinh. '" alt="" height="80px">
+            <img src="' . $hinh . '" alt="" height="80px">
            </td>
            <td class="cart_description">
             <h4><a href="">' . $cart['ten_sanpham'] . '</a></h4>
@@ -46,10 +47,9 @@
        
             
        ';
-       $i+=1;
-       
-       }
-       echo '<tr>
+        $i += 1;
+    }
+    echo '<tr>
        <td class="cart_description"colspan="4">
        <h4><a href="">Tổng đơn hàng:</a></h4>
       
@@ -60,26 +60,25 @@
    </td>
        
    </tr>';
-    }
+}
 
-    function tongdonhang()
+function tongdonhang()
 {
     $tong = 0;
 
     foreach ($_SESSION['mycart'] as $cart) {
         $ttien = $cart["so_luong"] * $cart["don_gia"];
         $tong += $ttien;
-        
     }
     return $tong;
 }
-function insert_bill($iduser,$ngaydathang, $tongdonhang, $bill_status)
+function insert_bill($iduser, $ngaydathang, $tongdonhang, $bill_status)
 {
     $sql = " INSERT INTO `bill`(`iduser`,`ngaydathang`, `total`, `bill_status`)
         VALUES ('$iduser','$ngaydathang','$tongdonhang','$bill_status')";
     return pdo_execute_return_lastInsertId($sql);
 }
-function insert_cart($iduser,$idpro,$soluong, $thanhtien,$idbill)
+function insert_cart($iduser, $idpro, $soluong, $thanhtien, $idbill)
 {
     $sql = "INSERT INTO `cart`(`iduser`, `idpro`,`soluong`, `thanhtien`, `idbill`) 
         values($iduser, $idpro,$soluong, $thanhtien, $idbill)";
@@ -108,7 +107,7 @@ function loadall_cart_ct($id_nguoi_dung,$ngay_dat)
 }
 function loadone_cart($id)
 {
-    $sql = "SELECT * FROM cart WHERE id=".$id;
+    $sql = "SELECT * FROM cart WHERE id=" . $id;
     $bill = pdo_query_one($sql);
     return $bill;
 }
@@ -152,7 +151,8 @@ function get_ttdh($n)
     }
     return $tt;
 }
-function get_pttt($n){
+function get_pttt($n)
+{
     switch ($n) {
         case '1':
             $tt = "Thanh toán trực tiếp";
@@ -163,7 +163,7 @@ function get_pttt($n){
         case '3':
             $tt = "Thanh toán online";
             break;
-        
+
         default:
             $tt = "Thanh toán trực tiếp";
             break;
@@ -186,4 +186,3 @@ function loadall_thongke_doanhthu()
     $listtk = pdo_query($sql);
     return $listtk;
 }
-

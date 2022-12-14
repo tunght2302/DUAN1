@@ -5,6 +5,7 @@ include "model/pdo.php";
 include "model/danh_muc.php";
 include "model/san_pham.php";
 include "model/tai_khoan.php";
+include "model/lienhe.php";
 include "model/cart.php";
 include "view/header.php";
 include "global.php";
@@ -264,8 +265,31 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "view/gioithieu.php";
             break;
         case 'lienhe':
-            include "view/lienhe.php";
+            require "validate.php";
+            if (isset($_POST['gui'])) {
+                if (empty($_POST['hoten'])) {
+                    $error['hoten'] = "Vui lòng nhập tên";
+                }
+                if (!is_email($_POST['email'])) {
+                    $error['email'] = "Email không hợp lệ";
+                }
+                if (empty($_POST['noidung'])) {
+                    $error['noidung'] = "Vui lòng nhập nội dung";
+                }
+                if (empty($error)) {
+                    $hoten = isset($_POST['hoten']) ? $_POST['hoten'] : '';
+                    $email = isset($_POST['email']) ? ($_POST['email']) : '';
+                    $noidung = isset($_POST['noidung']) ? ($_POST['noidung']) : '';
+                    insert_lienhe($hoten, $email, $noidung);
+                    $thongbao = "Bạn đã gửi thành công";
+                }
+                // header('Location:index.php');
+            }
+            include "view/lienhe/lienhe.php";
             break;
+         // lọc theo giá
+        //  $this->data['min-price'] = $this->IndexModel->getMinProductPrice();
+        //  $this->data['max-price'] = $this->IndexModel->getMaxProductPrice();
         default:
             include "view/home.php";
             break;

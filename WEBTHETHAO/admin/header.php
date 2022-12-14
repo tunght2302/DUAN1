@@ -52,7 +52,7 @@
       <li><a class="app-menu__item" href="index.php?act=comment"><i class='app-menu__icon bx bx-user-voice'></i><span
             class="app-menu__label">Quản lý bình luận</span></a></li>
       <li>
-        <a class="app-menu__item" href="#"
+        <a class="app-menu__item" href="index.php?act=thongke"
           ><i class="app-menu__icon bx bx-pie-chart-alt-2"></i
           ><span class="app-menu__label">Thống kê</span></a
         >

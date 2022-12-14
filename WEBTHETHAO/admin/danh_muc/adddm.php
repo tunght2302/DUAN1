@@ -25,8 +25,8 @@
                     <label for="">
                     <input type="hidden" name="id_sanpham" id="" value="<?php if(isset($id_sanpham)&&($id_sanpham > 0)) echo $pro['id_sanpham'] ;?>">
                         <a href=""><input class="btn btn-save" name="submit" type="submit" value="Lưu lại"></input></a>
-                        <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-                        <a href="index.php?act=list"><input  class="btn btn-save" type="button" name="" id="" value="Danh sách"></a>
+                        <!-- <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a> -->
+                        <a href="index.php?act=list"><input  class="btn btn-cancel" type="button" name="" id="" value="Danh sách"></a>
                     </label>
                     </form>
                 </div>

@@ -49,7 +49,11 @@
         $listpro = pdo_query($sql);
         return $listpro;
     }
-   
+    function loadone_danhmuc($id){
+    $sql = "SELECT * FROM loai_sanpham WHERE id=" . $id;
+    $oneloaisp = pdo_query_one($sql);
+    return $oneloaisp;
+    }
     function load_ten_dm($ma_loai){
         if($ma_loai>0){
         $sql = "SELECT * FROM loai_sanpham WHERE id=".$ma_loai;
@@ -82,4 +86,26 @@
         $sql="UPDATE `san_pham` SET luot_xem = luot_xem + 1 WHERE `id_sanpham` = '$id_sanpham'";
         pdo_query($sql);
     }
+    //  lọc theo giá
+//     class Price{
+//     public function getMinProductPrice($id){
+//         $this->db->select('san_pham.*');
+//         $this->db->from('san_pham');
+//         $this->db->select_min('don_gia');
+//         $this->db->limit(1);
+//         $query = $this->db->get();
+//         $result = $query->row();
+//         return $price = $result->don_gia;
+//     }
+
+//     public function getMaxProductPrice(){
+//         $this->db->select('san_pham.*');
+//         $this->db->from('san_pham');
+//         $this->db->select_min('don_gia');
+//         $this->db->limit(1);
+//         $query = $this->db->get();
+//         $result = $query->row();
+//         return $price = $result->don_gia;
+//     }
+// }
 ?>

@@ -43,7 +43,7 @@
                                     <td><?=$onetaikhoan['ho_ten']?></td>
                                     <td><img src="../upload/<?= $onesp['hinh'] ?>" width="100px"></td>
                                     <td><?= $noi_dung ?></td>
-                                    <td><?= $ngaybinhluan ?></td>
+                                    <td><?=$ngaybinhluan?><br><?=$giobinhluan?></td>
                                     <td> <a href="<?= $deletebl ?>">
                                         <button class="btn btn-primary btn-sm trash" type="button" title="Xóa" onclick="myFunction(this)">
                                         <i class="fas fa-trash-alt"></i></a>

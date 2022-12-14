@@ -11,7 +11,7 @@
                            
                             <a href="index.php?act=mybill" class="nav-item nav-link">Đơn hàng của tôi</a>
                             
-                            <a href="" class="nav-item nav-link">Liên hệ</a>
+                            <a href="index.php?act=lienhe" class="nav-item nav-link">Liên hệ</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
                             <a href="index.php?act=dangnhap" class="nav-item nav-link">Tài Khoản</a>
@@ -46,7 +46,11 @@
                         <div>
                             <li><a href="index.php?act=quen_matkhau">Quên mật khẩu</a></li>
                             <li><a href="index.php?act=cap_nhat">Cập nhật thông tin</a></li>
-                            <li><a href="admin/index.php">Đăng nhập Admin</a></li>
+                            <?php
+                            if($_SESSION['ten_dangnhap']['ma_loai_nguoidung'] == 1){
+                                echo'<li><a href="admin/index.php">Đăng nhập Admin</a></li>';
+                            }
+                            ?>
                             <li><a href="index.php?act=thoat">Đăng xuất</a></li>
                         </div>
                     </div>

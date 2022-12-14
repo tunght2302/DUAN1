@@ -56,9 +56,9 @@ include "../../model/tai_khoan.php";
                     <p>'.$ho_ten.'</p>';
                     ?>
                     
-                    <h6><small><i><?=$ngaybinhluan?></i></small></h6>
+                    <h6><small><i><?=$giobinhluan?><br><?=$ngaybinhluan?></i></small></h6>
                      <p><?=$noi_dung?></p>
-
+                    <hr>
                 <?php } ?>
         </div>
 
@@ -92,8 +92,8 @@ include "../../model/tai_khoan.php";
             $id_sanpham = $_POST['id_sanpham'];
             $iduser = $_SESSION['ten_dangnhap']['id_nguoidung'];
             date_default_timezone_set("Asia/Ho_Chi_Minh");
-            $ngaybinhluan = date('h:i:sa d/m/Y');
-            $giobinhluan = date('h:i:sa d/m/Y');
+            $ngaybinhluan = date('d/m/Y');
+            $giobinhluan = date('h:i:sa');
             insert_binhluan($noi_dung, $iduser, $id_sanpham, $ngaybinhluan, $giobinhluan);
             header('Location: ' . $_SERVER['HTTP_REFERER']);
         }

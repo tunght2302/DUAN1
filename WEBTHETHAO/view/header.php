@@ -26,6 +26,7 @@ $dsdm = loadall_cat();
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"> -->
     <style>
         img{
             object-fit: cover;

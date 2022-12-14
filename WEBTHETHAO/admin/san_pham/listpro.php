@@ -34,20 +34,20 @@
                             <tr>
                                 <th width="10"><input type="checkbox" id="all"></th>
                                 <th>ID sản phẩm</th>
-                                <th>Mã Loại</th>
+                                <th>Tên loại</th>
                                 <th>Tên sản phẩm</th>
                                 <th>Ảnh</th>
-                                <th>MÔ TẢ</th>
-                                <th>GIÁ</th>
-                                <th>GIÁ CŨ</th>
-                                <th>LƯỢT XEM</th>
+                                <th>Mô tả</th>
+                                <th>Giá</th>
+                                <th>Giá cũ</th>
+                                <th>Lượt xem</th>
                                 <th>Chức năng</th>
                             </tr>
                         </thead>
                         <?php
                         foreach ($listpro as $products) {
                             extract($products);
-
+                           
                             $uppro = "index.php?act=uppro&id=" . $id_sanpham;
                             $deletepro = "index.php?act=deletepro&id=" . $id_sanpham;
                             $imgpath = "../upload/" . $hinh;
@@ -57,11 +57,17 @@
                                 // echo "Không có ảnh";
                             }
                         ?>
+                        <?php
+                            $onedanhmuc = loadone_danhmuc($products['ma_loai']);
+                            extract($onedanhmuc);
+                            // echo '<pre>';
+                            // print_r($onedanhmuc);
+                        ?>
                             <tbody>
                                 <tr>
                                     <td></td>
                                     <td><?= $id_sanpham ?></td>
-                                    <td><?= $ma_loai ?></td>
+                                    <td><?= $onedanhmuc['ten_loai']?></td>
                                     <td><?= $ten_sanpham ?></td>
                                     <td><?= $hinh ?></td>
                                     <td><?= $mo_ta ?></td>

@@ -12,7 +12,7 @@
                 <div class="navbar-nav mr-auto py-0">
                     <a href="index.php" class="nav-item nav-link">Trang Chủ</a>
                     <a href="index.php?act=mybill" class="nav-item nav-link">Đơn hàng của tôi</a>
-                    <a href="" class="nav-item nav-link">Liên hệ</a>
+                    <a href="index.php?act=lienhe" class="nav-item nav-link">Liên hệ</a>
                 </div>
                 <div class="navbar-nav ml-auto py-0">
                     <a href="index.php?act=dangnhap" class="nav-item nav-link">Tài khoản</a>

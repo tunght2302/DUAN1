@@ -12,7 +12,7 @@
                 <div class="navbar-nav mr-auto py-0">
                     <a href="index.php" class="nav-item nav-link">Trang Chủ</a>
                     <a href="index.php?act=mybill" class="nav-item nav-link">Đơn hàng của tôi</a>
-                    <a href="" class="nav-item nav-link">Liên hệ</a>
+                    <a href="index.php?act=lienhe" class="nav-item nav-link">Liên hệ</a>
                 </div>
                 <div class="navbar-nav ml-auto py-0">
                     <a href="index.php?act=dangnhap" class="nav-item nav-link">Tài khoản</a>
@@ -67,7 +67,7 @@
 
                     </thead>
                     <td class="align-middle">
-                        <img src="<?= $img ?>" alt="" style="width:100px;height:auto;margin-right:30px;"><?= $cart["ten_sanpham"] ?>
+                        <img src="<?=$img?>" alt="" style="width:100px;height:auto;margin-right:30px;"><?=$cart["ten_sanpham"] ?>
                     </td>
 
                     <td class="align-middle">
@@ -77,18 +77,18 @@
                         <div class="input-group quantity mx-auto" style="width: 100px;">
                             <div class="input-group-btn">
                                 <button class="btn btn-sm btn-primary btn-minus">
-                                    <a href="index.php?act=tru_san_pham&id=<?= $cart['id_sanpham'] ?>&ten=<?= $cart['ten_sanpham'] ?>&hinh=<?= $cart['hinh'] ?>&don_gia=<?= $cart['don_gia'] ?>&ttien=<?= $cart['ttien'] ?>&idcart=<?= $i ?>"><i class="fa fa-minus" style="color:black;"></i></a>
+                                    <a href="index.php?act=tru_san_pham&id=<?= $cart['id_sanpham'] ?>&ten=<?= $cart['ten_sanpham'] ?>&hinh=<?= $cart['hinh'] ?>&don_gia=<?= $cart['don_gia'] ?>&ttien=<?=$cart['ttien'] ?>&idcart=<?= $i ?>"><i class="fa fa-minus" style="color:black;"></i></a>
                                 </button>
                             </div>
                             <input type="text" min="1" class="form-control form-control-sm bg-secondary text-center" value="<?= $cart["so_luong"] ?>">
                             <div>
                                 <button class="btn btn-sm btn-primary btn-plus">
-                                    <a href="index.php?act=cong_san_pham&id=<?= $cart['id_sanpham'] ?>&ten=<?= $cart['ten_sanpham'] ?>&hinh=<?= $cart['hinh'] ?>&don_gia=<?= $cart['don_gia'] ?>&ttien=<?= $cart['ttien'] ?>"><i class="fa fa-plus" style="color: black;"></i></a>
+                                    <a href="index.php?act=cong_san_pham&id=<?= $cart['id_sanpham'] ?>&ten=<?= $cart['ten_sanpham'] ?>&hinh=<?= $cart['hinh'] ?>&don_gia=<?= $cart['don_gia'] ?>&ttien=<?=$cart['ttien'] ?>"><i class="fa fa-plus" style="color: black;"></i></a>
                                 </button>
                             </div>
                         </div>
                     </td>
-                    <td class="align-middle"><?= number_format($ttien); ?> VNĐ</td>
+                    <td class="align-middle"><?= number_format($ttien); ?>VNĐ</td>
                     <?= $xoasp_td ?>
 
                 <?php 
@@ -96,7 +96,7 @@
             } ?>
                 <tr>
                     <td class="bg-secondary text-dark">Tổng tiền</td>
-                    <td colspan="4"><?= number_format($tong)  ?> VND</td>
+                    <td colspan="4"><?= number_format($tong)  ?>VNĐ</td>
                 </tr>
             </table>
         </div>

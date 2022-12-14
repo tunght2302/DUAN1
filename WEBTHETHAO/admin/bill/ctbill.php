@@ -79,7 +79,7 @@
                                     <td><?= number_format($cart['don_gia'])?>VNĐ</td>
                                     <td><?= $cart['soluong'] ?></td>
                                     <td><img src="../upload/<?= $cart['hinh'] ?>" width="100px" alt=""></td>
-                                    <td><?= number_format($tong)?>VNĐ</td>
+                                    <td><?= number_format($ttien)?>VNĐ</td>
                                 </tr>
                             </tbody>
                         <?php } ?>
