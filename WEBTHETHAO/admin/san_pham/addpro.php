@@ -130,7 +130,7 @@
         }
     </style>
     <!-- Navbar-->
-    
+
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 
@@ -148,7 +148,7 @@
                     <div class="tile-body">
                         <div class="row element-button">
                             <form action="index.php?act=adddm">
-                                    <a class="btn btn-add btn-sm" href="index.php?act=adddm" data-toggle="modal" data-target="#adddanhmuc"><i class="fas fa-folder-plus"></i> Thêm danh mục</a>
+                                <a class="btn btn-add btn-sm" href="index.php?act=adddm" data-toggle="modal" data-target="#adddanhmuc"><i class="fas fa-folder-plus"></i> Thêm danh mục</a>
                             </form>
                         </div>
                         <form class="row" action="index.php?act=addpro" method="POST" enctype="multipart/form-data">
@@ -195,9 +195,9 @@
                             <div class="form-group col-md-12">
                                 <label class="control-label">Mô tả sản phẩm</label>
                                 <textarea class="form-control" name="mo_ta" cols="30" rows="10"></textarea>
-                                <script>
-                                    CKEDITOR.replace('mota');
-                                </script>
+                                <!-- <script>
+                                    CKEDITOR.replace('mo_ta');
+                                </script> -->
                             </div>
                             <?php
                             if (isset($thongbao) && ($thongbao != "")) echo $thongbao;

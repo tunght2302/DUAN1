@@ -42,16 +42,7 @@ $dsdm = loadall_cat();
 </head>
 
 <body>
-    <script>
-        <?php
-        if(isset($_SESSION['loi'])){
-        ?>
-        alert('<?= $_SESSION['loi']?>');
-        <?php
-        }
-        unset($_SESSION['loi']);
-        ?>
-    </script>
+   
 <div class="container-fluid">
         <div class="row bg-secondary py-2 px-xl-5">
             <div class="col-lg-6 d-none d-lg-block">

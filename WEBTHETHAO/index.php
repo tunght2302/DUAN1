@@ -221,7 +221,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $id = $_GET['id'];
             }
             if ($_SESSION['mycart'][$id]['so_luong'] == 0) {
-                $_SESSION['loi'] = 'Không được chọn số lượng nhỏ hơn 0';
+                $_SESSION['loi'] = 'Số lượng không được nhỏ hơn 0';
                 header('location:index.php?act=addtocart');
             } else {
                 $ten_sanpham = $_GET['ten'];

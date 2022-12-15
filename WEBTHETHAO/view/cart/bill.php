@@ -13,6 +13,7 @@
                     <a href="index.php" class="nav-item nav-link">Trang Chủ</a>
                     <a href="index.php?act=mybill" class="nav-item nav-link">Đơn hàng của tôi</a>
                     <a href="index.php?act=lienhe" class="nav-item nav-link">Liên hệ</a>
+                </div>
                 <div class="navbar-nav ml-auto py-0">
                     <a href="index.php?act=dangnhap" class="nav-item nav-link">Tài khoản</a>
                     <a href="index.php?act=dangky" class="nav-item nav-link">Đăng kí</a>
@@ -117,70 +118,67 @@
     <div class="container-fluid pt-5">
         <div class="row">
             <div class=" table-responsive mb-5" style="text-align:center ;">
-            <table class="table table-bordered text-center mb-0">
-                <?php $tong = 0;
-                $i = 0;
-                echo ' 
+                <table class="table table-bordered text-center mb-0">
+                    <?php $tong = 0;
+                    $i = 0;
+                    echo ' 
                 <thead class="bg-secondary text-dark">
                     <th>Các sản phẩm</th>
                     <th>Giá bán</th>
                     <th>Số lượng</th>
                     <th>Thành tiền</th>
+                    <th></th>
                 </thead>
                         ';
-                if (!$_SESSION['mycart']) {
-                    header('location:index.php');
-                }
-                foreach ($_SESSION['mycart'] as $cart) {
-                    // echo '<pre>';
-                    // print_r($cart);
-                    // die;
-                    $img = $img_path . $cart["hinh"];
-                    $ttien = $cart["so_luong"] * $cart["don_gia"];
-                    $tong += $ttien;
-                    $xoasp_td = ' <td class="align-middle"><button class="btn btn-sm btn-primary"><a class="btn btn-default update" href="index.php?act=delcart&idcart=' . $i . '"><i class="fa fa-times"></i></a></button></td>';
-                ?>
-                    <thead class="bg-secondary text-dark">
-                    
-                    </thead>
-                    <td class="align-middle">
-                        <img src="<?= $img ?>" alt="" style="width:100px;margin-right:30px;"><?= $cart["ten_sanpham"] ?>
-                    </td>
 
-                    <td class="align-middle">
-                        <?= $cart["don_gia"] ?>VNĐ
-                    </td>
-                    <td class="align-middle">
-                        <div class="input-group quantity mx-auto" style="width: 100px;">
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm btn-primary btn-minus" disabled>
-                                        <i class="fa fa-minus" style="color:black;"></i>
-                                </button>
+                    foreach ($_SESSION['mycart'] as $cart) {
+                        // echo '<pre>';
+                        // print_r($_SESSION['mycart']);
+                        // die;
+                        $img = $img_path . $cart["hinh"];
+                        $ttien = $cart["so_luong"] * $cart["don_gia"];
+                        $tong += $ttien;
+                        $xoasp_td = ' <td class="align-middle"><button class="btn btn-sm btn-primary"><a class="btn btn-default update" href="index.php?act=delcart&idcart=' . $i . '"><i class="fa fa-times"></i></a></button></td>';
+                    ?>
+                        <thead class="bg-secondary text-dark">
+
+                        </thead>
+                        <td class="align-middle">
+                            <img src="<?= $img ?>" alt="" style="width:100px;height:auto;margin-right:30px;"><?= $cart["ten_sanpham"] ?>
+                        </td>
+
+                        <td class="align-middle">
+                            <?= number_format($cart["don_gia"]) ?>VNĐ
+                        </td>
+                        <td class="align-middle">
+                            <div class="input-group quantity mx-auto" style="width: 100px;">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-primary btn-minus">
+                                        <a href="index.php?act=tru_san_pham&id=<?= $cart['id_sanpham'] ?>&ten=<?= $cart['ten_sanpham'] ?>&hinh=<?= $cart['hinh'] ?>&don_gia=<?= number_format($cart['don_gia'])  ?>&ttien=<?= number_format($cart['ttien']) ?>&idcart=<?= $i ?>"><i class="fa fa-minus" style="color:black;"></i></a>
+                                    </button>
+                                </div>
+                                <input type="text" min="1" class="form-control form-control-sm bg-secondary text-center" value="<?= $cart["so_luong"] ?>">
+                                <div>
+                                    <button class="btn btn-sm btn-primary btn-plus">
+                                        <a href="index.php?act=cong_san_pham&id=<?= $cart['id_sanpham'] ?>&ten=<?= $cart['ten_sanpham'] ?>&hinh=<?= $cart['hinh'] ?>&don_gia=<?= number_format($cart['don_gia'])  ?>&ttien=<?= number_format($cart['ttien']) ?>"><i class="fa fa-plus" style="color: black;"></i></a>
+                                    </button>
+                                </div>
                             </div>
-                            <input type="text" class="form-control form-control-sm bg-secondary text-center" value="<?= $cart["so_luong"] ?>">
-                            <p><?php if (isset($_SESSION['loi'])) {
-                                    echo $_SESSION['loi'];
-                                }
-                                unset($_SESSION['loi']);
-                                ?></p>
-                            <div>
-                                <button class="btn btn-sm btn-primary btn-plus" disabled>
-                                    <i class="fa fa-plus" style="color: black;"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="align-middle"><?= $ttien ?>VNĐ</td>
-                   
-                <?php } ?>
-                     <tr>
+                        </td>
+                        <td class="align-middle"><?= number_format($ttien); ?>VNĐ</td>
+                        <?= $xoasp_td ?>
+
+                    <?php
+                        $i += 1;
+                    } ?>
+                    <tr>
                         <td class="bg-secondary text-dark">Tổng tiền</td>
-                        <td colspan="4"><?=number_format($tong)?>VNĐ</td>
+                        <td colspan="4"><?= number_format($tong)  ?>VNĐ</td>
                     </tr>
-            </table>
-        </div>
+                </table>
             </div>
         </div>
     </div>
+</div>
 </div>
 <!-- Checkout End -->

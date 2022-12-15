@@ -47,7 +47,8 @@
                         <?php
                         foreach ($listpro as $products) {
                             extract($products);
-                           
+                            // echo '<pre>';
+                            // print_r($products);
                             $uppro = "index.php?act=uppro&id=" . $id_sanpham;
                             $deletepro = "index.php?act=deletepro&id=" . $id_sanpham;
                             $imgpath = "../upload/" . $hinh;
@@ -57,22 +58,22 @@
                                 // echo "Không có ảnh";
                             }
                         ?>
-                        <?php
+                            <?php
                             $onedanhmuc = loadone_danhmuc($products['ma_loai']);
                             extract($onedanhmuc);
                             // echo '<pre>';
                             // print_r($onedanhmuc);
-                        ?>
+                            ?>
                             <tbody>
                                 <tr>
                                     <td></td>
                                     <td><?= $id_sanpham ?></td>
-                                    <td><?= $onedanhmuc['ten_loai']?></td>
+                                    <td><?= $onedanhmuc['ten_loai'] ?></td>
                                     <td><?= $ten_sanpham ?></td>
                                     <td><?= $hinh ?></td>
-                                    <td><?= $mo_ta ?></td>
-                                    <td><?= number_format($don_gia ) ?>VNĐ</td>
-                                    <td><?= number_format($gia_cu )  ?>VNĐ</td>
+                                    <td><?= $products['mo_ta'] ?></td>
+                                    <td><?= number_format($don_gia) ?>VNĐ</td>
+                                    <td><?= number_format($gia_cu)  ?>VNĐ</td>
                                     <td><?= $luot_xem ?></td>
                                     <td> <a href="<?= $deletepro ?>"><button class="btn btn-primary btn-sm trash" type="button" title="Xóa" onclick="myFunction(this)"><i class="fas fa-trash-alt"></i></a>
                                         </button>
