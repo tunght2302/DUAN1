@@ -9,6 +9,23 @@ include "../model/cart.php";
 include "../model/bill.php";
 include "../global.php";
 include "header.php";
+
+// if(isset($_SESSION['ten_dangnhap'])){
+//     if($_SESSION['ten_dangnhap']['ma_loai_nguoidung'] != 1){
+//         $_SESSION['khong_co_quyen'] = 'Bạn không có quyền truy cập';
+//         header('location: index.php?act=dangnhap');
+//     }
+// }else{
+//     $_SESSION['khong_co_quyen'] = 'Bạn không có quyền truy cập';
+//     header('location: index.php?act=dangnhap');
+// }
+
+if (check_admin_manager_role() == false) {
+    $_SESSION['khong_co_quyen'] = 'Bạn không có quyền truy cập';
+    header('location: ../index.php?act=dangnhap');
+    die;
+}
+
 if (!isset($_SESSION['mycart'])) $_SESSION['mycart'] = [];
 // controller
 if (isset($_GET['act'])) {
@@ -169,15 +186,15 @@ if (isset($_GET['act'])) {
             include "bill/listbill.php";
             break;
             /*Controller products */
-        // case 'listbill':
-        //     if (isset($_POST['kyw']) && ($_POST['kyw'] != "")) {
-        //         $kyw = $_POST['kyw'];
-        //     } else {
-        //         $kyw = "";
-        //     }
-        //     $listbill = loadall_bill($kyw, 0);
-        //     include "bill/listbill.php";
-        //     break;
+            // case 'listbill':
+            //     if (isset($_POST['kyw']) && ($_POST['kyw'] != "")) {
+            //         $kyw = $_POST['kyw'];
+            //     } else {
+            //         $kyw = "";
+            //     }
+            //     $listbill = loadall_bill($kyw, 0);
+            //     include "bill/listbill.php";
+            //     break;
         case 'ctbill':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
                 $idbill = $_GET['id'];

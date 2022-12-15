@@ -31,7 +31,7 @@
                          <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Hệ thống thanh toán</a>
                      </div>
                  </div>
-                 <div class="col-md-4 mb-5">
+                 <!-- <div class="col-md-4 mb-5">
                      <h5 class="font-weight-bold text-dark mb-4">Theo dõi chúng tôi</h5>
                      <form action="">
                          <div class="form-group">
@@ -44,7 +44,7 @@
                              <button class="btn btn-primary btn-block border-0 py-3" type="submit">Đăng Ký Ngay</button>
                          </div>
                      </form>
-                 </div>
+                 </div> -->
              </div>
          </div>
      </div>

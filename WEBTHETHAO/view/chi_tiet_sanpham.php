@@ -1,27 +1,31 @@
-<!-- Page Header Start -->
-<div class="container-fluid">
-    <div class="">
-        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
-            <a href="" class="text-decoration-none d-block d-lg-none">
-                <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
-            </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <div class="navbar-nav mr-auto py-0">
-                    <a href="index.php" class="nav-item nav-link">Trang Chủ</a>
-                    <a href="index.php?act=mybill" class="nav-item nav-link">Đơn hàng của tôi</a>
-                    <a href="index.php?act=lienhe" class="nav-item nav-link">Liên hệ</a>
-                </div>
-                <div class="navbar-nav ml-auto py-0">
-                    <a href="index.php?act=dangnhap" class="nav-item nav-link">Tài khoản</a>
-                    <a href="index.php?act=dangky" class="nav-item nav-link">Đăng kí</a>
-                </div>
-            </div>
-        </nav>
+<nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+    <a href="" class="text-decoration-none d-block d-lg-none">
+        <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
+    </a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+        <div class="navbar-nav mr-auto py-0">
+            <a href="index.php" class="nav-item nav-link active">Home</a>
+
+            <a href="index.php?act=mybill" class="nav-item nav-link">Đơn hàng của tôi</a>
+
+            <a href="index.php?act=lienhe" class="nav-item nav-link">Liên hệ</a>
+        </div>
+        <div class="navbar-nav ml-auto py-0">
+            <a href="index.php?act=dangnhap" class="nav-item nav-link">Tài Khoản</a>
+            <?php
+            if (isset($_SESSION['ten_dangnhap'])) {
+                $none = 'none';
+            } else {
+                $none = 'block';
+            }
+            ?>
+            <a style="display: <?= $none ?>;" href="index.php?act=dangky" class="nav-item nav-link">Đăng Ký</a>
+        </div>
     </div>
-</div>
+</nav>
 
 <div class="container-fluid bg-secondary mb-5">
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
@@ -59,7 +63,7 @@
 
         <div class="col-lg-7 pb-5">
             <h3 class="font-weight-semi-bold"><?=$ten_sanpham?></h3>
-            <div class="d-flex mb-3">
+            <!-- <div class="d-flex mb-3">
                 <div class="text-primary mr-2">
                     <small class="fas fa-star"></small>
                     <small class="fas fa-star"></small>
@@ -68,7 +72,7 @@
                     <small class="far fa-star"></small>
                 </div>
                 <small class="pt-1">(Đánh giá)</small>
-            </div>
+            </div> -->
             <h3 class="font-weight-semi-bold mb-4"><?=number_format($don_gia)?>VNĐ</h3>
             <h5 class="font-weight-semi-bold"> Mô tả:</h5>
             <p class="mb-4"><?=$mo_ta?></p>
@@ -86,7 +90,7 @@
     </div>
     </form>';
             ?>
-            <div class="d-flex pt-2">
+            <!-- <div class="d-flex pt-2">
                 <p class="text-dark font-weight-medium mb-0 mr-2">Chia Sẻ:</p>
                 <div class="d-inline-flex">
                     <a class="text-dark px-2" href="">
@@ -102,7 +106,7 @@
                         <i class="fab fa-pinterest"></i>
                     </a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="row px-xl-5">

@@ -34,7 +34,12 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 }
                 if (empty($_POST['so_dien_thoai'])) {
                     $error['so_dien_thoai'] = "Bạn chưa nhập số điện thoại";
+                }else{
+                    if (!nhap_so($_POST['so_dien_thoai'])) {
+                        $error['so_dien_thoai'] = "Chỉ được nhập số";
+                    }
                 }
+                
                 if (!is_email($_POST['email'])) {
                     $error['email'] = "Email không hợp lệ";
                 }
@@ -63,9 +68,17 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $email = $_POST['email'];
                 $so_dien_thoai = $_POST['so_dien_thoai'];
                 $dia_chi = $_POST['dia_chi'];
+                $dong_y = true;
 
-                update_tai_khoan($id_nguoidung, $ho_ten, $ten_dangnhap, $mat_khau, $email, $so_dien_thoai, $dia_chi);
-                $_SESSION['ten_dangnhap'] = checkuser($ten_dangnhap, $mat_khau);
+                if (!nhap_so($so_dien_thoai)) {
+                    $loi = 'Chỉ được nhập số!';
+                    $dong_y = false;
+                }
+
+                if ($dong_y == true) {
+                    update_tai_khoan($id_nguoidung, $ho_ten, $ten_dangnhap, $mat_khau, $email, $so_dien_thoai, $dia_chi);
+                    $_SESSION['ten_dangnhap'] = checkuser($ten_dangnhap, $mat_khau);
+                }
             }
             include "view/tai_khoan/cap_nhat.php";
             break;
@@ -145,8 +158,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     $don_gia = ((float)$_POST['don_gia']);
                     $soluong = 1;
                     $ttien = $soluong * $don_gia;
-                    // $spadd = [$id_sanpham, $ten_sanpham, $hinh, $don_gia, $soluong, $ttien];
-                    // array_push($_SESSION['mycart'], $spadd);
                     if (!isset($_SESSION['mycart'][$id_sanpham])) {
                         $_SESSION['mycart'][$id_sanpham] = array(
                             'id_sanpham' => $id_sanpham,
@@ -173,6 +184,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             header('location:index.php?act=addtocart');
             break;
         case 'bill':
+            if ($_SESSION['mycart'] == []) {
+                $_SESSION['chua_co_sp'] = 'Bạn chưa chọn sản phẩm nào';
+                header('location: index.php?act=addtocart');
+            }
             include "view/cart/bill.php";
             break;
         case 'billconfirm':
@@ -191,7 +206,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $ngaydathang = date('h:i:sa d/m/Y');
                 $tongdonhang = tongdonhang();
                 $bill_status = 1;
-                $idbill = insert_bill($iduser, $ngaydathang, $tongdonhang,$bill_status);
+                $idbill = insert_bill($iduser, $ngaydathang, $tongdonhang, $bill_status);
 
                 foreach ($_SESSION['mycart'] as $cart) {
 
@@ -220,8 +235,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
             }
-            if ($_SESSION['mycart'][$id]['so_luong'] == 0) {
-                $_SESSION['loi'] = 'Số lượng không được nhỏ hơn 0';
+            if ($_SESSION['mycart'][$id]['so_luong'] == 1) {
+                $_SESSION['loi'] = 'Số lượng không được nhỏ hơn 1';
                 header('location:index.php?act=addtocart');
             } else {
                 $ten_sanpham = $_GET['ten'];
@@ -241,6 +256,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             }
             header('location:index.php?act=addtocart');
             break;
+
         case 'cong_san_pham':
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
@@ -287,9 +303,9 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             }
             include "view/lienhe/lienhe.php";
             break;
-         // lọc theo giá
-        //  $this->data['min-price'] = $this->IndexModel->getMinProductPrice();
-        //  $this->data['max-price'] = $this->IndexModel->getMaxProductPrice();
+            // lọc theo giá
+            //  $this->data['min-price'] = $this->IndexModel->getMinProductPrice();
+            //  $this->data['max-price'] = $this->IndexModel->getMaxProductPrice();
         default:
             include "view/home.php";
             break;

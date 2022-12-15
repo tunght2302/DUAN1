@@ -42,4 +42,16 @@ function loadone_nguoidung($ma_loai_nguoidung){
   $onetaikhoan = pdo_query_one($sql);
   return $onetaikhoan;
 }
+//validate nhập số
+function nhap_so($nhap_so)
+{
+    return (bool)preg_match("/^[0-9]+$/", $nhap_so);
+}
+function check_admin_manager_role()
+{
+    if (isset($_SESSION['ten_dangnhap']) && ($_SESSION['ten_dangnhap']['ma_loai_nguoidung'] == 1)) {
+        return true;
+    }
+    return false;
+}
 ?>

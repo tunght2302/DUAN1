@@ -31,7 +31,7 @@
                    </button>
                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                        <div class="navbar-nav mr-auto py-0">
-                           <a href="index.php" class="nav-item nav-link active">Trang Chủ</a>
+                           <a href="index.php" class="nav-item nav-link active">Home</a>
 
                            <a href="index.php?act=mybill" class="nav-item nav-link">Đơn hàng của tôi</a>
 
@@ -39,7 +39,14 @@
                        </div>
                        <div class="navbar-nav ml-auto py-0">
                            <a href="index.php?act=dangnhap" class="nav-item nav-link">Tài Khoản</a>
-                           <a href="index.php?act=dangky" class="nav-item nav-link">Đăng Ký</a>
+                           <?php
+                            if (isset($_SESSION['ten_dangnhap'])) {
+                                $none = 'none';
+                            } else {
+                                $none = 'block';
+                            }
+                            ?>
+                           <a style="display: <?= $none ?>;" href="index.php?act=dangky" class="nav-item nav-link">Đăng Ký</a>
                        </div>
                    </div>
                </nav>
