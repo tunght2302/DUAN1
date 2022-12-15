@@ -83,7 +83,9 @@
                             <div class="input-group-append">
                                 <button class="btn btn-primary"><input type="submit" class="btn btn-primary" name="dongydathang" value="Đồng ý đặt hàng" style="border:none;"></button>
                             </div>
-                            <a href="index.php?act=addtocart">Quay lại</a>
+                            <div class="input-group-append" style="margin-left:10px">
+                            <a class="btn btn-primary" href="index.php?act=addtocart">Quay lại</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -149,11 +151,11 @@
                             <td class="align-middle">
                                 <div class="input-group quantity mx-auto" style="width: 100px;">
 
-                                    <input type="text" min="1" class="form-control form-control-sm bg-secondary text-center" value="<?= $cart["so_luong"] ?>">
+                                    <input disabled type="text" min="1" class="form-control form-control-sm bg-secondary text-center" value="<?= $cart["so_luong"] ?>">
         
                                 </div>
                             </td>
-                            <td class="align-middle"><?= number_format($ttien); ?>VNĐ</td>
+                            <td class="align-middle"><?= number_format($ttien); ?> VNĐ</td>
 
         
                         <?php

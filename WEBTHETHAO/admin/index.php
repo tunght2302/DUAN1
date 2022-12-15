@@ -232,7 +232,8 @@ if (isset($_GET['act'])) {
                 delete($_GET['id']);
             }
             $listbill = loadall_bill();
-            include "bill/listbill.php";
+            // include "bill/listbill.php";
+            header('Location:index.php?act=listbill');
             break;
             // thống kê
         case 'thongke':

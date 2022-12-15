@@ -16,7 +16,7 @@ $dsdm = loadall_cat();
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -28,10 +28,11 @@ $dsdm = loadall_cat();
     <link href="css/style.css" rel="stylesheet">
     <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"> -->
     <style>
-        img{
+        img {
             object-fit: cover;
         }
-        .noilen{
+
+        .noilen {
             position: fixed !important;
             right: 20px;
             top: 20px;
@@ -42,11 +43,11 @@ $dsdm = loadall_cat();
 </head>
 
 <body>
-   
-<div class="container-fluid">
+
+    <div class="container-fluid">
         <div class="row bg-secondary py-2 px-xl-5">
             <div class="col-lg-6 d-none d-lg-block">
-               
+
             </div>
             <div class="col-lg-6 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
@@ -74,14 +75,14 @@ $dsdm = loadall_cat();
                     <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
                 </a>
             </div>
+            
             <div class="col-lg-6 col-6 text-left">
                 <form action="index.php?act=sanpham" method="post">
                     <div class="input-group">
-                        <input type="text" name="kyw" class="form-control" placeholder="Search">
+                    <input type="text" name="kyw" class="form-control" placeholder="Search">
                         <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search"></i>
-                            </span>
+                            <input style="border:1.5px solid pink;margin-left:5px;background-color:whitesmoke;border-radius:5px" type="submit" class="input-group-text  text-primary" value="Tìm Kiếm">
+                            </input>
                         </div>
                     </div>
                 </form>
@@ -93,4 +94,3 @@ $dsdm = loadall_cat();
             </div>
         </div>
     </div>
-        

@@ -101,10 +101,10 @@
                                 echo $thongbao;
                             } ?>
                         </p>
-                        <span>
+                        <!-- <span>
                             <input type="checkbox" class="checkbox">
                             Ghi nhớ tài khoản
-                        </span>
+                        </span> -->
 
                         <div style="margin:5px;">
 

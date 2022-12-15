@@ -102,17 +102,18 @@
                    <div class="col-12 pb-1">
                        <div class="d-flex align-items-center justify-content-between mb-4">
                            <div class="input-group">
-                               <form action="index.php?act=sanpham" method="post">
-                                   <input type="text" class="form-control" name="kyw" placeholder="Tìm kiếm">
+                               <form action="index.php?act=sanpham" method="post" style="display: flex;">
+                                   <div>
+                                       <input type="text" class="form-control" name="kyw" placeholder="Tìm kiếm">
+
+                                   </div>
+                                   <div class="input-group-append">
+                                       <input style="border:1.5px solid pink;margin-left:5px;background-color:whitesmoke;border-radius:5px" type="submit" class="input-group-text  text-primary" value="Tìm Kiếm">
+                                       </input>
+                                   </div>
                                </form>
-                               <div class="input-group-append">
-                                   <span class="input-group-text bg-transparent text-primary">
-                                       <i class="fa fa-search"></i>
-                                   </span>
-                               </div>
                            </div>
                        </div>
-
                    </div>
                    <?php
                     $i = 0;
